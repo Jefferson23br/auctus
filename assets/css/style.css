@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; 
+    overflow-x: hidden;
+}
+
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+.hero-section {
+    height: 100vh;
+    width: 100%;
+    display: flex; /* Mantemos o flex, mas mudamos o alinhamento */
+    /* Removemos justify-content e align-items para alinhar no início */
+    color: white;
+    position: relative;
+}
+
+/* SUBSTITUA A REGRA ANTIGA .hero-content h1/p POR ESTAS */
+.hero-content {
+    /* Adicionamos padding para dar espaço das bordas */
+    padding: 15vh 8vw; 
+    max-width: 600px; /* Impede que o texto fique largo demais em telas grandes */
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.cta-button {
+    padding: 15px 30px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+.hamburger-icon {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+.hamburger-icon span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin-bottom: 5px;
+    background-color: white;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 350px;
+    height: 100vh;
+    background-color: #111;
+    z-index: 1000;
+    transition: right 0.4s ease-in-out;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.side-menu.open {
+    right: 0;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+
+.side-menu ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1rem;   
+    font-weight: 400;   
+    display: block;
+    padding: 12px 0;        
+    transition: all 0.3s ease;
+    letter-spacing: 2px;    
+    text-transform: uppercase; 
+}
+
+
+.side-menu ul li a:hover {
+    color: #ffffff;
+    transform: translateX(10px); 
+}
+
+.logo-menu {
+    margin-top: auto;
+    padding-top: 40px;
+    text-align: center;
+}
+
+.logo-menu img {
+    max-width: 150px;
+    opacity: 0.8;
+}
+
+footer {
+    position: absolute; 
+    bottom: 0;          
+    left: 0;           
+    width: 100%;        
+    background-color: rgba(0, 0, 0, 0.4); 
+    color: #ccc;        
+    text-align: center; 
+    padding: 15px 0;    
+    font-size: 0.9rem; 
+    z-index: 1002;      
+}
+
+.typing-cursor::after {
+    content: '|';
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .hero-content h1 {
+        font-size: 2rem; /* Diminuí um pouco mais para telas bem estreitas */
+        line-height: 1.2; /* Melhora o espaçamento entre linhas caso o texto quebre */
+    }
+
+    .hero-content p {
+        font-size: 1rem;   /* Tamanho do subtítulo para celular */
+        margin-bottom: 2.5rem; /* Aumenta um pouco a margem do botão */
+    }
+
+    /* Ajusta o ícone do menu para telas menores */
+    .hamburger-icon {
+        top: 20px;
+        right: 20px;
+    }
+
+    /* Ajusta o menu lateral para ocupar mais espaço na tela */
+    .side-menu {
+        width: 50%; /* Menu ocupa 85% da largura da tela */
+        right: -50%; /* Garante que ele comece escondido */
+    }
+
+    .side-menu.open {
+        right: 0;
+    }
+    
+    /* Ajusta o rodapé para não ser tão grande */
+    footer {
+        padding: 10px 0;
+        font-size: 0.8rem;
+    }
+}

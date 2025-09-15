@@ -1,0 +1,16 @@
+Conectando com o DBeaver
+Abra o DBeaver, vá em "Nova Conexão" (no ícone de tomada 🔌) e escolha "PostgreSQL". Preencha os campos com os dados que configuramos:
+
+Host: 72.60.61.215
+
+Porta: 5432
+
+Base de Dados: agrolink
+
+Usuário: agrolink_user
+
+Senha: A senha que você definiu (aquela que anotou, 000356985Dp@)
+
+subir arquivos git na vps 
+root@srv987261:~# cd ~/Reembolso-Km-Telsign/backend
+root@srv987261:~/Reembolso-Km-Telsign/backend# git pull

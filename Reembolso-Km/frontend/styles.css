@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+html {
+    font-size: 12px; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    padding: 0;
+}
+
+.background-image {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/images.avif');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6);
+    z-index: -1;
+}
+
+.container {
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.98);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    transition: max-width 0.5s ease-in-out;
+    margin: 20px auto; 
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-login {
+    width: 100%;
+    max-width: 400px;
+    flex-grow: 0;
+    margin-top: 15vh;
+}
+
+.container-app {
+    width: 95%;
+    max-width: 1200px; 
+}
+
+.footer {
+    color: white;
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+h1 { font-size: 1.8rem; color: #0056b3; text-align: center; margin-bottom: 2rem; font-weight: 600; }
+h2 { font-size: 1.4rem; color: #333; margin-bottom: 1.5rem; text-align: center; font-weight: 500; }
+h3 { font-size: 1.2rem; color: #333; margin-bottom: 1.5rem; margin-top: 0; font-weight: 500; }
+h4 { font-size: 1rem; color: #555; margin-bottom: 1rem; font-weight: 500; }
+label { font-weight: 500; margin-bottom: 5px; color: #555; font-size: 0.95rem; }
+input, button, select, textarea { width: 100%; padding: 12px; margin-bottom: 1rem; border-radius: 4px; font-size: 1rem; font-family: 'Poppins', sans-serif; }
+input, select, textarea { border: 1px solid #ccc; background-color: #fcfcfc; transition: border-color 0.2s, box-shadow 0.2s; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: #007bff; box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); }
+button { background-color: #007bff; color: white; border: none; cursor: pointer; font-weight: 600; transition: background-color 0.2s, transform 0.1s; }
+button:hover { background-color: #0056b3; transform: translateY(-1px); }
+hr { border: 0; border-top: 1px solid #eee; margin: 2rem 0; }
+
+
+.message { margin-top: 1rem; font-weight: 500; text-align: center; padding: 10px; border-radius: 4px; }
+.message.error { color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; }
+.message.success { color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; }
+
+
+.dashboard-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 1rem; }
+.dashboard-header h2 { margin-bottom: 0; text-align: left; }
+.dashboard-header button { width: auto; padding: 8px 15px; font-size: 0.9rem; margin-bottom: 0; }
+.dashboard-body { display: flex; gap: 2rem; margin-top: 1.5rem; flex-grow: 1; }
+.dashboard-menu { flex: 0 0 200px; display: flex; flex-direction: column; gap: 10px; }
+.dashboard-menu button { background-color: #e9ecef; color: #333; text-align: left; }
+.dashboard-menu button.active { background-color: #007bff; color: white; }
+.dashboard-content { flex-grow: 1; }
+.view h3 { margin-top: 0; }
+
+
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); display: none; justify-content: center; align-items: center; z-index: 1000; overflow-y: auto; }
+.modal-content { background: white; padding: 2rem; border-radius: 8px; width: 90%; max-width: 500px; }
+.modal-actions { display: flex; gap: 1rem; margin-top: 1.5rem; }
+#cancel-edit-btn, #cancel-edit-despesa-btn { background-color: #6c757d; }
+#cancel-edit-btn:hover, #cancel-edit-despesa-btn:hover { background-color: #5a6268; }
+
+
+.veiculo-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #eee; }
+.veiculo-item button { width: auto; padding: 5px 10px; font-size: 0.85rem; margin-bottom: 0; }
+.viagem-item { background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 10px; border-left: 4px solid #007bff; }
+.viagem-item.pago { background-color: #f0fff0; border-left-color: #28a745; }
+.viagem-item p { margin: 0; padding: 2px 0; }
+.viagem-item .viagem-header { font-weight: 600; font-size: 1.1rem; display: flex; justify-content: space-between; align-items: center; }
+.viagem-item .viagem-details { font-size: 0.9rem; color: #555; }
+.despesa-item { background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 10px; border-left: 4px solid #6c757d; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+.despesa-info { flex-grow: 1; }
+.despesa-valor { font-size: 1.2rem; font-weight: 600; color: #333; margin-left: 1rem; text-align: right; }
+.despesa-info small { color: #555; width: 100%; margin-top: 5px; display: block; }
+.despesa-actions { display: flex; gap: 10px; }
+.despesa-actions button { width: auto; padding: 5px 10px; font-size: 0.85rem; margin: 0; }
+
+.status-badge { padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+.status-apagar { background-color: #ffc107; color: #333; }
+.status-pago { background-color: #28a745; color: white; }
+.status-pago-parcial { background-color: #dc3545; color: white; }
+
+
+.select-all-container { display: flex; align-items: center; gap: 10px; padding: 0 10px 10px 10px; border-bottom: 1px solid #eee; margin-bottom: 10px; }
+.select-all-container label { margin-bottom: 0; font-weight: 600; }
+.select-all-container input[type="checkbox"] { width: auto; margin-bottom: 0; }
+.viagem-pagamento-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 8px; border-bottom: 1px solid #f0f0f0; transition: background-color 0.2s; }
+.viagem-pagamento-item:last-child { border-bottom: none; }
+.viagem-pagamento-item:hover { background-color: #f8f9fa; }
+.viagem-pagamento-item input[type="checkbox"] { width: auto; margin-right: 15px; flex-shrink: 0; }
+.viagem-pagamento-info { flex-grow: 1; display: flex; flex-direction: column; }
+.viagem-pagamento-info .info-header { font-size: 0.95rem; font-weight: 500; color: #333; }
+.viagem-pagamento-info .info-header small { font-weight: 400; color: #666; }
+.viagem-pagamento-info .info-desc { font-size: 0.85rem; color: #777; }
+.viagem-pagamento-valor { font-size: 1rem; font-weight: 600; color: #0056b3; padding-left: 15px; flex-shrink: 0; }
+
+
+.dashboard-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+.summary-card { background-color: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-left: 5px solid #007bff; text-align: center; }
+.summary-card h4 { margin: 0 0 10px 0; font-size: 1rem; color: #555; }
+.summary-card p { margin: 0; font-size: 2rem; font-weight: 600; color: #333; }
+.summary-card.card-pago { border-left-color: #28a745; }
+.summary-alert { margin-top: 1.5rem; padding: 1rem; border-radius: 8px; font-weight: 500; background-color: #fff3cd; border: 1px solid #ffeeba; color: #856404; }
+.dashboard-filters { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; }
+.dashboard-filters h3 { margin: 0; }
+.filter-controls { display: flex; gap: 1rem; align-items: flex-end; }
+.filter-group { display: flex; flex-direction: column; }
+.filter-group label { margin-bottom: 2px; font-size: 0.9rem; }
+.filter-group select, .filter-group input { padding: 8px; margin-bottom: 0; min-width: 120px; }
+.filter-controls button { padding: 8px 15px; margin-bottom: 0; }
+
+.report-filters { display: flex; gap: 1rem; align-items: flex-end; margin-bottom: 2rem; flex-wrap: wrap; }
+#imprimir-relatorio-btn { background-color: #17a2b8; }
+#imprimir-relatorio-btn:hover { background-color: #138496; }
+.report-container { border: 1px solid #dee2e6; padding: 1.5rem; border-radius: 5px; background-color: #fff; }
+.report-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; table-layout: auto; /* Deixa a tabela se ajustar ao conteúdo */ word-break: break-word; /* Quebra palavras longas se necessário */ }
+.report-table th, .report-table td { border: 1px solid #ccc; padding: 8px 10px; text-align: left; white-space: nowrap;}
+.report-table th { background-color: #f8f9fa; font-weight: 600; }
+.report-table tbody tr:nth-child(even) { background-color: #f2f2f2; }
+.report-table tfoot td { font-weight: bold; background-color: #e9ecef; }
+
+@media (max-width: 768px) {
+     html { font-size: 10px; } 
+    .dashboard-body { flex-direction: column; }
+    .dashboard-menu { flex-basis: auto; }
+    .container-app { width: 95%; padding: 1.5rem; }
+    .viagem-item .viagem-header { flex-direction: column; align-items: flex-start; gap: 5px; }
+    .despesa-item { flex-direction: column; align-items: flex-start; }
+    .despesa-valor { text-align: left; margin-left: 0; margin-top: 10px; }
+    .despesa-actions { margin-top: 10px; }
+    .dashboard-filters, .filter-controls { flex-direction: column; align-items: stretch; }
+}
+
+@media print {
+    body, .container { background-color: #fff !important; box-shadow: none !important; margin: 0 !important; padding: 0 !important; width: 100% !important; max-width: 100% !important; }
+    #dashboard-area, .dashboard-body { display: block !important; }
+    .dashboard-header, .dashboard-menu, .report-filters, .footer, .background-image { display: none !important; }
+    #dashboard-content, #view-relatorios, .report-container { display: block !important; width: 100% !important; border: none !important; padding: 0 !important; margin: 0 !important; }
+    @page { size: landscape; margin: 1.5cm; }
+    
+    .report-table {
+        table-layout: fixed; 
+        font-size: 9pt;
+    }
+    .report-table th, .report-table td { padding: 5px; }
+    
+
+    .report-table th:nth-child(1), .report-table td:nth-child(1) { width: 9%; }
+    .report-table th:nth-child(2), .report-table td:nth-child(2) { width: 17%; }
+    .report-table th:nth-child(3), .report-table td:nth-child(3) { width: 17%; }
+    .report-table th:nth-child(4), .report-table td:nth-child(4) { width: 9%; }
+    .report-table th:nth-child(5), .report-table td:nth-child(5) { width: 12%; }
+    .report-table th:nth-child(6), .report-table td:nth-child(6) { width: 12%; }
+    .report-table th:nth-child(7), .report-table td:nth-child(7) { width: 9%; }
+    .report-table th:nth-child(8), .report-table td:nth-child(8) { width: 15%; }
+}
+

@@ -1,0 +1,4 @@
+{
+  "message": "Login bem-sucedido!",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkplZmZlcnNvbiBMaW1hIiwiaWF0IjoxNzU3NjA0MjgyLCJleHAiOjE3NTc2OTA2ODJ9.X0NbAz6VrOdBtwSbKCtRT7nWlm7OmhpgXRmYF6nGF5c"
+}

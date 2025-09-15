@@ -1,0 +1,25 @@
+RewriteEngine On
+RewriteBase /
+
+# ------------------------------------
+# --- REGRA NOVA PARA O BLOG PHP ---
+# ------------------------------------
+# Se a URL pedida for exatamente "blog",
+# sirva silenciosamente o conteúdo da página PHP do blog.
+# O [L] significa que, se esta regra for aplicada, nenhuma outra regra abaixo será processada.
+RewriteRule ^blog$ /area-cliente/blog/index.php [L]
+
+
+# ------------------------------------
+# --- SUAS REGRAS EXISTENTES ---
+# ------------------------------------
+# Carrega arquivos .html sem mostrar na URL
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L,NC]
+
+# Redireciona URLs com .html para sem .html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)\.html$ /$1 [L,R=301,NC]
