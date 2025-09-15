@@ -1,3 +1,9 @@
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => {
+  res.send('API do Reembolso de Km!');
+});
+
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');

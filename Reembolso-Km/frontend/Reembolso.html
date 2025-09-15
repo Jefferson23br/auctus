@@ -23,6 +23,39 @@
                 <input type="password" id="password" required>
                 <button type="submit">Entrar</button>
             </form>
+            <div class="form-links" style="display: flex; flex-direction: column; align-items: center; margin-top: 15px; gap: 10px;">
+                <a href="#" id="showRegister">Não tem uma conta? Cadastre-se</a>
+                <a href="#" id="showForgotPassword">Esqueceu a senha?</a>
+            </div>
+        </div>
+
+        <div id="register-area" style="display: none;">
+            <h1>Cadastro de Novo Usuário</h1>
+            <form id="registerForm">
+                <label for="register-nome">Nome Completo</label>
+                <input type="text" id="register-nome" required>
+                <label for="register-email">E-mail</label>
+                <input type="email" id="register-email" required>
+                <label for="register-password">Senha</label>
+                <input type="password" id="register-password" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+            <div class="form-links" style="text-align: center; margin-top: 15px;">
+                <a href="#" id="showLoginFromRegister">Já tem uma conta? Faça o login</a>
+            </div>
+        </div>
+        
+        <div id="forgot-password-area" style="display: none;">
+            <h1>Recuperar Senha</h1>
+            <p style="text-align: center; margin-bottom: 1rem;">Digite seu e-mail e enviaremos um link para você redefinir sua senha.</p>
+            <form id="forgotPasswordForm">
+                <label for="forgot-email">E-mail</label>
+                <input type="email" id="forgot-email" required>
+                <button type="submit">Enviar Link de Recuperação</button>
+            </form>
+             <div class="form-links" style="text-align: center; margin-top: 15px;">
+                <a href="#" id="showLoginFromForgot">Voltar para o Login</a>
+            </div>
         </div>
 
         <div id="dashboard-area" style="display: none;">
