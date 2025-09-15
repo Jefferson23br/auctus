@@ -34,30 +34,27 @@ body {
 .hero-section {
     height: 100vh;
     width: 100%;
-    display: flex; /* Mantemos o flex, mas mudamos o alinhamento */
-    /* Removemos justify-content e align-items para alinhar no início */
+    display: flex; 
     color: white;
     position: relative;
 }
 
-/* SUBSTITUA A REGRA ANTIGA .hero-content h1/p POR ESTAS */
 .hero-content {
-    /* Adicionamos padding para dar espaço das bordas */
     padding: 15vh 8vw; 
-    max-width: 600px; /* Impede que o texto fique largo demais em telas grandes */
+    max-width: 600px; 
 }
 
 .hero-content h1 {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    text-align: left; /* Alinha o texto à esquerda */
+    text-align: left; 
 }
 
 .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    text-align: left; /* Alinha o texto à esquerda */
+    text-align: left; 
 }
 
 .cta-button {
@@ -177,32 +174,29 @@ footer {
 @media (max-width: 768px) {
 
     .hero-content h1 {
-        font-size: 2rem; /* Diminuí um pouco mais para telas bem estreitas */
-        line-height: 1.2; /* Melhora o espaçamento entre linhas caso o texto quebre */
+        font-size: 2rem; 
+        line-height: 1.2; 
     }
 
     .hero-content p {
-        font-size: 1rem;   /* Tamanho do subtítulo para celular */
-        margin-bottom: 2.5rem; /* Aumenta um pouco a margem do botão */
+        font-size: 1rem;   
+        margin-bottom: 2.5rem; 
     }
 
-    /* Ajusta o ícone do menu para telas menores */
     .hamburger-icon {
         top: 20px;
         right: 20px;
     }
 
-    /* Ajusta o menu lateral para ocupar mais espaço na tela */
     .side-menu {
-        width: 50%; /* Menu ocupa 85% da largura da tela */
-        right: -50%; /* Garante que ele comece escondido */
+        width: 50%; 
+        right: -50%; 
     }
 
     .side-menu.open {
         right: 0;
     }
     
-    /* Ajusta o rodapé para não ser tão grande */
     footer {
         padding: 10px 0;
         font-size: 0.8rem;
