@@ -88,7 +88,8 @@ exports.getMinhasViagens = async (req, res) => {
         const finalQueryParams = [...queryParams, limit, offset];
 
         const result = await db.query(queryText, finalQueryParams);
-    
+        
+ 
         res.status(200).json({
             viagens: result.rows,
             totalItems: totalItems,
@@ -97,7 +98,7 @@ exports.getMinhasViagens = async (req, res) => {
         });
 
     } catch (error) {
-        console.error(error);
+        console.error('Erro ao buscar viagens:', error);
         res.status(500).json({ message: 'Erro no servidor ao buscar viagens.' });
     }
 };
