@@ -16,7 +16,7 @@ function initMap() {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- SELETORES DE ELEMENTOS GERAIS ---
+
     const mainContainer = document.getElementById('main-container');
     const dashboardArea = document.getElementById('dashboard-area');
     const messageArea = document.getElementById('message-area');
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pageTitle = document.getElementById('page-title');
     const dashboardTitle = document.getElementById('dashboard-title');
     
-    // --- SELETORES DE AUTENTICAÇÃO (LOGIN, CADASTRO, RECUPERAÇÃO) ---
+
     const loginArea = document.getElementById('login-area');
     const registerArea = document.getElementById('register-area');
     const forgotPasswordArea = document.getElementById('forgot-password-area');
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const showLoginFromRegisterLink = document.getElementById('showLoginFromRegister');
     const showLoginFromForgotLink = document.getElementById('showLoginFromForgot');
 
-    // --- DEMAIS SELETORES DE FORMULÁRIOS E ELEMENTOS ---
+
     const veiculoForm = document.getElementById('veiculoForm');
     const veiculosList = document.getElementById('veiculos-list');
     const editModal = document.getElementById('edit-veiculo-modal');
@@ -71,13 +71,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const reportDataInicio = document.getElementById('report-data-inicio');
     const reportDataFim = document.getElementById('report-data-fim');
 
-    // --- CONFIGURAÇÕES ---
+    
+    const viagensFiltroDataInicio = document.getElementById('viagens-filtro-data-inicio');
+    const viagensFiltroDataFim = document.getElementById('viagens-filtro-data-fim');
+    const viagensFiltroStatus = document.getElementById('viagens-filtro-status');
+    const viagensBtnFiltrar = document.getElementById('viagens-btn-filtrar');
+    const viagensBtnPrev = document.getElementById('viagens-btn-prev');
+    const viagensBtnNext = document.getElementById('viagens-btn-next');
+    const viagensPageInfo = document.getElementById('viagens-page-info');
+    const viagensLimitSelect = document.getElementById('viagens-limit-select');
+
+ 
     const API_URL = 'https://api.auctusconsultoria.com.br';
     const CONFIG = { appName: "Reembolso de Km" };
 
-    // --- FUNÇÕES DE CONTROLE DE VISIBILIDADE ---
+ 
+    let viagensCurrentPage = 1;
+    let viagensTotalPages = 1;
 
-    // Mostra uma view específica dentro do Dashboard
     const showView = (viewId) => {
         views.forEach(view => view.style.display = 'none');
         const viewToShow = document.getElementById(viewId);
@@ -87,13 +98,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (viewId === 'view-home') fetchDashboardSummary();
         if (viewId === 'view-listar-veiculo') fetchVeiculos();
         if (viewId === 'view-lancar-km') populateVeiculoSelect(viagemVeiculoSelect);
-        if (viewId === 'view-listar-viagens') fetchViagens();
+        if (viewId === 'view-listar-viagens') {
+            viagensCurrentPage = 1; 
+            fetchViagens();
+        }
         if (viewId === 'view-lancar-despesa') populateVeiculoSelect(despesaVeiculoSelect);
         if (viewId === 'view-listar-despesas') fetchDespesas();
         if (viewId === 'view-lancar-pagamento') fetchViagensAPagar();
     };
     
-    // Mostra uma tela específica na área de autenticação (Login, Cadastro ou Recuperar)
     const showAuthScreen = (screenToShow) => {
         loginArea.style.display = 'none';
         registerArea.style.display = 'none';
@@ -120,18 +133,16 @@ document.addEventListener('DOMContentLoaded', () => {
         showView('view-home'); 
     };
 
-    // --- EVENT LISTENERS ---
 
-    // Navegação do Menu do Dashboard
     menuButtons.forEach(button => button.addEventListener('click', (e) => showView(e.target.dataset.view)));
 
-    // Navegação entre telas de Login, Cadastro e Recuperar Senha
+
     showRegisterLink.addEventListener('click', (e) => { e.preventDefault(); showAuthScreen(registerArea); });
     showForgotPasswordLink.addEventListener('click', (e) => { e.preventDefault(); showAuthScreen(forgotPasswordArea); });
     showLoginFromRegisterLink.addEventListener('click', (e) => { e.preventDefault(); showAuthScreen(loginArea); });
     showLoginFromForgotLink.addEventListener('click', (e) => { e.preventDefault(); showAuthScreen(loginArea); });
     
-    // --- LÓGICA DE FORMULÁRIOS DE AUTENTICAÇÃO ---
+
 
     loginForm.addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -211,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showLogin(); 
     });
     
-    // --- LÓGICA DE VEÍCULOS ---
+
     const populateVeiculoSelect = async (selectElement) => {
         const token = localStorage.getItem('token');
         try {
@@ -331,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cancelEditBtn.addEventListener('click', () => { editModal.style.display = 'none'; });
 
-    // --- LÓGICA DE VIAGENS ---
+
     viagemForm.addEventListener('submit', async (event) => {
         event.preventDefault();
         const token = localStorage.getItem('token');
@@ -361,16 +372,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+   
     const fetchViagens = async () => {
         const token = localStorage.getItem('token');
         if (!token) { showLogin(); return; }
+
+        
+        const limit = viagensLimitSelect.value;
+        const status = viagensFiltroStatus.value;
+        const data_inicio = viagensFiltroDataInicio.value;
+        const data_fim = viagensFiltroDataFim.value;
+
+        
+        const params = new URLSearchParams({
+            page: viagensCurrentPage,
+            limit: limit
+        });
+        if (status) params.append('status', status);
+        if (data_inicio) params.append('data_inicio', data_inicio);
+        if (data_fim) params.append('data_fim', data_fim);
+
         try {
-            const response = await fetch(`${API_URL}/api/viagens`, { headers: { 'Authorization': `Bearer ${token}` } });
+            const response = await fetch(`${API_URL}/api/viagens?${params.toString()}`, { 
+                headers: { 'Authorization': `Bearer ${token}` } 
+            });
+
             if (!response.ok) throw new Error('Falha ao buscar viagens.');
-            const viagens = await response.json();
+            
+            const data = await response.json();
+            const { viagens, totalItems, totalPages } = data;
+            
+            viagensTotalPages = totalPages;
+
             viagensList.innerHTML = '';
             if (viagens.length === 0) {
-                viagensList.innerHTML = '<p>Nenhuma viagem registrada.</p>';
+                viagensList.innerHTML = '<p>Nenhuma viagem encontrada para os filtros selecionados.</p>';
             } else {
                 viagens.forEach(v => {
                     const viagemDiv = document.createElement('div');
@@ -395,13 +431,46 @@ document.addEventListener('DOMContentLoaded', () => {
                     viagensList.appendChild(viagemDiv);
                 });
             }
+            updatePaginationControls();
         } catch (error) {
             messageArea.textContent = `Erro: ${error.message}`;
             messageArea.className = 'message error';
         }
     };
+
+   
+    const updatePaginationControls = () => {
+        viagensPageInfo.textContent = `Página ${viagensCurrentPage} de ${viagensTotalPages}`;
+        viagensBtnPrev.disabled = viagensCurrentPage <= 1;
+        viagensBtnNext.disabled = viagensCurrentPage >= viagensTotalPages;
+    };
+
     
-    // --- LÓGICA DE DESPESAS ---
+    viagensBtnFiltrar.addEventListener('click', () => {
+        viagensCurrentPage = 1; 
+        fetchViagens();
+    });
+
+    viagensLimitSelect.addEventListener('change', () => {
+        viagensCurrentPage = 1; 
+        fetchViagens();
+    });
+
+    viagensBtnPrev.addEventListener('click', () => {
+        if (viagensCurrentPage > 1) {
+            viagensCurrentPage--;
+            fetchViagens();
+        }
+    });
+
+    viagensBtnNext.addEventListener('click', () => {
+        if (viagensCurrentPage < viagensTotalPages) {
+            viagensCurrentPage++;
+            fetchViagens();
+        }
+    });
+    
+
     despesaComprovanteFile.addEventListener('change', async (event) => {
         const file = event.target.files[0];
         if (!file) return;
@@ -567,7 +636,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cancelEditDespesaBtn.addEventListener('click', () => { editDespesaModal.style.display = 'none'; });
 
-    // --- LÓGICA DE PAGAMENTOS ---
+
     const fetchViagensAPagar = async () => {
         const token = localStorage.getItem('token');
         try {
@@ -597,7 +666,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             messageArea.textContent = `Erro: ${error.message}`;
             messageArea.className = 'message error';
-            viagensAPagarList.innerHTML = `<p style="padding: 10px; color: red;">${error.message}</p>`;
         }
     };
 
@@ -623,20 +691,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     pagamentoForm.addEventListener('submit', async (event) => {
         event.preventDefault();
+        const form = event.target; 
         const token = localStorage.getItem('token');
         const selectedViagensIds = Array.from(document.querySelectorAll('.viagem-checkbox:checked')).map(cb => cb.value);
+    
         if (selectedViagensIds.length === 0) {
             messageArea.textContent = 'Erro: Selecione ao menos uma viagem para pagar.';
             messageArea.className = 'message error';
             return;
         }
+    
         const pagamentoData = {
             viagens_ids: selectedViagensIds,
-            data_pagamento: document.getElementById('pagamento-data').value,
-            metodo_pagamento: document.getElementById('metodo-pagamento').value,
-            valor_total: parseFloat(valorTotalSpan.textContent),
-            descricao: document.getElementById('pagamento-descricao').value,
+            data_pagamento: form.querySelector('#pagamento-data').value,
+            metodo_pagamento: form.querySelector('#pagamento-metodo').value,
+            valor_total: parseFloat(form.querySelector('#valor-total-a-pagar').textContent),
+            descricao: form.querySelector('#pagamento-descricao').value,
         };
+    
         try {
             const response = await fetch(`${API_URL}/api/pagamentos`, {
                 method: 'POST',
@@ -647,7 +719,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!response.ok) throw new Error(data.message);
             messageArea.textContent = 'Pagamento registrado com sucesso!';
             messageArea.className = 'message success';
-            pagamentoForm.reset();
+            form.reset();
             atualizarResumoPagamento();
             fetchViagensAPagar();
             showView('view-listar-viagens');
@@ -657,7 +729,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- LÓGICA DO DASHBOARD E RELATÓRIOS ---
+    
     const fetchDashboardSummary = async () => {
         const token = localStorage.getItem('token');
         const mes = document.getElementById('filter-month').value;
@@ -670,6 +742,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('card-km-mes').textContent = `${Number(summary.totalKmMes).toFixed(1)} km`;
             document.getElementById('card-receber-mes').textContent = `R$ ${Number(summary.totalAReceberMes).toFixed(2)}`;
             document.getElementById('card-despesas-mes').textContent = `R$ ${Number(summary.totalDespesasMes).toFixed(2)}`;
+            document.getElementById('card-reembolsado-mes').textContent = `R$ ${Number(summary.totalReembolsadoMes).toFixed(2)}`;
             const alertaDiv = document.getElementById('card-alerta-atrasados');
             if (summary.pendentesMesesAnteriores > 0) {
                 alertaDiv.textContent = `Atenção: Você possui ${summary.pendentesMesesAnteriores} viagem(s) de meses anteriores com pagamento pendente.`;
@@ -756,7 +829,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     imprimirRelatorioBtn.addEventListener('click', () => { window.print(); });
 
-    // --- INICIALIZAÇÃO DA APLICAÇÃO ---
+
     initializeDashboardFilters();
     pageTitle.textContent = CONFIG.appName;
     loginTitle.textContent = CONFIG.appName;
