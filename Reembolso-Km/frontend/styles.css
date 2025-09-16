@@ -161,11 +161,22 @@ hr { border: 0; border-top: 1px solid #eee; margin: 2rem 0; }
 #imprimir-relatorio-btn { background-color: #17a2b8; }
 #imprimir-relatorio-btn:hover { background-color: #138496; }
 .report-container { border: 1px solid #dee2e6; padding: 1.5rem; border-radius: 5px; background-color: #fff; }
-.report-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; table-layout: auto; /* Deixa a tabela se ajustar ao conteúdo */ word-break: break-word; /* Quebra palavras longas se necessário */ }
+.report-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; table-layout: auto; word-break: break-word; }
 .report-table th, .report-table td { border: 1px solid #ccc; padding: 8px 10px; text-align: left; white-space: nowrap;}
 .report-table th { background-color: #f8f9fa; font-weight: 600; }
 .report-table tbody tr:nth-child(even) { background-color: #f2f2f2; }
 .report-table tfoot td { font-weight: bold; background-color: #e9ecef; }
+
+
+.viagens-filters { display: flex; gap: 1rem; align-items: flex-end; flex-wrap: wrap; padding: 1rem; margin-bottom: 1.5rem; background-color: #f8f9fa; border-radius: 5px; }
+.viagens-filters .filter-group input, .viagens-filters .filter-group select { padding: 8px; margin-bottom: 0; }
+.viagens-filters button { padding: 8px 15px; margin-bottom: 0; width: auto; }
+
+.pagination-controls { display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: 1.5rem; }
+.pagination-controls button { width: auto; padding: 8px 15px; }
+.pagination-controls button:disabled { background-color: #ccc; cursor: not-allowed; }
+.pagination-controls select { width: auto; padding: 8px; margin-bottom: 0; }
+
 
 @media (max-width: 768px) {
      html { font-size: 10px; } 
@@ -202,4 +213,3 @@ hr { border: 0; border-top: 1px solid #eee; margin: 2rem 0; }
     .report-table th:nth-child(7), .report-table td:nth-child(7) { width: 9%; }
     .report-table th:nth-child(8), .report-table td:nth-child(8) { width: 15%; }
 }
-

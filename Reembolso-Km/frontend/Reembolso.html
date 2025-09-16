@@ -135,7 +135,45 @@
                             <button type="submit">Registrar Viagem</button>
                         </form>
                     </div>
-                    <div id="view-listar-viagens" class="view" style="display: none;"><h3>Viagens Registradas</h3><div id="viagens-list"></div></div>
+                    
+                    <div id="view-listar-viagens" class="view" style="display: none;">
+                        <h3>Viagens Registradas</h3>
+                        <div class="viagens-filters">
+                            <div class="filter-group">
+                                <label for="viagens-filtro-data-inicio">De:</label>
+                                <input type="date" id="viagens-filtro-data-inicio">
+                            </div>
+                            <div class="filter-group">
+                                <label for="viagens-filtro-data-fim">Até:</label>
+                                <input type="date" id="viagens-filtro-data-fim">
+                            </div>
+                            <div class="filter-group">
+                                <label for="viagens-filtro-status">Status:</label>
+                                <select id="viagens-filtro-status">
+                                    <option value="">Todos</option>
+                                    <option value="A Pagar">A Pagar</option>
+                                    <option value="Pago">Pago</option>
+                                    <option value="Pago Parcial">Pago Parcial</option>
+                                </select>
+                            </div>
+                            <button id="viagens-btn-filtrar">Filtrar</button>
+                        </div>
+                        
+                        <div id="viagens-list"></div>
+
+                        <div class="pagination-controls">
+                            <button id="viagens-btn-prev">Anterior</button>
+                            <span id="viagens-page-info"></span>
+                            <button id="viagens-btn-next">Próxima</button>
+                            <select id="viagens-limit-select">
+                                <option value="5">5 por página</option>
+                                <option value="10">10 por página</option>
+                                <option value="15">15 por página</option>
+                                <option value="20">20 por página</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <div id="view-lancar-despesa" class="view" style="display: none;">
                         <h3>Lançar Nova Despesa</h3>
                         <form id="despesaForm">
