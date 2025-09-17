@@ -1,7 +1,7 @@
 const db = require('../config/db');
 
 exports.createDespesa = async (req, res) => {
-    const { veiculo_id, data_despesa, tipo_despesa, forma_pagamento, valor, status_pagamento, link_comprovante, descricao } = req.body;
+    const { veiculo_id, data_despesa, tipo_despesa, forma_pagamento, valor, status_pagamento, link_comprovante, descricao, km } = req.body;
     const usuario_id = req.user.id;
 
     if (!veiculo_id || !data_despesa || !tipo_despesa || !valor || !status_pagamento) {
@@ -15,11 +15,11 @@ exports.createDespesa = async (req, res) => {
         }
 
         const queryText = `
-            INSERT INTO app.despesas (usuario_id, veiculo_id, data_despesa, tipo_despesa, forma_pagamento, valor, status_pagamento, link_comprovante, descricao)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+            INSERT INTO app.despesas (usuario_id, veiculo_id, data_despesa, tipo_despesa, forma_pagamento, valor, status_pagamento, link_comprovante, descricao, km)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
             RETURNING *`;
         
-        const values = [usuario_id, veiculo_id, data_despesa, tipo_despesa, forma_pagamento, valor, status_pagamento, link_comprovante, descricao];
+        const values = [usuario_id, veiculo_id, data_despesa, tipo_despesa, forma_pagamento, valor, status_pagamento, link_comprovante, descricao, km];
 
         const result = await db.query(queryText, values);
         res.status(201).json({ message: 'Despesa registrada com sucesso!', despesa: result.rows[0] });
@@ -30,19 +30,66 @@ exports.createDespesa = async (req, res) => {
     }
 };
 
+// ==================================================================
+// FUNÇÃO TOTALMENTE ATUALIZADA
+// ==================================================================
 exports.getMinhasDespesas = async (req, res) => {
     const usuario_id = req.user.id;
+
+    const page = parseInt(req.query.page, 10) || 1;
+    const limit = parseInt(req.query.limit, 10) || 5;
+    const offset = (page - 1) * limit;
+
+    const { data_inicio, data_fim, tipo, status } = req.query;
+
+    let whereClauses = ['d.usuario_id = $1'];
+    let queryParams = [usuario_id];
+    let paramIndex = 2;
+
+    if (data_inicio) {
+        whereClauses.push(`d.data_despesa >= $${paramIndex++}`);
+        queryParams.push(data_inicio);
+    }
+    if (data_fim) {
+        whereClauses.push(`d.data_despesa <= $${paramIndex++}`);
+        queryParams.push(data_fim);
+    }
+    if (tipo) {
+        whereClauses.push(`d.tipo_despesa = $${paramIndex++}`);
+        queryParams.push(tipo);
+    }
+    if (status) {
+        whereClauses.push(`d.status_pagamento = $${paramIndex++}`);
+        queryParams.push(status);
+    }
+    
+    const whereString = whereClauses.join(' AND ');
+
     try {
+        const totalQueryText = `SELECT COUNT(*) AS total_count FROM app.despesas d WHERE ${whereString}`;
+        const totalResult = await db.query(totalQueryText, queryParams);
+        const totalItems = parseInt(totalResult.rows[0].total_count, 10);
+
         const queryText = `
             SELECT d.*, v.placa, v.descricao as veiculo_descricao
             FROM app.despesas d
             JOIN app.veiculos v ON d.veiculo_id = v.id
-            WHERE d.usuario_id = $1
+            WHERE ${whereString}
             ORDER BY d.data_despesa DESC, d.criado_em DESC
+            LIMIT $${paramIndex++} OFFSET $${paramIndex++}
         `;
-        const result = await db.query(queryText, [usuario_id]);
-        res.status(200).json(result.rows);
-    } catch (error) {
+        const finalQueryParams = [...queryParams, limit, offset];
+
+        const result = await db.query(queryText, finalQueryParams);
+
+        res.status(200).json({
+            despesas: result.rows,
+            totalItems: totalItems,
+            totalPages: Math.ceil(totalItems / limit),
+            currentPage: page
+        });
+
+    } catch (error) { 
         console.error(error);
         res.status(500).json({ message: 'Erro no servidor ao buscar despesas.' });
     }
@@ -50,17 +97,17 @@ exports.getMinhasDespesas = async (req, res) => {
 
 exports.updateDespesa = async (req, res) => {
     const { id } = req.params;
-    const { veiculo_id, data_despesa, tipo_despesa, forma_pagamento, valor, status_pagamento, link_comprovante, descricao } = req.body;
+    const { veiculo_id, data_despesa, tipo_despesa, forma_pagamento, valor, status_pagamento, link_comprovante, descricao, km } = req.body;
     const usuario_id = req.user.id;
 
     try {
         const queryText = `
             UPDATE app.despesas
-            SET veiculo_id = $1, data_despesa = $2, tipo_despesa = $3, forma_pagamento = $4, valor = $5, status_pagamento = $6, link_comprovante = $7, descricao = $8
-            WHERE id = $9 AND usuario_id = $10
+            SET veiculo_id = $1, data_despesa = $2, tipo_despesa = $3, forma_pagamento = $4, valor = $5, status_pagamento = $6, link_comprovante = $7, descricao = $8, km = $9
+            WHERE id = $10 AND usuario_id = $11
             RETURNING *`;
         
-        const values = [veiculo_id, data_despesa, tipo_despesa, forma_pagamento, valor, status_pagamento, link_comprovante, descricao, id, usuario_id];
+        const values = [veiculo_id, data_despesa, tipo_despesa, forma_pagamento, valor, status_pagamento, link_comprovante, descricao, km, id, usuario_id];
         
         const result = await db.query(queryText, values);
 

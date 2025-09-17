@@ -76,42 +76,57 @@
                     <button data-view="view-relatorios">Relatórios</button>
                 </nav>
                 <main id="dashboard-content" class="dashboard-content">
-                <div id="view-home" class="view">
-                    <div class="dashboard-filters">
-                        <h3>Resumo Mensal</h3>
-                        <div class="filter-controls">
-                            <div class="filter-group">
-                                <label for="filter-month">Mês</label>
-                                <select id="filter-month"></select>
+                    <div id="view-home" class="view">
+                        <div class="dashboard-filters">
+                            <h3>Resumo do Período</h3>
+                            <div class="filter-type-selector" style="margin-bottom: 1rem; display: flex; gap: 20px;">
+                                <label><input type="radio" name="filter-type" value="month" checked> Por Mês/Ano</label>
+                                <label><input type="radio" name="filter-type" value="period"> Por Período</label>
                             </div>
-                            <div class="filter-group">
-                                <label for="filter-year">Ano</label>
-                                <input type="number" id="filter-year" placeholder="Ex: 2025">
+                            <div class="filter-controls">
+                                <div id="filter-by-month-year">
+                                    <div class="filter-group">
+                                        <label for="filter-month">Mês</label>
+                                        <select id="filter-month"></select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <label for="filter-year">Ano</label>
+                                        <input type="number" id="filter-year" placeholder="Ex: 2025">
+                                    </div>
+                                </div>
+                                <div id="filter-by-date-range" style="display: none;">
+                                    <div class="filter-group">
+                                        <label for="filter-data-inicio">Data Início</label>
+                                        <input type="date" id="filter-data-inicio">
+                                    </div>
+                                    <div class="filter-group">
+                                        <label for="filter-data-fim">Data Fim</label>
+                                        <input type="date" id="filter-data-fim">
+                                    </div>
+                                </div>
+                                <button id="apply-filter-btn">Aplicar Filtro</button>
                             </div>
-                            <button id="apply-filter-btn">Aplicar Filtro</button>
                         </div>
+                        <div class="dashboard-summary">
+                            <div class="summary-card">
+                                <h4>KM Rodado no Período</h4>
+                                <p id="card-km-mes">--</p>
+                            </div>
+                            <div class="summary-card">
+                                <h4>A Receber (Reembolso)</h4>
+                                <p id="card-receber-mes">--</p>
+                            </div>
+                            <div class="summary-card">
+                                <h4>Total Despesas no Período</h4>
+                                <p id="card-despesas-mes">--</p>
+                            </div>
+                            <div class="summary-card card-pago">
+                                <h4>Total Reembolsado no Período</h4>
+                                <p id="card-reembolsado-mes">--</p>
+                            </div>
+                        </div>
+                        <div id="card-alerta-atrasados" class="summary-alert" style="display: none;"></div>
                     </div>
-                    <div class="dashboard-summary">
-                        <div class="summary-card">
-                            <h4>KM Rodado no Mês</h4>
-                            <p id="card-km-mes">--</p>
-                        </div>
-                        <div class="summary-card">
-                            <h4>A Receber (Reembolso)</h4>
-                            <p id="card-receber-mes">--</p>
-                        </div>
-                        <div class="summary-card">
-                            <h4>Total Despesas no Mês</h4>
-                            <p id="card-despesas-mes">--</p>
-                        </div>
-                        <div class="summary-card card-pago">
-                            <h4>Total Reembolsado no Mês</h4>
-                            <p id="card-reembolsado-mes">--</p>
-                        </div>
-                    </div>
-                    <div id="card-alerta-atrasados" class="summary-alert" style="display: none;">
-                    </div>
-                </div>
 
                     <div id="view-cadastrar-veiculo" class="view" style="display: none;">
                         <h3>Cadastrar Novo Veículo Alugado</h3>
@@ -122,16 +137,33 @@
                             <button type="submit">Cadastrar Veículo</button>
                         </form>
                     </div>
-                    <div id="view-listar-veiculo" class="view" style="display: none;"><h3>Veículos Cadastrados</h3><div id="veiculos-list"></div></div>
+                    
+                    <div id="view-listar-veiculo" class="view" style="display: none;">
+                        <h3>Veículos Cadastrados</h3>
+                        <div id="veiculos-list"></div>
+                    </div>
+                    
                     <div id="view-lancar-km" class="view" style="display: none;">
                         <h3>Lançar Nova Viagem</h3>
                         <form id="viagemForm">
-                            <label for="viagem-veiculo-select">Selecionar Veículo</label><select id="viagem-veiculo-select" required></select>
-                            <label for="viagem-data">Data da Viagem</label><input type="date" id="viagem-data" required>
-                            <label for="viagem-distancia">Distância Percorrida (KM)</label><input type="number" step="0.1" id="viagem-distancia" placeholder="Ex: 120.5" required>
-                            <label for="viagem-saida">Local de Saída</label><input type="text" id="viagem-saida" placeholder="Comece a digitar um endereço...">
-                            <label for="viagem-chegada">Local de Chegada</label><input type="text" id="viagem-chegada" placeholder="Comece a digitar um endereço...">
-                            <label for="viagem-descricao">Descrição</label><textarea id="viagem-descricao" rows="3" placeholder="Ex: Visita técnica..."></textarea>
+                            <label for="viagem-veiculo-select">Selecionar Veículo</label>
+                            <select id="viagem-veiculo-select" required></select>
+                            
+                            <label for="viagem-data">Data da Viagem</label>
+                            <input type="date" id="viagem-data" required>
+                            
+                            <label for="viagem-distancia">Distância Percorrida (KM)</label>
+                            <input type="number" step="0.01" id="viagem-distancia" placeholder="Ex: 120.55" required>
+                            
+                            <label for="viagem-saida">Local de Saída</label>
+                            <input type="text" id="viagem-saida" placeholder="Comece a digitar um endereço...">
+                            
+                            <label for="viagem-chegada">Local de Chegada</label>
+                            <input type="text" id="viagem-chegada" placeholder="Comece a digitar um endereço...">
+                            
+                            <label for="viagem-descricao">Descrição</label>
+                            <textarea id="viagem-descricao" rows="3" placeholder="Ex: Visita técnica..."></textarea>
+                            
                             <button type="submit">Registrar Viagem</button>
                         </form>
                     </div>
@@ -158,9 +190,7 @@
                             </div>
                             <button id="viagens-btn-filtrar">Filtrar</button>
                         </div>
-                        
                         <div id="viagens-list"></div>
-
                         <div class="pagination-controls">
                             <button id="viagens-btn-prev">Anterior</button>
                             <span id="viagens-page-info"></span>
@@ -181,7 +211,8 @@
                             <label for="despesa-data">Data da Despesa</label><input type="date" id="despesa-data" required>
                             <label for="despesa-tipo">Tipo de Despesa</label><select id="despesa-tipo" required><option value="">-- Selecione o Tipo --</option><option value="Manutenção Veicular">Manutenção Veicular</option><option value="Implemento">Implemento</option><option value="Combustível">Combustível</option></select>
                             <label for="despesa-forma-pagamento">Forma de Pagamento</label><select id="despesa-forma-pagamento" required><option value="">-- Selecione a Forma --</option><option value="Débito">Débito</option><option value="Crédito">Crédito</option><option value="Dinheiro">Dinheiro</option></select>
-                            <label for="despesa-valor">Valor (R$)</label><input type="number" step="0.01" id="despesa-valor" placeholder="Ex: 150.75" required>
+                            <label for="despesa-valor">Valor (R$)</label><input type="text" id="despesa-valor" placeholder="Ex: 350,00" required>
+                            <label for="despesa-km">Km (Opcional)</label><input type="number" id="despesa-km" placeholder="Ex: 35000">
                             <label for="despesa-status-pagamento">Status do Pagamento</label><select id="despesa-status-pagamento" required><option value="Não Pago">Não Pago</option><option value="Pago">Pago</option></select>
                             <label for="despesa-comprovante-file">Anexar Comprovante (Opcional)</label><input type="file" id="despesa-comprovante-file">
                             <input type="hidden" id="despesa-link-comprovante">
@@ -189,43 +220,83 @@
                             <button type="submit">Registrar Despesa</button>
                         </form>
                     </div>
-                    <div id="view-listar-despesas" class="view" style="display: none;"><h3>Despesas Registradas</h3><div id="despesas-list"></div></div>
-                        <div id="view-lancar-pagamento" class="view" style="display: none;">
-                            <h3>Lançar Pagamento de Reembolso</h3>
-                            <form id="pagamentoForm">
-                                <label>Viagens com Status "A Pagar":</label>
-                                <div id="viagens-a-pagar-container" style="border: 1px solid #ccc; border-radius: 4px; margin-bottom: 1rem;">
-                                    <div class="select-all-container">
-                                        <input type="checkbox" id="selecionar-todas">
-                                        <label for="selecionar-todas">Selecionar Todas</label>
-                                    </div>
-                                    <div id="viagens-a-pagar-list" style="max-height: 250px; overflow-y: auto;">
-                                        <p style="padding: 10px;">Buscando viagens...</p>
-                                    </div>
-                                </div>
-
-                                <h4>Resumo do Pagamento</h4>
-                                <p><strong>Total de Viagens Selecionadas:</strong> <span id="total-viagens-selecionadas">0</span></p>
-                                <p><strong>Valor Total a Pagar:</strong> R$ <span id="valor-total-a-pagar">0.00</span></p>
-                                <hr>
-
-                                <label for="pagamento-data">Data do Pagamento</label>
-                                <input type="date" id="pagamento-data" required>
-
-                                <label for="pagamento-metodo">Método de Pagamento</label>
-                                <select id="pagamento-metodo" required>
-                                    <option value="">-- Selecione o Método --</option>
-                                    <option value="PIX">PIX</option>
-                                    <option value="Transferência Bancária">Transferência Bancária</option>
-                                    <option value="Dinheiro">Dinheiro</option>
+                    
+                    <div id="view-listar-despesas" class="view" style="display: none;">
+                        <h3>Despesas Registradas</h3>
+                        <div class="viagens-filters">
+                            <div class="filter-group">
+                                <label for="despesas-filtro-data-inicio">De:</label>
+                                <input type="date" id="despesas-filtro-data-inicio">
+                            </div>
+                            <div class="filter-group">
+                                <label for="despesas-filtro-data-fim">Até:</label>
+                                <input type="date" id="despesas-filtro-data-fim">
+                            </div>
+                            <div class="filter-group">
+                                <label for="despesas-filtro-tipo">Tipo:</label>
+                                <select id="despesas-filtro-tipo">
+                                    <option value="">Todos</option>
+                                    <option value="Manutenção Veicular">Manutenção Veicular</option>
+                                    <option value="Implemento">Implemento</option>
+                                    <option value="Combustível">Combustível</option>
                                 </select>
-
-                                <label for="pagamento-descricao">Descrição (Opcional)</label>
-                                <textarea id="pagamento-descricao" rows="3"></textarea>
-                                
-                                <button type="submit">Registrar Pagamento</button>
-                            </form>
+                            </div>
+                            <div class="filter-group">
+                                <label for="despesas-filtro-status">Status:</label>
+                                <select id="despesas-filtro-status">
+                                    <option value="">Todos</option>
+                                    <option value="Não Pago">Não Pago</option>
+                                    <option value="Pago">Pago</option>
+                                </select>
+                            </div>
+                            <button id="despesas-btn-filtrar">Filtrar</button>
                         </div>
+                        <div id="despesas-list"></div>
+                        <div class="pagination-controls">
+                            <button id="despesas-btn-prev">Anterior</button>
+                            <span id="despesas-page-info"></span>
+                            <button id="despesas-btn-next">Próxima</button>
+                            <select id="despesas-limit-select">
+                                <option value="5">5 por página</option>
+                                <option value="10">10 por página</option>
+                                <option value="15">15 por página</option>
+                                <option value="20">20 por página</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="view-lancar-pagamento" class="view" style="display: none;">
+                        <h3>Lançar Pagamento de Reembolso</h3>
+                        <form id="pagamentoForm">
+                            <label>Viagens com Status "A Pagar":</label>
+                            <div id="viagens-a-pagar-container" style="border: 1px solid #ccc; border-radius: 4px; margin-bottom: 1rem;">
+                                <div class="select-all-container">
+                                    <input type="checkbox" id="selecionar-todas">
+                                    <label for="selecionar-todas">Selecionar Todas</label>
+                                </div>
+                                <div id="viagens-a-pagar-list" style="max-height: 250px; overflow-y: auto;">
+                                    <p style="padding: 10px;">Buscando viagens...</p>
+                                </div>
+                            </div>
+                            <h4>Resumo do Pagamento</h4>
+                            <p><strong>Total de Viagens Selecionadas:</strong> <span id="total-viagens-selecionadas">0</span></p>
+                            <p><strong>Valor Total a Pagar:</strong> R$ <span id="valor-total-a-pagar">0.00</span></p>
+                            <hr>
+                            <label for="pagamento-data">Data do Pagamento</label>
+                            <input type="date" id="pagamento-data" required>
+                            <label for="pagamento-metodo">Método de Pagamento</label>
+                            <select id="pagamento-metodo" required>
+                                <option value="">-- Selecione o Método --</option>
+                                <option value="PIX">PIX</option>
+                                <option value="Transferência Bancária">Transferência Bancária</option>
+                                <option value="Dinheiro">Dinheiro</option>
+                            </select>
+                            <label for="pagamento-descricao">Descrição (Opcional)</label>
+                            <textarea id="pagamento-descricao" rows="3"></textarea>
+                            <button type="submit">Registrar Pagamento</button>
+                        </form>
+                    </div>
+                    
                     <div id="view-relatorios" class="view" style="display: none;">
                         <h3>Relatório de Viagens</h3>
                         <div class="report-filters">
@@ -280,6 +351,7 @@
             <h2>Editar Despesa</h2>
             <form id="editDespesaForm">
                 <input type="hidden" id="edit-despesa-id">
+                <input type="hidden" id="edit-despesa-link-comprovante"> 
                 <label for="edit-despesa-veiculo-select">Veículo Associado</label>
                 <select id="edit-despesa-veiculo-select" required></select>
                 <label for="edit-despesa-data">Data da Despesa</label>
@@ -297,14 +369,21 @@
                     <option value="Dinheiro">Dinheiro</option>
                 </select>
                 <label for="edit-despesa-valor">Valor (R$)</label>
-                <input type="number" step="0.01" id="edit-despesa-valor" required>
+                <input type="text" id="edit-despesa-valor" placeholder="Ex: 350,00" required>
+                <label for="edit-despesa-km">Km (Opcional)</label>
+                <input type="number" id="edit-despesa-km" placeholder="Ex: 35000">
                 <label for="edit-despesa-status-pagamento">Status do Pagamento</label>
                 <select id="edit-despesa-status-pagamento" required>
                     <option value="Não Pago">Não Pago</option>
                     <option value="Pago">Pago</option>
                 </select>
-                <label for="edit-despesa-link-comprovante">Link do Comprovante</label>
-                <input type="url" id="edit-despesa-link-comprovante" readonly>
+                <div id="edit-comprovante-preview-container" style="display: none;">
+                    <h4>Comprovante Atual</h4>
+                    <img id="edit-comprovante-preview-img" src="" alt="Pré-visualização do Comprovante">
+                    <a id="edit-comprovante-download-link" href="" download>Baixar Comprovante</a>
+                </div>
+                <label for="edit-despesa-comprovante-file">Alterar/Adicionar Comprovante</label>
+                <input type="file" id="edit-despesa-comprovante-file">
                 <label for="edit-despesa-descricao">Descrição</label>
                 <textarea id="edit-despesa-descricao" rows="3"></textarea>
                 <div class="modal-actions">

@@ -5,7 +5,6 @@ const { protect } = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
-
 const storage = multer.diskStorage({
     destination(req, file, cb) {
         cb(null, 'public/uploads/');
@@ -17,14 +16,26 @@ const storage = multer.diskStorage({
 
 
 function checkFileType(file, cb) {
-    const filetypes = /jpg|jpeg|png|pdf/;
-    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-    const mimetype = filetypes.test(file.mimetype);
+
+    const allowedExts = /jpeg|jpg|png|pdf|heic|heif/;
+
+    const allowedMimes = [
+        'image/jpeg',
+        'image/png',
+        'application/pdf',
+        'image/heic',
+        'image/heif'
+    ];
+
+
+    const extname = allowedExts.test(path.extname(file.originalname).toLowerCase());
+
+    const mimetype = allowedMimes.includes(file.mimetype);
 
     if (extname && mimetype) {
         return cb(null, true);
     } else {
-        cb('Apenas imagens (jpg, jpeg, png) e PDFs são permitidos!');
+        cb(new Error('Tipo de arquivo inválido! Apenas imagens (jpg, png, heic), e PDFs são permitidos.'));
     }
 }
 
@@ -41,9 +52,12 @@ router.post('/', protect, upload.single('comprovante'), (req, res) => {
         return res.status(400).send({ message: 'Por favor, anexe um arquivo.' });
     }
 
+    
+    const filePath = `/uploads/${req.file.filename}`;
+
     res.status(201).send({
         message: 'Arquivo enviado com sucesso!',
-        filePath: `/${req.file.path}` 
+        filePath: filePath 
     });
 });
 

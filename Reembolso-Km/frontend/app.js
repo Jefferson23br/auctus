@@ -81,6 +81,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const viagensPageInfo = document.getElementById('viagens-page-info');
     const viagensLimitSelect = document.getElementById('viagens-limit-select');
 
+    const despesasFiltroDataInicio = document.getElementById('despesas-filtro-data-inicio');
+    const despesasFiltroDataFim = document.getElementById('despesas-filtro-data-fim');
+    const despesasFiltroTipo = document.getElementById('despesas-filtro-tipo');
+    const despesasFiltroStatus = document.getElementById('despesas-filtro-status');
+    const despesasBtnFiltrar = document.getElementById('despesas-btn-filtrar');
+    const despesasBtnPrev = document.getElementById('despesas-btn-prev');
+    const despesasBtnNext = document.getElementById('despesas-btn-next');
+    const despesasPageInfo = document.getElementById('despesas-page-info');
+    const despesasLimitSelect = document.getElementById('despesas-limit-select');
+
+    const editDespesaComprovanteFile = document.getElementById('edit-despesa-comprovante-file');
  
     const API_URL = 'https://api.auctusconsultoria.com.br';
     const CONFIG = { appName: "Reembolso de Km" };
@@ -88,6 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
  
     let viagensCurrentPage = 1;
     let viagensTotalPages = 1;
+    let despesasCurrentPage = 1;
+    let despesasTotalPages = 1;
 
     const showView = (viewId) => {
         views.forEach(view => view.style.display = 'none');
@@ -103,7 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
             fetchViagens();
         }
         if (viewId === 'view-lancar-despesa') populateVeiculoSelect(despesaVeiculoSelect);
-        if (viewId === 'view-listar-despesas') fetchDespesas();
+        if (viewId === 'view-listar-despesas') {
+            despesasCurrentPage = 1;
+            fetchDespesas();
+        }
         if (viewId === 'view-lancar-pagamento') fetchViagensAPagar();
     };
     
@@ -500,16 +516,33 @@ document.addEventListener('DOMContentLoaded', () => {
     despesaForm.addEventListener('submit', async (event) => {
         event.preventDefault();
         const token = localStorage.getItem('token');
+
+        
+        const valorComVirgula = document.getElementById('despesa-valor').value;
+        const valorFormatado = valorComVirgula.replace('.', '').replace(',', '.');
+
+       
+        const kmValue = document.getElementById('despesa-km').value;
+
         const despesaData = {
             veiculo_id: despesaVeiculoSelect.value,
             data_despesa: document.getElementById('despesa-data').value,
             tipo_despesa: document.getElementById('despesa-tipo').value,
             forma_pagamento: document.getElementById('despesa-forma-pagamento').value,
-            valor: document.getElementById('despesa-valor').value,
+            valor: valorFormatado, 
+            km: kmValue ? parseInt(kmValue, 10) : null, 
             status_pagamento: document.getElementById('despesa-status-pagamento').value,
             link_comprovante: despesaLinkComprovante.value,
             descricao: document.getElementById('despesa-descricao').value,
         };
+
+
+        if (isNaN(parseFloat(despesaData.valor))) {
+            messageArea.textContent = 'Erro: O valor da despesa é inválido.';
+            messageArea.className = 'message error';
+            return;
+        }
+
         try {
             const response = await fetch(`${API_URL}/api/despesas`, {
                 method: 'POST',
@@ -531,13 +564,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const fetchDespesas = async () => {
         const token = localStorage.getItem('token');
+        if (!token) { showLogin(); return; }
+
+        const limit = despesasLimitSelect.value;
+        const data_inicio = despesasFiltroDataInicio.value;
+        const data_fim = despesasFiltroDataFim.value;
+        const tipo = despesasFiltroTipo.value;
+        const status = despesasFiltroStatus.value;
+
+        const params = new URLSearchParams({
+            page: despesasCurrentPage,
+            limit: limit
+        });
+        if (data_inicio) params.append('data_inicio', data_inicio);
+        if (data_fim) params.append('data_fim', data_fim);
+        if (tipo) params.append('tipo', tipo);
+        if (status) params.append('status', status);
+
         try {
-            const response = await fetch(`${API_URL}/api/despesas`, { headers: { 'Authorization': `Bearer ${token}` } });
+            const response = await fetch(`${API_URL}/api/despesas?${params.toString()}`, { 
+                headers: { 'Authorization': `Bearer ${token}` } 
+            });
             if (!response.ok) throw new Error('Falha ao buscar despesas.');
-            const despesas = await response.json();
+            
+            const data = await response.json();
+            const { despesas, totalItems, totalPages } = data;
+            
+            despesasTotalPages = totalPages;
+
             despesasasList.innerHTML = '';
             if (despesas.length === 0) {
-                despesasasList.innerHTML = '<p>Nenhuma despesa registrada.</p>';
+                despesasasList.innerHTML = '<p>Nenhuma despesa encontrada para os filtros selecionados.</p>';
             } else {
                 despesas.forEach(d => {
                     const itemDiv = document.createElement('div');
@@ -557,12 +614,43 @@ document.addEventListener('DOMContentLoaded', () => {
                     despesasasList.appendChild(itemDiv);
                 });
             }
+            updateDespesasPaginationControls();
         } catch (error) {
             messageArea.textContent = `Erro: ${error.message}`;
             messageArea.className = 'message error';
         }
     };
     
+    const updateDespesasPaginationControls = () => {
+        despesasPageInfo.textContent = `Página ${despesasCurrentPage} de ${despesasTotalPages}`;
+        despesasBtnPrev.disabled = despesasCurrentPage <= 1;
+        despesasBtnNext.disabled = despesasCurrentPage >= despesasTotalPages;
+    };
+
+    despesasBtnFiltrar.addEventListener('click', () => {
+        despesasCurrentPage = 1;
+        fetchDespesas();
+    });
+
+    despesasLimitSelect.addEventListener('change', () => {
+        despesasCurrentPage = 1;
+        fetchDespesas();
+    });
+
+    despesasBtnPrev.addEventListener('click', () => {
+        if (despesasCurrentPage > 1) {
+            despesasCurrentPage--;
+            fetchDespesas();
+        }
+    });
+
+    despesasBtnNext.addEventListener('click', () => {
+        if (despesasCurrentPage < despesasTotalPages) {
+            despesasCurrentPage++;
+            fetchDespesas();
+        }
+    });
+
     despesasasList.addEventListener('click', async (event) => {
         const token = localStorage.getItem('token');
         if (event.target.classList.contains('delete-despesa-btn')) {
@@ -586,6 +674,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch(`${API_URL}/api/despesas`, { headers: { 'Authorization': `Bearer ${token}` }});
             const despesas = await response.json();
             const despesaParaEditar = despesas.find(d => d.id == id);
+            
             if (despesaParaEditar) {
                 await populateVeiculoSelect(document.getElementById('edit-despesa-veiculo-select'));
                 document.getElementById('edit-despesa-id').value = despesaParaEditar.id;
@@ -593,10 +682,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('edit-despesa-data').value = new Date(despesaParaEditar.data_despesa).toISOString().split('T')[0];
                 document.getElementById('edit-despesa-tipo').value = despesaParaEditar.tipo_despesa;
                 document.getElementById('edit-despesa-forma-pagamento').value = despesaParaEditar.forma_pagamento;
-                document.getElementById('edit-despesa-valor').value = despesaParaEditar.valor;
+                document.getElementById('edit-despesa-valor').value = String(despesaParaEditar.valor).replace('.', ',');
+                document.getElementById('edit-despesa-km').value = despesaParaEditar.km || '';
                 document.getElementById('edit-despesa-status-pagamento').value = despesaParaEditar.status_pagamento;
                 document.getElementById('edit-despesa-link-comprovante').value = despesaParaEditar.link_comprovante || '';
                 document.getElementById('edit-despesa-descricao').value = despesaParaEditar.descricao || '';
+
+                const previewContainer = document.getElementById('edit-comprovante-preview-container');
+                if (despesaParaEditar.link_comprovante) {
+                
+                    const correctedPath = despesaParaEditar.link_comprovante.replace('/public', '');
+                    const fullUrl = `${API_URL}${correctedPath}`;
+
+                    document.getElementById('edit-comprovante-preview-img').src = fullUrl;
+                    document.getElementById('edit-comprovante-download-link').href = fullUrl;
+                    previewContainer.style.display = 'block';
+                } else {
+                    previewContainer.style.display = 'none';
+                }
+                
+                document.getElementById('edit-despesa-comprovante-file').value = '';
                 editDespesaModal.style.display = 'flex';
             }
         }
@@ -606,16 +711,24 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
         const token = localStorage.getItem('token');
         const id = document.getElementById('edit-despesa-id').value;
+
+        const valorComVirgula = document.getElementById('edit-despesa-valor').value;
+        const valorFormatado = valorComVirgula.replace(/\./g, '').replace(',', '.');
+
+        const kmValue = document.getElementById('edit-despesa-km').value;
+
         const despesaData = {
             veiculo_id: document.getElementById('edit-despesa-veiculo-select').value,
             data_despesa: document.getElementById('edit-despesa-data').value,
             tipo_despesa: document.getElementById('edit-despesa-tipo').value,
             forma_pagamento: document.getElementById('edit-despesa-forma-pagamento').value,
-            valor: document.getElementById('edit-despesa-valor').value,
+            valor: valorFormatado,
+            km: kmValue ? parseInt(kmValue, 10) : null,
             status_pagamento: document.getElementById('edit-despesa-status-pagamento').value,
             link_comprovante: document.getElementById('edit-despesa-link-comprovante').value,
             descricao: document.getElementById('edit-despesa-descricao').value,
         };
+
         try {
             const response = await fetch(`${API_URL}/api/despesas/${id}`, {
                 method: 'PUT',
@@ -631,6 +744,45 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             messageArea.textContent = `Erro: ${error.message}`;
             messageArea.className = 'message error';
+        }
+    });
+
+    editDespesaComprovanteFile.addEventListener('change', async (event) => {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const formData = new FormData();
+        formData.append('comprovante', file);
+        const token = localStorage.getItem('token');
+
+        try {
+            messageArea.textContent = 'Enviando novo comprovante...';
+            messageArea.className = 'message';
+
+            const response = await fetch(`${API_URL}/api/upload`, {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${token}` },
+                body: formData
+            });
+
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.message);
+
+            
+            document.getElementById('edit-despesa-link-comprovante').value = data.filePath;
+            
+           
+            const previewContainer = document.getElementById('edit-comprovante-preview-container');
+            document.getElementById('edit-comprovante-preview-img').src = `${API_URL}${data.filePath}`;
+            document.getElementById('edit-comprovante-download-link').href = `${API_URL}${data.filePath}`;
+            previewContainer.style.display = 'block';
+
+            messageArea.textContent = 'Novo comprovante anexado com sucesso!';
+            messageArea.className = 'message success';
+        } catch (error) {
+            messageArea.textContent = `Erro no upload: ${error.message}`;
+            messageArea.className = 'message error';
+            editDespesaComprovanteFile.value = ''; 
         }
     });
 
@@ -732,11 +884,33 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const fetchDashboardSummary = async () => {
         const token = localStorage.getItem('token');
-        const mes = document.getElementById('filter-month').value;
-        const ano = document.getElementById('filter-year').value;
-        const apiUrlWithFilters = `${API_URL}/api/dashboard/summary?mes=${mes}&ano=${ano}`;
+        const filterType = document.querySelector('input[name="filter-type"]:checked').value;
+        const params = new URLSearchParams();
+
+
+        params.append('filterType', filterType);
+
+        if (filterType === 'month') {
+            const mes = document.getElementById('filter-month').value;
+            const ano = document.getElementById('filter-year').value;
+            params.append('mes', mes);
+            params.append('ano', ano);
+        } else { // 'period'
+            const data_inicio = document.getElementById('filter-data-inicio').value;
+            const data_fim = document.getElementById('filter-data-fim').value;
+            if (!data_inicio || !data_fim) {
+                messageArea.textContent = 'Por favor, selecione data de início e fim.';
+                messageArea.className = 'message error';
+                return;
+            }
+            params.append('data_inicio', data_inicio);
+            params.append('data_fim', data_fim);
+        }
+
         try {
-            const response = await fetch(apiUrlWithFilters, { headers: { 'Authorization': `Bearer ${token}` } });
+            const response = await fetch(`${API_URL}/api/dashboard/summary?${params.toString()}`, { 
+                headers: { 'Authorization': `Bearer ${token}` } 
+            });
             if (!response.ok) throw new Error('Falha ao carregar o resumo.');
             const summary = await response.json();
             document.getElementById('card-km-mes').textContent = `${Number(summary.totalKmMes).toFixed(1)} km`;
@@ -751,6 +925,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 alertaDiv.style.display = 'none';
             }
         } catch (error) {
+
+            messageArea.textContent = '';
+            messageArea.className = 'message';
             document.getElementById('view-home').innerHTML = `<p style="color: red;">${error.message}</p>`;
         }
     };
@@ -759,6 +936,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const monthSelect = document.getElementById('filter-month');
         const yearInput = document.getElementById('filter-year');
         const applyFilterBtn = document.getElementById('apply-filter-btn');
+        const filterTypeRadios = document.querySelectorAll('input[name="filter-type"]');
+        const monthYearFilter = document.getElementById('filter-by-month-year');
+        const dateRangeFilter = document.getElementById('filter-by-date-range');
+
+        filterTypeRadios.forEach(radio => {
+            radio.addEventListener('change', (event) => {
+                if (event.target.value === 'month') {
+                    monthYearFilter.style.display = 'flex';
+                    dateRangeFilter.style.display = 'none';
+                } else {
+                    monthYearFilter.style.display = 'none';
+                    dateRangeFilter.style.display = 'flex';
+                }
+            });
+        });
+
         const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
         meses.forEach((mes, index) => {
             const option = document.createElement('option');
