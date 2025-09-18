@@ -1,12 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const { createViagem, getMinhasViagens } = require('../controllers/viagemController');
+const { createOrUpdateViagem, getMinhasViagens, getMinhasViagensRascunho } = require('../controllers/viagemController');
 const { protect } = require('../middleware/authMiddleware');
 
 router.use(protect);
 
 router.route('/')
-    .post(createViagem)
+    .post(createOrUpdateViagem) 
     .get(getMinhasViagens);
+
+
+router.get('/rascunho', getMinhasViagensRascunho);
+
+
+router.put('/:id', createOrUpdateViagem);
 
 module.exports = router;

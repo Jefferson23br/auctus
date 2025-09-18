@@ -16,7 +16,6 @@ function initMap() {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-
     const mainContainer = document.getElementById('main-container');
     const dashboardArea = document.getElementById('dashboard-area');
     const messageArea = document.getElementById('message-area');
@@ -25,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const pageTitle = document.getElementById('page-title');
     const dashboardTitle = document.getElementById('dashboard-title');
     
-
     const loginArea = document.getElementById('login-area');
     const registerArea = document.getElementById('register-area');
     const forgotPasswordArea = document.getElementById('forgot-password-area');
@@ -39,17 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const showLoginFromRegisterLink = document.getElementById('showLoginFromRegister');
     const showLoginFromForgotLink = document.getElementById('showLoginFromForgot');
 
-
     const veiculoForm = document.getElementById('veiculoForm');
     const veiculosList = document.getElementById('veiculos-list');
     const editModal = document.getElementById('edit-veiculo-modal');
     const editForm = document.getElementById('editVeiculoForm');
     const cancelEditBtn = document.getElementById('cancel-edit-btn');
     
-    const viagemForm = document.getElementById('viagemForm');
-    const viagemVeiculoSelect = document.getElementById('viagem-veiculo-select');
-    const viagensList = document.getElementById('viagens-list');
-
     const despesaForm = document.getElementById('despesaForm');
     const despesasasList = document.getElementById('despesas-list');
     const despesaVeiculoSelect = document.getElementById('despesa-veiculo-select');
@@ -58,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const editDespesaModal = document.getElementById('edit-despesa-modal');
     const editDespesaForm = document.getElementById('editDespesaForm');
     const cancelEditDespesaBtn = document.getElementById('cancel-edit-despesa-btn');
+    const editDespesaComprovanteFile = document.getElementById('edit-despesa-comprovante-file');
 
     const pagamentoForm = document.getElementById('pagamentoForm');
     const viagensAPagarList = document.getElementById('viagens-a-pagar-list');
@@ -70,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const reportContent = document.getElementById('report-content');
     const reportDataInicio = document.getElementById('report-data-inicio');
     const reportDataFim = document.getElementById('report-data-fim');
-
     
     const viagensFiltroDataInicio = document.getElementById('viagens-filtro-data-inicio');
     const viagensFiltroDataFim = document.getElementById('viagens-filtro-data-fim');
@@ -90,17 +83,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const despesasBtnNext = document.getElementById('despesas-btn-next');
     const despesasPageInfo = document.getElementById('despesas-page-info');
     const despesasLimitSelect = document.getElementById('despesas-limit-select');
-
-    const editDespesaComprovanteFile = document.getElementById('edit-despesa-comprovante-file');
  
+    const viagemForm = document.getElementById('viagemForm');
+    const viagemIdInput = document.getElementById('viagem-id');
+    const viagemVeiculoSelect = document.getElementById('viagem-veiculo-select');
+    const viagemDataInput = document.getElementById('viagem-data');
+    const viagemKmInicialInput = document.getElementById('viagem-km-inicial');
+    const viagemKmFinalInput = document.getElementById('viagem-km-final');
+    const viagemDistanciaInput = document.getElementById('viagem-distancia');
+    const viagemSaidaInput = document.getElementById('viagem-saida');
+    const viagemChegadaInput = document.getElementById('viagem-chegada');
+    const viagemDescricaoInput = document.getElementById('viagem-descricao');
+    const preSalvarBtn = document.getElementById('presalvar-viagem-btn');
+    const salvarBtn = document.getElementById('salvar-viagem-btn');
+    const cancelarEdicaoBtn = document.getElementById('cancelar-edicao-viagem-btn');
+    const rascunhoListDiv = document.getElementById('rascunho-viagens-list');
+
+
     const API_URL = 'https://api.auctusconsultoria.com.br';
     const CONFIG = { appName: "Reembolso de Km" };
-
  
     let viagensCurrentPage = 1;
     let viagensTotalPages = 1;
     let despesasCurrentPage = 1;
     let despesasTotalPages = 1;
+
 
     const showView = (viewId) => {
         views.forEach(view => view.style.display = 'none');
@@ -110,7 +117,13 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (viewId === 'view-home') fetchDashboardSummary();
         if (viewId === 'view-listar-veiculo') fetchVeiculos();
-        if (viewId === 'view-lancar-km') populateVeiculoSelect(viagemVeiculoSelect);
+        
+        if (viewId === 'view-lancar-km') {
+            populateVeiculoSelect(viagemVeiculoSelect);
+            resetViagemForm();
+            fetchViagensRascunho();
+        }
+
         if (viewId === 'view-listar-viagens') {
             viagensCurrentPage = 1; 
             fetchViagens();
@@ -151,14 +164,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     menuButtons.forEach(button => button.addEventListener('click', (e) => showView(e.target.dataset.view)));
-
-
     showRegisterLink.addEventListener('click', (e) => { e.preventDefault(); showAuthScreen(registerArea); });
     showForgotPasswordLink.addEventListener('click', (e) => { e.preventDefault(); showAuthScreen(forgotPasswordArea); });
     showLoginFromRegisterLink.addEventListener('click', (e) => { e.preventDefault(); showAuthScreen(loginArea); });
     showLoginFromForgotLink.addEventListener('click', (e) => { e.preventDefault(); showAuthScreen(loginArea); });
     
-
 
     loginForm.addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -202,7 +212,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 showAuthScreen(loginArea);
                 messageArea.textContent = '';
             }, 2000);
-
         } catch (error) {
             messageArea.textContent = `Erro: ${error.message}`;
             messageArea.className = 'message error';
@@ -212,7 +221,6 @@ document.addEventListener('DOMContentLoaded', () => {
     forgotPasswordForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const email = document.getElementById('forgot-email').value;
-        
         try {
             const response = await fetch(`${API_URL}/api/auth/forgot-password`, {
                 method: 'POST',
@@ -221,10 +229,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             const data = await response.json();
             if (!response.ok) throw new Error(data.message);
-
             messageArea.textContent = data.message;
             messageArea.className = 'message success';
-            
         } catch (error) {
             messageArea.textContent = `Erro: ${error.message}`;
             messageArea.className = 'message error';
@@ -238,7 +244,6 @@ document.addEventListener('DOMContentLoaded', () => {
         showLogin(); 
     });
     
-
     const populateVeiculoSelect = async (selectElement) => {
         const token = localStorage.getItem('token');
         try {
@@ -259,10 +264,17 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const fetchVeiculos = async () => {
         const token = localStorage.getItem('token');
-        if (!token) { showLogin(); return; }
+        if (!token) { 
+            showLogin(); 
+            return; 
+        }
         try {
             const response = await fetch(`${API_URL}/api/veiculos`, { headers: { 'Authorization': `Bearer ${token}` } });
-            if (response.status === 401) { localStorage.removeItem('token'); showLogin(); throw new Error('Sessão expirou.'); }
+            if (response.status === 401) { 
+                localStorage.removeItem('token'); 
+                showLogin(); 
+                throw new Error('Sessão expirou.'); 
+            }
             if (!response.ok) throw new Error('Falha ao buscar veículos.');
             const veiculos = await response.json();
             veiculosList.innerHTML = '';
@@ -358,47 +370,127 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cancelEditBtn.addEventListener('click', () => { editModal.style.display = 'none'; });
 
+    const fetchViagensRascunho = async () => {
+        const token = localStorage.getItem('token');
+        try {
+            const response = await fetch(`${API_URL}/api/viagens/rascunho`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (!response.ok) throw new Error('Falha ao buscar rascunhos.');
+            
+            const rascunhos = await response.json();
+            rascunhoListDiv.innerHTML = '';
+
+            if (rascunhos.length === 0) {
+                rascunhoListDiv.innerHTML = '<p>Nenhuma viagem em rascunho.</p>';
+                return;
+            }
+
+            rascunhos.forEach(r => {
+                const dataFormatada = new Date(r.data_viagem).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'rascunho-item';
+                itemDiv.innerHTML = `
+                    <div>
+                        <strong>${dataFormatada} - ${r.placa}</strong><br>
+                        <small>${r.descricao || 'Sem descrição'}</small>
+                    </div>
+                    <button class="edit-rascunho-btn" data-id="${r.id}">Finalizar</button>
+                `;
+                rascunhoListDiv.appendChild(itemDiv);
+            });
+        } catch (error) {
+            rascunhoListDiv.innerHTML = `<p style="color: red;">${error.message}</p>`;
+        }
+    };
+
+    const populateViagemForm = (viagem) => {
+        viagemIdInput.value = viagem.id;
+        viagemVeiculoSelect.value = viagem.veiculo_id;
+        viagemDataInput.value = new Date(viagem.data_viagem).toISOString().split('T')[0];
+        viagemKmInicialInput.value = viagem.km_inicial || '';
+        viagemKmFinalInput.value = viagem.km_final || '';
+        viagemDistanciaInput.value = viagem.distancia_percorrida > 0 ? viagem.distancia_percorrida : '';
+        viagemSaidaInput.value = viagem.local_saida || '';
+        viagemChegadaInput.value = viagem.local_chegada || '';
+        viagemDescricaoInput.value = viagem.descricao || '';
+        
+        salvarBtn.textContent = 'Salvar Viagem Final';
+        preSalvarBtn.style.display = 'none';
+        cancelarEdicaoBtn.style.display = 'block';
+    };
+
+    const resetViagemForm = () => {
+        viagemForm.reset();
+        viagemIdInput.value = '';
+        salvarBtn.textContent = 'Registrar Viagem';
+        preSalvarBtn.style.display = 'block';
+        cancelarEdicaoBtn.style.display = 'none';
+    };
+
+    rascunhoListDiv.addEventListener('click', async (event) => {
+        if (event.target.classList.contains('edit-rascunho-btn')) {
+            const id = event.target.dataset.id;
+            const token = localStorage.getItem('token');
+            const response = await fetch(`${API_URL}/api/viagens/rascunho`, { headers: { 'Authorization': `Bearer ${token}` } });
+            const rascunhos = await response.json();
+            const rascunhoParaEditar = rascunhos.find(r => r.id == id);
+            
+            if (rascunhoParaEditar) {
+                populateViagemForm(rascunhoParaEditar);
+            }
+        }
+    });
+
+    cancelarEdicaoBtn.addEventListener('click', resetViagemForm);
 
     viagemForm.addEventListener('submit', async (event) => {
         event.preventDefault();
         const token = localStorage.getItem('token');
+        
         const viagemData = {
-            veiculo_id: document.getElementById('viagem-veiculo-select').value,
-            data_viagem: document.getElementById('viagem-data').value,
-            distancia_percorrida: document.getElementById('viagem-distancia').value,
-            local_saida: document.getElementById('viagem-saida').value,
-            local_chegada: document.getElementById('viagem-chegada').value,
-            descricao: document.getElementById('viagem-descricao').value,
+            id: viagemIdInput.value || null,
+            veiculo_id: viagemVeiculoSelect.value,
+            data_viagem: viagemDataInput.value,
+            distancia_percorrida: viagemDistanciaInput.value,
+            local_saida: viagemSaidaInput.value,
+            local_chegada: viagemChegadaInput.value,
+            descricao: viagemDescricaoInput.value,
+            km_inicial: viagemKmInicialInput.value,
+            km_final: viagemKmFinalInput.value,
+            isDraft: false
         };
+        
+        const method = viagemData.id ? 'PUT' : 'POST';
+        const url = viagemData.id ? `${API_URL}/api/viagens/${viagemData.id}` : `${API_URL}/api/viagens`;
+
         try {
-            const response = await fetch(`${API_URL}/api/viagens`, {
-                method: 'POST',
+            const response = await fetch(url, {
+                method: method,
                 headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`},
                 body: JSON.stringify(viagemData)
             });
             const data = await response.json();
             if (!response.ok) throw new Error(data.message);
-            messageArea.textContent = 'Viagem registrada com sucesso!';
+
+            messageArea.textContent = data.message;
             messageArea.className = 'message success';
-            viagemForm.reset();
-            showView('view-listar-viagens');
+            resetViagemForm();
+            fetchViagensRascunho();
         } catch (error) {
             messageArea.textContent = `Erro: ${error.message}`;
             messageArea.className = 'message error';
         }
     });
 
-   
     const fetchViagens = async () => {
         const token = localStorage.getItem('token');
         if (!token) { showLogin(); return; }
-
         
         const limit = viagensLimitSelect.value;
         const status = viagensFiltroStatus.value;
         const data_inicio = viagensFiltroDataInicio.value;
         const data_fim = viagensFiltroDataFim.value;
-
         
         const params = new URLSearchParams({
             page: viagensCurrentPage,
@@ -420,6 +512,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             viagensTotalPages = totalPages;
 
+            const viagensList = document.getElementById('viagens-list');
             viagensList.innerHTML = '';
             if (viagens.length === 0) {
                 viagensList.innerHTML = '<p>Nenhuma viagem encontrada para os filtros selecionados.</p>';
@@ -453,14 +546,12 @@ document.addEventListener('DOMContentLoaded', () => {
             messageArea.className = 'message error';
         }
     };
-
    
     const updatePaginationControls = () => {
         viagensPageInfo.textContent = `Página ${viagensCurrentPage} de ${viagensTotalPages}`;
         viagensBtnPrev.disabled = viagensCurrentPage <= 1;
         viagensBtnNext.disabled = viagensCurrentPage >= viagensTotalPages;
     };
-
     
     viagensBtnFiltrar.addEventListener('click', () => {
         viagensCurrentPage = 1; 
@@ -486,7 +577,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-
     despesaComprovanteFile.addEventListener('change', async (event) => {
         const file = event.target.files[0];
         if (!file) return;
@@ -516,12 +606,10 @@ document.addEventListener('DOMContentLoaded', () => {
     despesaForm.addEventListener('submit', async (event) => {
         event.preventDefault();
         const token = localStorage.getItem('token');
-
         
         const valorComVirgula = document.getElementById('despesa-valor').value;
-        const valorFormatado = valorComVirgula.replace('.', '').replace(',', '.');
-
-       
+        const valorFormatado = valorComVirgula.replace(/\./g, '').replace(',', '.');
+        
         const kmValue = document.getElementById('despesa-km').value;
 
         const despesaData = {
@@ -535,7 +623,6 @@ document.addEventListener('DOMContentLoaded', () => {
             link_comprovante: despesaLinkComprovante.value,
             descricao: document.getElementById('despesa-descricao').value,
         };
-
 
         if (isNaN(parseFloat(despesaData.valor))) {
             messageArea.textContent = 'Erro: O valor da despesa é inválido.';
@@ -671,9 +758,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (event.target.classList.contains('edit-despesa-btn')) {
             const id = event.target.dataset.id;
-            const response = await fetch(`${API_URL}/api/despesas`, { headers: { 'Authorization': `Bearer ${token}` }});
-            const despesas = await response.json();
-            const despesaParaEditar = despesas.find(d => d.id == id);
+            const response = await fetch(`${API_URL}/api/despesas?page=1&limit=1000`, { headers: { 'Authorization': `Bearer ${token}` }}); // Busca todas as despesas para encontrar
+            const data = await response.json();
+            const despesaParaEditar = data.despesas.find(d => d.id == id);
             
             if (despesaParaEditar) {
                 await populateVeiculoSelect(document.getElementById('edit-despesa-veiculo-select'));
@@ -690,10 +777,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const previewContainer = document.getElementById('edit-comprovante-preview-container');
                 if (despesaParaEditar.link_comprovante) {
-                
                     const correctedPath = despesaParaEditar.link_comprovante.replace('/public', '');
                     const fullUrl = `${API_URL}${correctedPath}`;
-
                     document.getElementById('edit-comprovante-preview-img').src = fullUrl;
                     document.getElementById('edit-comprovante-download-link').href = fullUrl;
                     previewContainer.style.display = 'block';
@@ -767,11 +852,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await response.json();
             if (!response.ok) throw new Error(data.message);
-
             
             document.getElementById('edit-despesa-link-comprovante').value = data.filePath;
             
-           
             const previewContainer = document.getElementById('edit-comprovante-preview-container');
             document.getElementById('edit-comprovante-preview-img').src = `${API_URL}${data.filePath}`;
             document.getElementById('edit-comprovante-download-link').href = `${API_URL}${data.filePath}`;
@@ -787,7 +870,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     cancelEditDespesaBtn.addEventListener('click', () => { editDespesaModal.style.display = 'none'; });
-
 
     const fetchViagensAPagar = async () => {
         const token = localStorage.getItem('token');
@@ -880,13 +962,11 @@ document.addEventListener('DOMContentLoaded', () => {
             messageArea.className = 'message error';
         }
     });
-
     
     const fetchDashboardSummary = async () => {
         const token = localStorage.getItem('token');
         const filterType = document.querySelector('input[name="filter-type"]:checked').value;
         const params = new URLSearchParams();
-
 
         params.append('filterType', filterType);
 
@@ -895,7 +975,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const ano = document.getElementById('filter-year').value;
             params.append('mes', mes);
             params.append('ano', ano);
-        } else { // 'period'
+        } else {
             const data_inicio = document.getElementById('filter-data-inicio').value;
             const data_fim = document.getElementById('filter-data-fim').value;
             if (!data_inicio || !data_fim) {
@@ -925,10 +1005,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 alertaDiv.style.display = 'none';
             }
         } catch (error) {
-
             messageArea.textContent = '';
             messageArea.className = 'message';
-            document.getElementById('view-home').innerHTML = `<p style="color: red;">${error.message}</p>`;
+            console.error("Erro ao carregar resumo do dashboard:", error.message);
         }
     };
 
@@ -964,7 +1043,7 @@ document.addEventListener('DOMContentLoaded', () => {
         yearInput.value = hoje.getFullYear();
         applyFilterBtn.addEventListener('click', fetchDashboardSummary);
     }
-
+    
     gerarRelatorioBtn.addEventListener('click', async () => {
         const dataInicio = reportDataInicio.value;
         const dataFim = reportDataFim.value;
@@ -978,7 +1057,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch(`${API_URL}/api/relatorios/viagens?data_inicio=${dataInicio}&data_fim=${dataFim}`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
-            if (!response.ok) { const err = await response.json(); throw new Error(err.message); }
+            if (!response.ok) { 
+                const err = await response.json(); 
+                throw new Error(err.message); 
+            }
             const dados = await response.json();
             if (dados.length === 0) {
                 reportContent.innerHTML = '<p>Nenhuma viagem encontrada para o período selecionado.</p>';
@@ -1021,7 +1103,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     imprimirRelatorioBtn.addEventListener('click', () => { window.print(); });
-
 
     initializeDashboardFilters();
     pageTitle.textContent = CONFIG.appName;

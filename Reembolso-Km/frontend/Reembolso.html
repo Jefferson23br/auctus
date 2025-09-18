@@ -146,14 +146,27 @@
                     <div id="view-lancar-km" class="view" style="display: none;">
                         <h3>Lançar Nova Viagem</h3>
                         <form id="viagemForm">
+                            <input type="hidden" id="viagem-id">
+
                             <label for="viagem-veiculo-select">Selecionar Veículo</label>
                             <select id="viagem-veiculo-select" required></select>
                             
                             <label for="viagem-data">Data da Viagem</label>
                             <input type="date" id="viagem-data" required>
                             
+                            <div class="km-inputs">
+                                <div>
+                                    <label for="viagem-km-inicial">KM Inicial (Opcional)</label>
+                                    <input type="number" id="viagem-km-inicial" placeholder="Ex: 18352">
+                                </div>
+                                <div>
+                                    <label for="viagem-km-final">KM Final (Opcional)</label>
+                                    <input type="number" id="viagem-km-final" placeholder="Ex: 18702">
+                                </div>
+                            </div>
+                            
                             <label for="viagem-distancia">Distância Percorrida (KM)</label>
-                            <input type="number" step="0.01" id="viagem-distancia" placeholder="Ex: 120.55" required>
+                            <input type="number" step="0.01" id="viagem-distancia" placeholder="Ex: 120.55">
                             
                             <label for="viagem-saida">Local de Saída</label>
                             <input type="text" id="viagem-saida" placeholder="Comece a digitar um endereço...">
@@ -162,10 +175,22 @@
                             <input type="text" id="viagem-chegada" placeholder="Comece a digitar um endereço...">
                             
                             <label for="viagem-descricao">Descrição</label>
-                            <textarea id="viagem-descricao" rows="3" placeholder="Ex: Visita técnica..."></textarea>
+                            <textarea id="viagem-descricao" rows="3" placeholder="Ex: Início da viagem para..."></textarea>
                             
-                            <button type="submit">Registrar Viagem</button>
+                            <div class="form-actions">
+                                <button type="button" id="presalvar-viagem-btn">Pré-Salvar Rascunho</button>
+                                <button type="submit" id="salvar-viagem-btn">Registrar Viagem</button>
+                                <button type="button" id="cancelar-edicao-viagem-btn" style="display: none;">Cancelar Edição</button>
+                            </div>
                         </form>
+
+                        <div id="rascunhos-container">
+                            <hr>
+                            <h3>Viagens em Rascunho</h3>
+                            <div id="rascunho-viagens-list">
+                                <p>Nenhuma viagem em rascunho.</p>
+                            </div>
+                        </div>
                     </div>
                     
                     <div id="view-listar-viagens" class="view" style="display: none;">
@@ -324,6 +349,7 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAI9d7GZ9Xk2Zniq7keuIwO9Z2pW1rKO6o&libraries=places&callback=initMap" async defer></script>
     <script src="app.js"></script>
+    <script src="app2.js"></script> 
     
     <div id="edit-veiculo-modal" class="modal-overlay" style="display: none;">
         <div class="modal-content">

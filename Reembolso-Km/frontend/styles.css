@@ -249,3 +249,39 @@ hr { border: 0; border-top: 1px solid #eee; margin: 2rem 0; }
 #edit-comprovante-preview-container a:hover {
     background-color: #5a6268;
 }
+.km-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+#cancelar-edicao-viagem-btn {
+    background-color: #6c757d;
+}
+
+#rascunhos-container {
+    margin-top: 2rem;
+}
+
+.rascunho-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    background-color: #fffbeb;
+}
+
+.rascunho-item button {
+    width: auto;
+    padding: 5px 10px;
+    font-size: 0.85rem;
+    margin-bottom: 0;
+}
