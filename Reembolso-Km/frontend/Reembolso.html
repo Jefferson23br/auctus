@@ -323,8 +323,15 @@
                     </div>
                     
                     <div id="view-relatorios" class="view" style="display: none;">
-                        <h3>Relatório de Viagens</h3>
+                        <h3>Relatórios</h3>
                         <div class="report-filters">
+                            <div class="filter-group">
+                                <label for="relatorio-select">Selecione o Relatório</label>
+                                <select id="relatorio-select">
+                                    <option value="">-- Selecione um Relatório --</option>
+                                    <option value="kmReembolso">01 - Relatorio Km / Reembolso a Pagar e Pago</option>
+                                    </select>
+                            </div>
                             <div class="filter-group">
                                 <label for="report-data-inicio">Data Início</label>
                                 <input type="date" id="report-data-inicio">
@@ -337,7 +344,7 @@
                             <button id="imprimir-relatorio-btn" style="display: none;">Imprimir</button>
                         </div>
                         <div id="report-content" class="report-container">
-                            <p>Selecione um período e clique em "Gerar Relatório".</p>
+                            <p>Selecione um relatório, um período e clique em "Gerar Relatório".</p>
                         </div>
                     </div>
                 </main>
