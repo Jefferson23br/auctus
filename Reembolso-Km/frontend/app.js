@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const reportContent = document.getElementById('report-content');
     const reportDataInicio = document.getElementById('report-data-inicio');
     const reportDataFim = document.getElementById('report-data-fim');
-    const relatorioSelect = document.getElementById('relatorio-select'); // Adicionado
+    const relatorioSelect = document.getElementById('relatorio-select');
     
     const viagensFiltroDataInicio = document.getElementById('viagens-filtro-data-inicio');
     const viagensFiltroDataFim = document.getElementById('viagens-filtro-data-fim');
@@ -100,7 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const cancelarEdicaoBtn = document.getElementById('cancelar-edicao-viagem-btn');
     const rascunhoListDiv = document.getElementById('rascunho-viagens-list');
 
-
     const API_URL = 'https://api.auctusconsultoria.com.br';
     const CONFIG = { appName: "Reembolso de Km" };
  
@@ -109,7 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let despesasCurrentPage = 1;
     let despesasTotalPages = 1;
 
-
+    /**
+     * Exibe uma view específica do painel e esconde as outras.
+     * @param {string} viewId O ID do elemento da view a ser exibida.
+     */
     const showView = (viewId) => {
         views.forEach(view => view.style.display = 'none');
         const viewToShow = document.getElementById(viewId);
@@ -118,13 +120,11 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (viewId === 'view-home') fetchDashboardSummary();
         if (viewId === 'view-listar-veiculo') fetchVeiculos();
-        
         if (viewId === 'view-lancar-km') {
             populateVeiculoSelect(viagemVeiculoSelect);
             resetViagemForm();
             fetchViagensRascunho();
         }
-
         if (viewId === 'view-listar-viagens') {
             viagensCurrentPage = 1; 
             fetchViagens();
@@ -137,6 +137,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (viewId === 'view-lancar-pagamento') fetchViagensAPagar();
     };
     
+    /**
+     * Exibe uma tela de autenticação específica (login, registro, etc.).
+     * @param {HTMLElement} screenToShow O elemento da tela a ser exibida.
+     */
     const showAuthScreen = (screenToShow) => {
         loginArea.style.display = 'none';
         registerArea.style.display = 'none';
@@ -163,13 +167,11 @@ document.addEventListener('DOMContentLoaded', () => {
         showView('view-home'); 
     };
 
-
-    menuButtons.forEach(button => button.addEventListener('click', (e) => showView(e.target.dataset.view)));
-    showRegisterLink.addEventListener('click', (e) => { e.preventDefault(); showAuthScreen(registerArea); });
-    showForgotPasswordLink.addEventListener('click', (e) => { e.preventDefault(); showAuthScreen(forgotPasswordArea); });
-    showLoginFromRegisterLink.addEventListener('click', (e) => { e.preventDefault(); showAuthScreen(loginArea); });
-    showLoginFromForgotLink.addEventListener('click', (e) => { e.preventDefault(); showAuthScreen(loginArea); });
-    
+    menuButtons.forEach(button => button.addEventListener('click', (event) => showView(event.target.dataset.view)));
+    showRegisterLink.addEventListener('click', (event) => { event.preventDefault(); showAuthScreen(registerArea); });
+    showForgotPasswordLink.addEventListener('click', (event) => { event.preventDefault(); showAuthScreen(forgotPasswordArea); });
+    showLoginFromRegisterLink.addEventListener('click', (event) => { event.preventDefault(); showAuthScreen(loginArea); });
+    showLoginFromForgotLink.addEventListener('click', (event) => { event.preventDefault(); showAuthScreen(loginArea); });
 
     loginForm.addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -192,8 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    registerForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
+    registerForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
         const nome = document.getElementById('register-nome').value;
         const email = document.getElementById('register-email').value;
         const senha = document.getElementById('register-password').value;
@@ -219,8 +221,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    forgotPasswordForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
+    forgotPasswordForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
         const email = document.getElementById('forgot-email').value;
         try {
             const response = await fetch(`${API_URL}/api/auth/forgot-password`, {
@@ -244,7 +246,11 @@ document.addEventListener('DOMContentLoaded', () => {
         messageArea.className = 'message success'; 
         showLogin(); 
     });
-    
+
+    /**
+     * Busca os veículos do usuário na API e preenche um elemento <select>.
+     * @param {HTMLSelectElement} selectElement O elemento select a ser preenchido.
+     */
     const populateVeiculoSelect = async (selectElement) => {
         const token = localStorage.getItem('token');
         try {
@@ -252,10 +258,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!response.ok) throw new Error('Não foi possível carregar os veículos.');
             const veiculos = await response.json();
             selectElement.innerHTML = '<option value="">-- Selecione um Veículo --</option>';
-            veiculos.forEach(v => {
+            veiculos.forEach(veiculo => {
                 const option = document.createElement('option');
-                option.value = v.id;
-                option.textContent = `${v.placa} (${v.descricao})`;
+                option.value = veiculo.id;
+                option.textContent = `${veiculo.placa} (${veiculo.descricao})`;
                 selectElement.appendChild(option);
             });
         } catch (error) {
@@ -282,12 +288,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (veiculos.length === 0) {
                 veiculosList.innerHTML = '<p>Nenhum veículo cadastrado.</p>';
             } else {
-                veiculos.forEach(v => {
+                veiculos.forEach(veiculo => {
                     const veiculoDiv = document.createElement('div');
                     veiculoDiv.className = 'veiculo-item';
-                    const dataInicio = new Date(v.data_inicio_aluguel).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
-                    const dataFim = v.data_fim_aluguel ? new Date(v.data_fim_aluguel).toLocaleDateString('pt-BR', { timeZone: 'UTC' }) : 'Em aberto';
-                    veiculoDiv.innerHTML = `<div><strong>${v.placa}</strong> (${v.descricao})<br><small>Aluguel: ${dataInicio} - ${dataFim}</small></div><button class="edit-btn" data-id="${v.id}">Editar</button>`;
+                    const dataInicio = new Date(veiculo.data_inicio_aluguel).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+                    const dataFim = veiculo.data_fim_aluguel ? new Date(veiculo.data_fim_aluguel).toLocaleDateString('pt-BR', { timeZone: 'UTC' }) : 'Em aberto';
+                    veiculoDiv.innerHTML = `<div><strong>${veiculo.placa}</strong> (${veiculo.descricao})<br><small>Aluguel: ${dataInicio} - ${dataFim}</small></div><button class="edit-btn" data-id="${veiculo.id}">Editar</button>`;
                     veiculosList.appendChild(veiculoDiv);
                 });
             }
@@ -329,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const token = localStorage.getItem('token');
             const response = await fetch(`${API_URL}/api/veiculos`, { headers: { 'Authorization': `Bearer ${token}` }});
             const veiculos = await response.json();
-            const veiculoParaEditar = veiculos.find(v => v.id == veiculoId);
+            const veiculoParaEditar = veiculos.find(veiculo => veiculo.id == veiculoId);
             if (veiculoParaEditar) {
                 document.getElementById('edit-veiculo-id').value = veiculoParaEditar.id;
                 document.getElementById('edit-placa').value = veiculoParaEditar.placa;
@@ -387,16 +393,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            rascunhos.forEach(r => {
-                const dataFormatada = new Date(r.data_viagem).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+            rascunhos.forEach(rascunho => {
+                const dataFormatada = new Date(rascunho.data_viagem).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
                 const itemDiv = document.createElement('div');
                 itemDiv.className = 'rascunho-item';
                 itemDiv.innerHTML = `
                     <div>
-                        <strong>${dataFormatada} - ${r.placa}</strong><br>
-                        <small>${r.descricao || 'Sem descrição'}</small>
+                        <strong>${dataFormatada} - ${rascunho.placa}</strong><br>
+                        <small>${rascunho.descricao || 'Sem descrição'}</small>
                     </div>
-                    <button class="edit-rascunho-btn" data-id="${r.id}">Finalizar</button>
+                    <button class="edit-rascunho-btn" data-id="${rascunho.id}">Finalizar</button>
                 `;
                 rascunhoListDiv.appendChild(itemDiv);
             });
@@ -405,6 +411,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    /**
+     * Preenche o formulário de viagem com os dados de um rascunho para edição.
+     * @param {object} viagem O objeto da viagem a ser editada.
+     */
     const populateViagemForm = (viagem) => {
         viagemIdInput.value = viagem.id;
         viagemVeiculoSelect.value = viagem.veiculo_id;
@@ -435,7 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const token = localStorage.getItem('token');
             const response = await fetch(`${API_URL}/api/viagens/rascunho`, { headers: { 'Authorization': `Bearer ${token}` } });
             const rascunhos = await response.json();
-            const rascunhoParaEditar = rascunhos.find(r => r.id == id);
+            const rascunhoParaEditar = rascunhos.find(rascunho => rascunho.id == id);
             
             if (rascunhoParaEditar) {
                 populateViagemForm(rascunhoParaEditar);
@@ -444,6 +454,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     cancelarEdicaoBtn.addEventListener('click', resetViagemForm);
+
+    preSalvarBtn.addEventListener('click', async () => {
+        const token = localStorage.getItem('token');
+        const viagemData = {
+            veiculo_id: viagemVeiculoSelect.value,
+            data_viagem: viagemDataInput.value,
+            km_inicial: viagemKmInicialInput.value,
+            descricao: viagemDescricaoInput.value,
+            isDraft: true 
+        };
+
+        if (!viagemData.veiculo_id || !viagemData.data_viagem) {
+            messageArea.textContent = 'Selecione um veículo e uma data para pré-salvar.';
+            messageArea.className = 'message error';
+            return;
+        }
+
+        try {
+            const response = await fetch(`${API_URL}/api/viagens`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`},
+                body: JSON.stringify(viagemData)
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.message);
+
+            messageArea.textContent = 'Rascunho salvo com sucesso!';
+            messageArea.className = 'message success';
+            resetViagemForm();
+            fetchViagensRascunho(); 
+
+        } catch (error) {
+            messageArea.textContent = `Erro: ${error.message}`;
+            messageArea.className = 'message error';
+        }
+    });
 
     viagemForm.addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -513,17 +559,17 @@ document.addEventListener('DOMContentLoaded', () => {
             
             viagensTotalPages = totalPages;
 
-            const viagensList = document.getElementById('viagens-list');
-            viagensList.innerHTML = '';
+            const viagensListElement = document.getElementById('viagens-list');
+            viagensListElement.innerHTML = '';
             if (viagens.length === 0) {
-                viagensList.innerHTML = '<p>Nenhuma viagem encontrada para os filtros selecionados.</p>';
+                viagensListElement.innerHTML = '<p>Nenhuma viagem encontrada para os filtros selecionados.</p>';
             } else {
-                viagens.forEach(v => {
+                viagens.forEach(viagem => {
                     const viagemDiv = document.createElement('div');
                     viagemDiv.className = 'viagem-item';
-                    const dataViagem = new Date(v.data_viagem).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+                    const dataViagem = new Date(viagem.data_viagem).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
                     let statusClass = '';
-                    switch (v.status_pagamento) {
+                    switch (viagem.status_pagamento) {
                         case 'A Pagar': statusClass = 'status-apagar'; break;
                         case 'Pago': statusClass = 'status-pago'; viagemDiv.classList.add('pago'); break;
                         case 'Pago Parcial': statusClass = 'status-pago-parcial'; break;
@@ -531,14 +577,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     viagemDiv.innerHTML = `
                         <div class="viagem-header">
-                            <span>${dataViagem} - ${v.placa} (${Number(v.distancia_percorrida).toFixed(2)} km)</span>
-                            <span class="status-badge ${statusClass}">${v.status_pagamento}</span>
+                            <span>${dataViagem} - ${viagem.placa} (${Number(viagem.distancia_percorrida).toFixed(2)} km)</span>
+                            <span class="status-badge ${statusClass}">${viagem.status_pagamento}</span>
                         </div>
-                        <p class="viagem-details"><strong>Trajeto:</strong> ${v.local_saida || 'N/A'} → ${v.local_chegada || 'N/A'}</p>
-                        <p class="viagem-details"><strong>Descrição:</strong> ${v.descricao || 'N/A'}</p>
-                        <p class="viagem-details"><strong>Reembolso:</strong> R$ ${Number(v.valor_reembolso).toFixed(2)}</p>
+                        <p class="viagem-details"><strong>Trajeto:</strong> ${viagem.local_saida || 'N/A'} → ${viagem.local_chegada || 'N/A'}</p>
+                        <p class="viagem-details"><strong>Descrição:</strong> ${viagem.descricao || 'N/A'}</p>
+                        <p class="viagem-details"><strong>Reembolso:</strong> R$ ${Number(viagem.valor_reembolso).toFixed(2)}</p>
                     `;
-                    viagensList.appendChild(viagemDiv);
+                    viagensListElement.appendChild(viagemDiv);
                 });
             }
             updatePaginationControls();
@@ -684,19 +730,19 @@ document.addEventListener('DOMContentLoaded', () => {
             if (despesas.length === 0) {
                 despesasasList.innerHTML = '<p>Nenhuma despesa encontrada para os filtros selecionados.</p>';
             } else {
-                despesas.forEach(d => {
+                despesas.forEach(despesa => {
                     const itemDiv = document.createElement('div');
                     itemDiv.className = 'despesa-item';
-                    const dataDespesa = new Date(d.data_despesa).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+                    const dataDespesa = new Date(despesa.data_despesa).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
                     itemDiv.innerHTML = `
                         <div class="despesa-info">
-                            <strong>${d.tipo_despesa}</strong> - ${d.placa}
-                            <small>${dataDespesa} | ${d.forma_pagamento} | Status: ${d.status_pagamento}</small>
+                            <strong>${despesa.tipo_despesa}</strong> - ${despesa.placa}
+                            <small>${dataDespesa} | ${despesa.forma_pagamento} | Status: ${despesa.status_pagamento}</small>
                         </div>
-                        <strong class="despesa-valor">R$ ${Number(d.valor).toFixed(2)}</strong>
+                        <strong class="despesa-valor">R$ ${Number(despesa.valor).toFixed(2)}</strong>
                         <div class="despesa-actions">
-                            <button class="edit-despesa-btn" data-id="${d.id}">Editar</button>
-                            <button class="delete-despesa-btn" data-id="${d.id}">Excluir</button>
+                            <button class="edit-despesa-btn" data-id="${despesa.id}">Editar</button>
+                            <button class="delete-despesa-btn" data-id="${despesa.id}">Excluir</button>
                         </div>
                     `;
                     despesasasList.appendChild(itemDiv);
@@ -761,7 +807,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const id = event.target.dataset.id;
             const response = await fetch(`${API_URL}/api/despesas?page=1&limit=1000`, { headers: { 'Authorization': `Bearer ${token}` }}); // Busca todas as despesas para encontrar
             const data = await response.json();
-            const despesaParaEditar = data.despesas.find(d => d.id == id);
+            const despesaParaEditar = data.despesas.find(despesa => despesa.id == id);
             
             if (despesaParaEditar) {
                 await populateVeiculoSelect(document.getElementById('edit-despesa-veiculo-select'));
@@ -857,8 +903,10 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('edit-despesa-link-comprovante').value = data.filePath;
             
             const previewContainer = document.getElementById('edit-comprovante-preview-container');
-            document.getElementById('edit-comprovante-preview-img').src = `${API_URL}${data.filePath}`;
-            document.getElementById('edit-comprovante-download-link').href = `${API_URL}${data.filePath}`;
+            const correctedPath = data.filePath.replace('/public', '');
+            const fullUrl = `${API_URL}${correctedPath}`;
+            document.getElementById('edit-comprovante-preview-img').src = fullUrl;
+            document.getElementById('edit-comprovante-download-link').href = fullUrl;
             previewContainer.style.display = 'block';
 
             messageArea.textContent = 'Novo comprovante anexado com sucesso!';
@@ -884,17 +932,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 viagensAPagarList.innerHTML = '<p style="padding: 10px;">Nenhuma viagem a pagar encontrada.</p>';
                 return;
             }
-            viagens.forEach(v => {
-                const dataViagem = new Date(v.data_viagem).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+            viagens.forEach(viagem => {
+                const dataViagem = new Date(viagem.data_viagem).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
                 const itemDiv = document.createElement('div');
                 itemDiv.className = 'viagem-pagamento-item';
                 itemDiv.innerHTML = `
-                    <input type="checkbox" class="viagem-checkbox" id="viagem-${v.id}" value="${v.id}" data-valor="${v.valor_reembolso}">
+                    <input type="checkbox" class="viagem-checkbox" id="viagem-${viagem.id}" value="${viagem.id}" data-valor="${viagem.valor_reembolso}">
                     <div class="viagem-pagamento-info">
-                        <span class="info-header">${dataViagem} <small>- ${v.placa}</small></span>
-                        <span class="info-desc">${v.descricao || 'Sem descrição'}</span>
+                        <span class="info-header">${dataViagem} <small>- ${viagem.placa}</small></span>
+                        <span class="info-desc">${viagem.descricao || 'Sem descrição'}</span>
                     </div>
-                    <strong class="viagem-pagamento-valor">R$ ${Number(v.valor_reembolso).toFixed(2)}</strong>
+                    <strong class="viagem-pagamento-valor">R$ ${Number(viagem.valor_reembolso).toFixed(2)}</strong>
                 `;
                 viagensAPagarList.appendChild(itemDiv);
             });
@@ -908,9 +956,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const checkedCheckboxes = document.querySelectorAll('.viagem-checkbox:checked');
         let totalViagens = 0;
         let valorTotal = 0;
-        checkedCheckboxes.forEach(cb => {
+        checkedCheckboxes.forEach(checkbox => {
             totalViagens++;
-            valorTotal += parseFloat(cb.dataset.valor);
+            valorTotal += parseFloat(checkbox.dataset.valor);
         });
         totalViagensSpan.textContent = totalViagens;
         valorTotalSpan.textContent = valorTotal.toFixed(2);
@@ -920,7 +968,7 @@ document.addEventListener('DOMContentLoaded', () => {
     viagensAPagarList.addEventListener('change', atualizarResumoPagamento);
 
     selecionarTodasCheckbox.addEventListener('change', (event) => {
-        document.querySelectorAll('.viagem-checkbox').forEach(cb => cb.checked = event.target.checked);
+        document.querySelectorAll('.viagem-checkbox').forEach(checkbox => checkbox.checked = event.target.checked);
         atualizarResumoPagamento();
     });
 
@@ -928,7 +976,7 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
         const form = event.target; 
         const token = localStorage.getItem('token');
-        const selectedViagensIds = Array.from(document.querySelectorAll('.viagem-checkbox:checked')).map(cb => cb.value);
+        const selectedViagensIds = Array.from(document.querySelectorAll('.viagem-checkbox:checked')).map(checkbox => checkbox.value);
     
         if (selectedViagensIds.length === 0) {
             messageArea.textContent = 'Erro: Selecione ao menos uma viagem para pagar.';
@@ -963,7 +1011,7 @@ document.addEventListener('DOMContentLoaded', () => {
             messageArea.className = 'message error';
         }
     });
-    
+
     const fetchDashboardSummary = async () => {
         const token = localStorage.getItem('token');
         const filterType = document.querySelector('input[name="filter-type"]:checked').value;
@@ -1083,20 +1131,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     let totalReembolso = 0;
                     let totalReembolsado = 0;
                     let tableRows = '';
-                    dados.forEach(d => {
-                        totalKm += parseFloat(d.distancia_percorrida);
-                        totalReembolso += parseFloat(d.valor_reembolso);
-                        totalReembolsado += parseFloat(d.valor_reembolsado);
+                    dados.forEach(dado => {
+                        totalKm += parseFloat(dado.distancia_percorrida);
+                        totalReembolso += parseFloat(dado.valor_reembolso);
+                        totalReembolsado += parseFloat(dado.valor_reembolsado);
                         tableRows += `
                             <tr>
-                                <td>${new Date(d.data_viagem).toLocaleDateString('pt-BR', { timeZone: 'UTC' })}</td>
-                                <td>${d.local_saida || 'N/A'}</td>
-                                <td>${d.local_chegada || 'N/A'}</td>
-                                <td>${parseFloat(d.distancia_percorrida).toFixed(2)}</td>
-                                <td>R$ ${parseFloat(d.valor_reembolso).toFixed(2)}</td>
-                                <td>R$ ${parseFloat(d.valor_reembolsado).toFixed(2)}</td>
-                                <td>${d.data_reembolso ? new Date(d.data_reembolso).toLocaleDateString('pt-BR', { timeZone: 'UTC' }) : '--'}</td>
-                                <td>${d.status_pagamento}</td>
+                                <td>${new Date(dado.data_viagem).toLocaleDateString('pt-BR', { timeZone: 'UTC' })}</td>
+                                <td>${dado.local_saida || 'N/A'}</td>
+                                <td>${dado.local_chegada || 'N/A'}</td>
+                                <td>${parseFloat(dado.distancia_percorrida).toFixed(2)}</td>
+                                <td>R$ ${parseFloat(dado.valor_reembolso).toFixed(2)}</td>
+                                <td>R$ ${parseFloat(dado.valor_reembolsado).toFixed(2)}</td>
+                                <td>${dado.data_reembolso ? new Date(dado.data_reembolso).toLocaleDateString('pt-BR', { timeZone: 'UTC' }) : '--'}</td>
+                                <td>${dado.status_pagamento}</td>
                             </tr>
                         `;
                     });
@@ -1113,11 +1161,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     imprimirRelatorioBtn.style.display = 'none';
                 }
                 break;
-
-            // case 'outroRelatorio':
-            //     // Aqui eu vou colocar a lógica para um futuro relatório
-            //     reportContent.innerHTML = `<p>Lógica para outro relatório ainda não implementada.</p>`;
-            //     break;
         
             default:
                 reportContent.innerHTML = `<p style="color: red;">Tipo de relatório desconhecido.</p>`;
