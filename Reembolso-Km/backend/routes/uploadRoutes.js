@@ -19,22 +19,14 @@ function checkFileType(file, cb) {
 
     const allowedExts = /jpeg|jpg|png|pdf|heic|heif/;
 
-    const allowedMimes = [
-        'image/jpeg',
-        'image/png',
-        'application/pdf',
-        'image/heic',
-        'image/heif'
-    ];
-
 
     const extname = allowedExts.test(path.extname(file.originalname).toLowerCase());
 
-    const mimetype = allowedMimes.includes(file.mimetype);
-
-    if (extname && mimetype) {
+    if (extname) {
+ 
         return cb(null, true);
     } else {
+
         cb(new Error('Tipo de arquivo inválido! Apenas imagens (jpg, png, heic), e PDFs são permitidos.'));
     }
 }
@@ -51,8 +43,8 @@ router.post('/', protect, upload.single('comprovante'), (req, res) => {
     if (!req.file) {
         return res.status(400).send({ message: 'Por favor, anexe um arquivo.' });
     }
-
     
+
     const filePath = `/uploads/${req.file.filename}`;
 
     res.status(201).send({
