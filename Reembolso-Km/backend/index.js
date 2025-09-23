@@ -1,8 +1,8 @@
 require('dotenv').config(); 
 
 const express = require('express');
-const cors = require('cors');
 const path = require('path');
+
 
 const authRoutes = require('./routes/authRoutes');
 const veiculoRoutes = require('./routes/veiculoRoutes');
@@ -13,15 +13,8 @@ const pagamentoRoutes = require('./routes/pagamentoRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const relatorioRoutes = require('./routes/relatorioRoutes');
 
-
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-
-const corsOptions = {
-  origin: 'https://www.auctusconsultoria.com.br'
-};
-app.use(cors(corsOptions));
 
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
@@ -40,7 +33,6 @@ app.use('/api/upload', uploadRoutes);
 app.use('/api/pagamentos', pagamentoRoutes); 
 app.use('/api/dashboard', dashboardRoutes); 
 app.use('/api/relatorios', relatorioRoutes);
-
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);

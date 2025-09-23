@@ -14,19 +14,13 @@ const storage = multer.diskStorage({
     }
 });
 
-
 function checkFileType(file, cb) {
-
     const allowedExts = /jpeg|jpg|png|pdf|heic|heif/;
-
-
     const extname = allowedExts.test(path.extname(file.originalname).toLowerCase());
 
     if (extname) {
- 
         return cb(null, true);
     } else {
-
         cb(new Error('Tipo de arquivo inválido! Apenas imagens (jpg, png, heic), e PDFs são permitidos.'));
     }
 }
@@ -35,16 +29,15 @@ const upload = multer({
     storage,
     fileFilter: function (req, file, cb) {
         checkFileType(file, cb);
-    }
+    },
+    limits: { fileSize: 50 * 1024 * 1024 } 
 });
-
 
 router.post('/', protect, upload.single('comprovante'), (req, res) => {
     if (!req.file) {
         return res.status(400).send({ message: 'Por favor, anexe um arquivo.' });
     }
     
-
     const filePath = `/uploads/${req.file.filename}`;
 
     res.status(201).send({
@@ -54,3 +47,4 @@ router.post('/', protect, upload.single('comprovante'), (req, res) => {
 });
 
 module.exports = router;
+
