@@ -99,7 +99,7 @@ exports.forgotPassword = async (req, res) => {
 
     await transporter.sendMail({
       to: email,
-      from: '"Sistema de Reembolso" <seu-email@example.com>',
+      from: '"Sistema de Reembolso" <contato@auctusconsultoria.com.br>',
       subject: 'Redefinição de Senha',
       html: `<p>Você solicitou uma redefinição de senha. Clique no link a seguir, que é válido por 1 hora:</p>
              <p><a href="${resetUrl}">${resetUrl}</a></p>`,
