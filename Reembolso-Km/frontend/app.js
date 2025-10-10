@@ -13,9 +13,7 @@ function initMap() {
         const autocompleteSaida = new google.maps.places.Autocomplete(saidaInput, options);
         const autocompleteChegada = new google.maps.places.Autocomplete(chegadaInput, options);
 
-        // 2. Adicionamos um "ouvinte" para cada campo (ESTA É A MUDANÇA PRINCIPAL)
-        // Este código só executa QUANDO o usuário CLICA em uma sugestão da lista.
-        // Se ele não clicar em nada, o texto que ele digitou é mantido.
+
         autocompleteSaida.addListener('place_changed', () => {
             const place = autocompleteSaida.getPlace();
             // Se o local selecionado tiver um endereço formatado, usamos ele.
