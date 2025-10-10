@@ -1,7 +1,5 @@
-// Substitua sua função initMap original por esta versão completa e corrigida
-
 function initMap() {
-    // As opções de configuração permanecem as mesmas
+
     const options = {
         componentRestrictions: { country: "br" },
         strictBounds: false,
@@ -11,7 +9,7 @@ function initMap() {
         const saidaInput = document.getElementById("viagem-saida");
         const chegadaInput = document.getElementById("viagem-chegada");
 
-        // 1. Criamos e guardamos as instâncias do Autocomplete
+
         const autocompleteSaida = new google.maps.places.Autocomplete(saidaInput, options);
         const autocompleteChegada = new google.maps.places.Autocomplete(chegadaInput, options);
 
