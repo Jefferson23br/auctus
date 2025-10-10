@@ -1,14 +1,38 @@
+// Substitua sua função initMap original por esta versão completa e corrigida
+
 function initMap() {
+    // As opções de configuração permanecem as mesmas
     const options = {
-        componentRestrictions: { country: "br" }, 
-        fields: ["formatted_address", "name"],
+        componentRestrictions: { country: "br" },
         strictBounds: false,
     };
+
     try {
         const saidaInput = document.getElementById("viagem-saida");
         const chegadaInput = document.getElementById("viagem-chegada");
-        new google.maps.places.Autocomplete(saidaInput, options);
-        new google.maps.places.Autocomplete(chegadaInput, options);
+
+        // 1. Criamos e guardamos as instâncias do Autocomplete
+        const autocompleteSaida = new google.maps.places.Autocomplete(saidaInput, options);
+        const autocompleteChegada = new google.maps.places.Autocomplete(chegadaInput, options);
+
+        // 2. Adicionamos um "ouvinte" para cada campo (ESTA É A MUDANÇA PRINCIPAL)
+        // Este código só executa QUANDO o usuário CLICA em uma sugestão da lista.
+        // Se ele não clicar em nada, o texto que ele digitou é mantido.
+        autocompleteSaida.addListener('place_changed', () => {
+            const place = autocompleteSaida.getPlace();
+            // Se o local selecionado tiver um endereço formatado, usamos ele.
+            if (place.formatted_address) {
+                saidaInput.value = place.formatted_address;
+            }
+        });
+
+        autocompleteChegada.addListener('place_changed', () => {
+            const place = autocompleteChegada.getPlace();
+            if (place.formatted_address) {
+                chegadaInput.value = place.formatted_address;
+            }
+        });
+
     } catch (e) {
         console.error("Erro ao inicializar o Google Maps Autocomplete. Verifique a chave da API.", e);
     }
