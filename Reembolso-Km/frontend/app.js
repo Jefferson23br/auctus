@@ -16,7 +16,7 @@ function initMap() {
 
         autocompleteSaida.addListener('place_changed', () => {
             const place = autocompleteSaida.getPlace();
-            // Se o local selecionado tiver um endereço formatado, usamos ele.
+
             if (place.formatted_address) {
                 saidaInput.value = place.formatted_address;
             }
