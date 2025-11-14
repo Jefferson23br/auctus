@@ -47,43 +47,45 @@ a {
     margin-bottom: 40px;
 }
 
-/* Header */
+/* Logo fixa no canto esquerdo */
 
-.main-header {
+.fixed-logo {
     position: fixed;
-    top: 0;
-    width: 100%;
+    top: 16px;
+    left: 16px;
     z-index: 1000;
-    background: rgba(15, 23, 42, 0.9);
-    backdrop-filter: blur(10px);
-    color: #f9fafb;
+    display: inline-block;
 }
 
-.header-container {
+.fixed-logo img {
+    height: 48px;   /* ajuste se quiser maior/menor */
+    width: auto;
+}
+
+/* Menu textual superior (canto direito) */
+
+.top-text-menu {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    z-index: 1000;
+}
+
+.top-text-menu ul {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 16px;
-}
-
-.logo img {
-    height: 40px;
-}
-
-.main-nav ul {
-    display: flex;
-    gap: 24px;
+    gap: 16px;
     list-style: none;
 }
 
-.main-nav a {
-    font-size: 0.95rem;
+.top-text-menu a {
+    font-size: 0.9rem;
     font-weight: 500;
-    color: #e5e7eb;
+    color: rgba(255, 255, 255, 0.9); /* na home, em cima do vídeo escuro */
+    text-decoration: none;
     transition: color 0.2s ease;
 }
 
-.main-nav a:hover {
+.top-text-menu a:hover {
     color: #ffffff;
 }
 
@@ -114,13 +116,13 @@ a {
 
 .btn-outline {
     background: transparent;
-    color: #e5e7eb;
-    border-color: rgba(229, 231, 235, 0.5);
+    color: #111827;
+    border-color: rgba(17, 24, 39, 0.2);
 }
 
 .btn-outline:hover {
-    background: rgba(15, 23, 42, 0.7);
-    border-color: #e5e7eb;
+    background: rgba(17, 24, 39, 0.04);
+    border-color: rgba(17, 24, 39, 0.4);
 }
 
 .btn-header {
@@ -131,7 +133,7 @@ a {
     width: 100%;
 }
 
-/* Hero */
+/* Hero (home) */
 
 .hero-section {
     position: relative;
@@ -139,7 +141,7 @@ a {
     display: flex;
     align-items: center;
     color: #f9fafb;
-    padding-top: 80px; /* compensar header fixo */
+    padding-top: 0; /* não precisamos mais compensar header fixo */
 }
 
 #background-video {
@@ -204,6 +206,22 @@ a {
     font-size: 1.4rem;
 }
 
+/* Página interna: hero */
+
+.page-hero {
+    background: #f3f4f6;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.page-hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+}
+
+.page-hero p {
+    color: #6b7280;
+}
+
 /* Sobre / Quem Somos */
 
 .about-container {
@@ -257,7 +275,7 @@ a {
     margin-bottom: 10px;
 }
 
-/* Ecossistema */
+/* Ecossistema (se usar) */
 
 .ecosystem-section {
     background: linear-gradient(135deg, #0f172a, #111827);
@@ -305,7 +323,7 @@ a {
     padding: 24px;
 }
 
-/* Depoimentos */
+/* Depoimentos (se usar) */
 
 .testimonials-section {
     background: #f9fafb;
@@ -431,65 +449,6 @@ a {
     font-size: 0.85rem;
 }
 
-/* Menu mobile (hamburger + side-menu) */
-
-.hamburger-icon {
-    display: none;
-    flex-direction: column;
-    gap: 4px;
-    cursor: pointer;
-}
-
-.hamburger-icon span {
-    width: 24px;
-    height: 2px;
-    background-color: #e5e7eb;
-}
-
-.side-menu {
-    position: fixed;
-    top: 0;
-    right: -320px;
-    width: 280px;
-    height: 100vh;
-    background-color: #020617;
-    z-index: 1100;
-    transition: right 0.3s ease;
-    padding: 60px 24px;
-    display: flex;
-    flex-direction: column;
-}
-
-.side-menu.open {
-    right: 0;
-}
-
-.side-menu ul {
-    list-style: none;
-    margin-bottom: auto;
-}
-
-.side-menu ul li {
-    margin-bottom: 16px;
-}
-
-.side-menu ul li a {
-    color: #e5e7eb;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 0.12em;
-}
-
-.logo-menu {
-    text-align: center;
-    margin-top: 24px;
-}
-
-.logo-menu img {
-    max-width: 120px;
-    opacity: 0.9;
-}
-
 /* Responsivo */
 
 @media (max-width: 992px) {
@@ -506,22 +465,6 @@ a {
 }
 
 @media (max-width: 768px) {
-    .header-container {
-        padding: 10px 16px;
-    }
-
-    .main-nav {
-        display: none;
-    }
-
-    .btn-header {
-        display: none;
-    }
-
-    .hamburger-icon {
-        display: flex;
-    }
-
     .hero-content h1 {
         font-size: 2.1rem;
     }
@@ -538,5 +481,22 @@ a {
 
     .section {
         padding: 60px 0;
+    }
+
+    /* Menu topo em telas pequenas - pode ficar menor */
+    .top-text-menu {
+        top: 16px;
+        right: 12px;
+    }
+
+    .top-text-menu ul {
+        gap: 10px;
+        font-size: 0.8rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .fixed-logo img {
+        height: 40px;
     }
 }
