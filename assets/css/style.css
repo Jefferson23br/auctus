@@ -496,7 +496,16 @@ a {
         justify-content: flex-end;
     }
 
-    .fixed-logo img {
-        height: 40px;
-    }
+   .fixed-logo {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 1000;
+    display: inline-block;
+}
+
+.fixed-logo img {
+    height: 70px;   /* AUMENTEI AQUI */
+    width: auto;
+}
 }
