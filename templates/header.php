@@ -68,7 +68,7 @@
     <header class="main-header">
         <div class="container header-container">
             <a href="/" class="logo">
-                <img src="assets/images/logosite.png" alt="Logo Auctus Consultoria">
+                <img src="assets/images/logosite.webp" alt="Logo Auctus Consultoria">
             </a>
 
             <nav class="main-nav">
