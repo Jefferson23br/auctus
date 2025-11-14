@@ -25,7 +25,7 @@
       "@type": "Organization",
       "name": "Auctus Consultoria",
       "url": "https://www.auctusconsultoria.com.br/",
-      "logo": "https://www.auctusconsultoria.com.br/assets/images/logosite.webp",
+      "logo": "https://www.auctusconsultoria.com.br/assets/images/logo-auctus.webp",
       "sameAs": [
         "https://www.instagram.com/",
         "https://www.linkedin.com/"
@@ -40,11 +40,11 @@
     }
     </script>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/webp" href="/favicon-96x96.webp" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.webp" />
+    <!-- Favicons -->
+    <link rel="icon" type="image/webp" href="assets/images/favicon-96x96.webp" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.webp" />
     <meta name="apple-mobile-web-app-title" content="Auctus" />
     <link rel="manifest" href="/site.webmanifest" />
 
@@ -64,50 +64,19 @@
 </head>
 <body>
 
-    <!-- Header / Menu -->
-    <header class="main-header">
-        <div class="container header-container">
-            <a href="/" class="logo">
-                <img src="assets/images/logosite.webp" alt="Logo Auctus Consultoria">
-            </a>
+    <!-- Logo fixa no canto esquerdo -->
+    <a href="/" class="fixed-logo">
+        <img src="assets/images/logo-auctus3.png" alt="Logo Auctus Consultoria">
+    </a>
 
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#quem-somos">Quem Somos</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#portfolio">Portfólio</a></li>
-                    <li><a href="#depoimentos">Depoimentos</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                    <li><a href="https://www.auctusconsultoria.com.br/Reembolso-Km/frontend/Reembolso" target="_blank">Reembolso KM</a></li>
-                </ul>
-            </nav>
-
-            <a href="https://wa.me/5535999187047?text=Olá!%20Gostaria%20de%20mais%20informações." class="btn btn-primary btn-header">
-                Fale com um especialista
-            </a>
-
-            <!-- Ícone do menu mobile -->
-            <div class="hamburger-icon" id="hamburger-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-
-        <!-- Menu mobile lateral -->
-        <nav class="side-menu" id="side-menu">
-            <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#quem-somos">Quem Somos</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#portfolio">Portfólio</a></li>
-                <li><a href="#depoimentos">Depoimentos</a></li>
-                <li><a href="#contato">Contato</a></li>
-                <li><a href="https://www.auctusconsultoria.com.br/Reembolso-Km/frontend/Reembolso" target="_blank">Reembolso KM</a></li>
-            </ul>
-            <div class="logo-menu">
-                <img src="assets/images/logosite.webp" alt="Logo Auctus">
-            </div>
-        </nav>
-    </header>
+    <!-- Mini menu superior textual -->
+    <nav class="top-text-menu">
+        <ul>
+            <li><a href="/quem-somos.php">Quem Somos</a></li>
+            <li><a href="/como-podemos-te-ajudar.php">Como Podemos te Ajudar</a></li>
+            <li><a href="/servicos.php">Serviços</a></li>
+            <li><a href="/portfolio.php">Portfólio</a></li>
+            <li><a href="/contato.php">Contato</a></li>
+            <li><a href="https://www.auctusconsultoria.com.br/Reembolso-Km/frontend/Reembolso" target="_blank">Reembolso KM</a></li>
+        </ul>
+    </nav>
