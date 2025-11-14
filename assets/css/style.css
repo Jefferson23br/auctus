@@ -119,6 +119,7 @@ a {
     top: 0;
     right: -320px;
     width: 260px;
+    max-width: 80vw;
     height: 100vh;
     background-color: #020617;
     z-index: 1100;
@@ -221,7 +222,7 @@ a {
     width: 100%;
 }
 
-/* Hero (home) */
+/* HERO (home) */
 
 .hero-section {
     position: relative;
@@ -254,7 +255,7 @@ a {
 
 .hero-content {
     max-width: 650px;
-    padding: 40px 0;
+    padding: 120px 0 40px; /* 120px para não bater na logo/menu */
 }
 
 .hero-tagline {
@@ -299,7 +300,7 @@ a {
 .page-hero {
     background: #f3f4f6;
     border-bottom: 1px solid #e5e7eb;
-    padding: 80px 0 40px 0;
+    padding: 120px 0 40px 0; /* 120px para compensar logo/menu fixos */
 }
 
 .page-hero h1 {
@@ -311,7 +312,7 @@ a {
     color: #6b7280;
 }
 
-/* Sobre / Quem Somos */
+/* SOBRE / QUEM SOMOS */
 
 .about-section {
     background: #ffffff;
@@ -368,7 +369,7 @@ a {
     margin-bottom: 10px;
 }
 
-/* Ecossistema (se usar) */
+/* Ecossistema (opcional) */
 
 .ecosystem-section {
     background: linear-gradient(135deg, #0f172a, #111827);
@@ -416,7 +417,7 @@ a {
     padding: 24px;
 }
 
-/* Depoimentos (se usar) */
+/* Depoimentos */
 
 .testimonials-section {
     background: #f9fafb;
@@ -542,9 +543,21 @@ a {
     font-size: 0.85rem;
 }
 
-/* Responsivo */
+/* ===========================
+   BREAKPOINTS / RESPONSIVO
+   =========================== */
 
+/* Tablets / telas médias */
 @media (max-width: 992px) {
+    .hero-content {
+        max-width: 100%;
+        padding: 120px 0 40px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+
     .services-grid,
     .portfolio-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -555,27 +568,15 @@ a {
     .contact-container {
         grid-template-columns: 1fr;
     }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2.1rem;
-    }
-
-    .hero-metricas {
-        flex-direction: column;
-    }
-
-    .services-grid,
-    .portfolio-grid,
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .section {
-        padding: 60px 0;
-    }
-
+    /* Logo e menu */
     .fixed-logo img {
         height: 52px;
     }
@@ -587,6 +588,67 @@ a {
     }
 
     .top-text-menu .top-menu-main {
-        display: none;
+        display: none; /* no mobile, só o hambúrguer */
+    }
+
+    /* Hero */
+    .hero-section {
+        min-height: 100vh;
+        align-items: flex-start;
+    }
+
+    .hero-content {
+        padding-top: 140px;   /* mais espaço para logo/menu */
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 0.98rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-metricas {
+        flex-direction: column;
+    }
+
+    /* Seções em coluna única */
+    .services-grid,
+    .portfolio-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .page-hero {
+        padding: 120px 0 30px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .fixed-logo img {
+        height: 48px;
+    }
+
+    .side-menu {
+        width: 220px;
     }
 }
