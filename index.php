@@ -15,8 +15,8 @@
             <p>Estratégia, criatividade e tecnologia para transformar sua presença digital em um motor de vendas.</p>
 
             <div class="hero-buttons">
-                <a href="#contato" class="btn btn-primary">Quero um projeto sob medida</a>
-                <a href="#servicos" class="btn btn-outline">Ver soluções</a>
+                <a href="/contato.php" class="btn btn-primary">Quero um projeto sob medida</a>
+                <a href="/servicos.php" class="btn btn-outline">Ver soluções</a>
             </div>
 
             <div class="hero-metricas">
@@ -36,30 +36,30 @@
         </div>
     </section>
 
-    <!-- QUEM SOMOS -->
-    <section id="quem-somos" class="section about-section">
+    <!-- SOBRE / QUEM SOMOS (resumo) -->
+    <section class="section about-section">
         <div class="container about-container">
             <div class="about-text">
                 <h2>Somos a Auctus Consultoria</h2>
                 <p>Uma empresa especializada em desenvolvimento de soluções digitais como sites, e-commerce, SaaS, landing pages e sistemas web personalizados.</p>
                 <p>Unimos visão estratégica de negócio com tecnologia moderna para criar projetos que não são apenas bonitos, mas que realmente geram resultados.</p>
-                <ul class="about-list">
-                    <li>✔ Foco em conversão e performance</li>
-                    <li>✔ Projetos sob medida, sem templates “copiados”</li>
-                    <li>✔ Arquitetura pensada para SEO desde o início</li>
-                    <li>✔ Integração com ferramentas como Google Analytics, Pixel, CRM e mais</li>
-                </ul>
+                <a href="/quem-somos.php" class="btn btn-outline">Conheça nossa história</a>
             </div>
             <div class="about-highlight">
                 <h3>Porque empresas escolhem a Auctus</h3>
                 <p>Trabalhamos como parceiros do seu crescimento, entendendo seu negócio para entregar uma solução digital que faça sentido para sua realidade.</p>
-                <p>Da primeira reunião ao pós-go live, acompanhamos você para garantir que sua presença digital evolua continuamente.</p>
+                <ul class="about-list">
+                    <li>✔ Foco em conversão e performance</li>
+                    <li>✔ Projetos sob medida, sem templates “copiados”</li>
+                    <li>✔ Arquitetura pensada para SEO desde o início</li>
+                    <li>✔ Integração com Analytics, CRM e automações</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- SERVIÇOS -->
-    <section id="servicos" class="section services-section">
+    <!-- SERVIÇOS (resumo) -->
+    <section class="section services-section">
         <div class="container">
             <h2>Nossas principais soluções</h2>
             <p class="section-subtitle">Serviços pensados para acelerar o crescimento do seu negócio no digital.</p>
@@ -67,99 +67,65 @@
             <div class="services-grid">
                 <div class="service-card">
                     <h3>Criação de Sites Profissionais</h3>
-                    <p>Sites institucionais modernos, responsivos e otimizados para SEO, focados em gerar credibilidade e oportunidades de negócio.</p>
+                    <p>Sites institucionais modernos, responsivos e otimizados para SEO, focados em gerar credibilidade e oportunidades.</p>
                 </div>
                 <div class="service-card">
                     <h3>E-commerce & Lojas Virtuais</h3>
-                    <p>Estrutura completa para vender online com performance, segurança e boa experiência de compra.</p>
+                    <p>Estrutura completa para vender online com boa experiência de compra, segurança e escalabilidade.</p>
                 </div>
                 <div class="service-card">
                     <h3>SaaS & Sistemas Web</h3>
-                    <p>Desenvolvimento de plataformas sob medida para gestão, automação e escalabilidade do seu negócio.</p>
+                    <p>Plataformas sob medida para gestão, automação e escalabilidade do seu negócio.</p>
                 </div>
                 <div class="service-card">
                     <h3>Landing Pages de Alta Conversão</h3>
-                    <p>Páginas focadas em campanhas específicas, lançamentos, captura de leads e vendas de produtos/serviços.</p>
+                    <p>Páginas focadas em campanhas, lançamentos, captura de leads e vendas específicas.</p>
                 </div>
                 <div class="service-card">
                     <h3>Integrações & Automação</h3>
-                    <p>Integração com APIs, ERPs, CRMs, gateways de pagamento e ferramentas de marketing.</p>
+                    <p>Integrações com APIs, ERPs, CRMs, gateways de pagamento e ferramentas de marketing.</p>
                 </div>
                 <div class="service-card">
                     <h3>SEO & Analytics</h3>
-                    <p>Estratégia técnica aliada a dados para aumentar tráfego qualificado e melhorar sua tomada de decisão.</p>
+                    <p>Estrutura técnica e análise de dados para aumentar tráfego qualificado e conversões.</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- "ECOSSISTEMA" / DIFERENCIAIS -->
-    <section class="section ecosystem-section">
-        <div class="container ecosystem-container">
-            <div>
-                <h2>Todo o ecossistema digital que sua empresa precisa.</h2>
-                <p>Da concepção à evolução contínua, entregamos soluções completas, conectando tecnologia, marketing e negócios.</p>
-                <ul class="ecosystem-list">
-                    <li>Planejamento da presença digital</li>
-                    <li>UX/UI alinhado com a jornada do cliente</li>
-                    <li>Arquitetura escalável e segura</li>
-                    <li>Monitoramento com Google Analytics e outras ferramentas</li>
-                </ul>
-            </div>
-            <div class="ecosystem-highlight">
-                <h3>Especialistas em resultados</h3>
-                <p>Nosso compromisso é com a alta performance, atendendo empresas que querem crescer com consistência e previsibilidade.</p>
-                <a href="#contato" class="btn btn-primary">Quero falar com um especialista</a>
+            <div style="margin-top: 32px;">
+                <a href="/servicos.php" class="btn btn-primary">Ver todos os serviços</a>
             </div>
         </div>
     </section>
 
-    <!-- PORTFÓLIO (EXEMPLOS) -->
-    <section id="portfolio" class="section portfolio-section">
+    <!-- PORTFÓLIO (chamada) -->
+    <section class="section portfolio-section">
         <div class="container">
-            <h2>Alguns tipos de projetos que construímos</h2>
-            <p class="section-subtitle">Veja o tipo de solução que podemos desenvolver para sua empresa.</p>
+            <h2>Projetos que impulsionam negócios</h2>
+            <p class="section-subtitle">Desenvolvemos soluções digitais para diferentes segmentos e modelos de negócio.</p>
 
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <h3>Site Institucional para Empresas</h3>
-                    <p>Posicionamento profissional, páginas estratégicas e conteúdo pensado para gerar autoridade.</p>
+                    <h3>Sites institucionais</h3>
+                    <p>Presença digital forte e profissional para empresas que querem se posicionar no mercado.</p>
                 </div>
                 <div class="portfolio-item">
-                    <h3>E-commerce com Integrações</h3>
-                    <p>Lojas virtuais conectadas a meios de pagamento, logística e ferramentas de marketing.</p>
+                    <h3>Lojas virtuais</h3>
+                    <p>E-commerce com foco em conversão, usabilidade e integração com ferramentas essenciais.</p>
                 </div>
                 <div class="portfolio-item">
-                    <h3>Sistemas Internos & Portais</h3>
-                    <p>Portais administrativos, sistemas de gestão e soluções personalizadas para sua operação.</p>
+                    <h3>Sistemas personalizados</h3>
+                    <p>Portais, sistemas internos e soluções sob medida para o dia a dia da sua operação.</p>
                 </div>
+            </div>
+
+            <div style="margin-top: 32px;">
+                <a href="/portfolio.php" class="btn btn-outline">Conhecer mais</a>
             </div>
         </div>
     </section>
 
-    <!-- DEPOIMENTOS (PODE ADAPTAR DEPOIS) -->
-    <section id="depoimentos" class="section testimonials-section">
-        <div class="container">
-            <h2>O que nossos clientes dizem</h2>
-            <p class="section-subtitle">Em breve, traga os depoimentos reais dos seus clientes aqui.</p>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p>“A Auctus nos ajudou a profissionalizar nossa presença digital e hoje o site é um dos principais canais de geração de oportunidades.”</p>
-                    <span class="testimonial-name">Nome do Cliente</span>
-                    <span class="testimonial-role">Empresa / Cargo</span>
-                </div>
-                <div class="testimonial-card">
-                    <p>“Projeto estruturado, comunicação clara e foco em resultado. Recomendo a Auctus para empresas que querem crescer de forma séria no digital.”</p>
-                    <span class="testimonial-name">Nome do Cliente</span>
-                    <span class="testimonial-role">Empresa / Cargo</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section id="contato" class="section contact-section">
+    <!-- CONTATO (call-to-action) -->
+    <section class="section contact-section">
         <div class="container contact-container">
             <div class="contact-text">
                 <h2>Vamos falar sobre o seu projeto?</h2>
