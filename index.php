@@ -50,7 +50,7 @@
                 <p>Trabalhamos como parceiros do seu crescimento, entendendo seu negócio para entregar uma solução digital que faça sentido para sua realidade.</p>
                 <ul class="about-list">
                     <li>✔ Foco em conversão e performance</li>
-                    <li>✔ Projetos sob medida, sem templates “copiados”</li>
+                    <li>✔ Projetos sob medida, sem templates "copiados"</li>
                     <li>✔ Arquitetura pensada para SEO desde o início</li>
                     <li>✔ Integração com Analytics, CRM e automações</li>
                 </ul>
@@ -91,7 +91,7 @@
                 </div>
             </div>
 
-            <div style="margin-top: 32px;">
+            <div style="margin-top: 32px; text-align: center;">
                 <a href="/servicos.php" class="btn btn-primary">Ver todos os serviços</a>
             </div>
         </div>
@@ -118,7 +118,7 @@
                 </div>
             </div>
 
-            <div style="margin-top: 32px;">
+            <div style="margin-top: 32px; text-align: center;">
                 <a href="/portfolio.php" class="btn btn-outline">Conhecer mais</a>
             </div>
         </div>
