@@ -58,7 +58,7 @@ a {
 }
 
 .fixed-logo img {
-    height: 48px;   /* ajuste se quiser maior/menor */
+    height: 70px;
     width: auto;
 }
 
@@ -66,27 +66,115 @@ a {
 
 .top-text-menu {
     position: fixed;
-    top: 20px;
+    top: 24px;
     right: 24px;
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
-.top-text-menu ul {
+.top-text-menu .top-menu-main {
     display: flex;
-    gap: 16px;
+    gap: 20px;
     list-style: none;
 }
 
-.top-text-menu a {
+.top-text-menu .top-menu-main a {
     font-size: 0.9rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.9); /* na home, em cima do vídeo escuro */
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
-.top-text-menu a:hover {
+.top-text-menu .top-menu-main a:hover {
     color: #ffffff;
+}
+
+/* Ícone hambúrguer */
+
+.hamburger-icon {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    background: rgba(15, 23, 42, 0.7);
+    border-radius: 999px;
+    padding: 8px;
+    border: 1px solid rgba(148, 163, 184, 0.5);
+}
+
+.hamburger-icon span {
+    width: 20px;
+    height: 2px;
+    background-color: #e5e7eb;
+    border-radius: 999px;
+}
+
+/* Menu lateral (side-menu) */
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 260px;
+    height: 100vh;
+    background-color: #020617;
+    z-index: 1100;
+    transition: right 0.3s ease;
+    padding: 60px 24px 24px 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-menu.open {
+    right: 0;
+}
+
+.side-menu ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.side-menu ul li {
+    margin-bottom: 16px;
+}
+
+.side-menu ul li a {
+    color: #e5e7eb;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+}
+
+.side-menu ul li a:hover {
+    color: #ffffff;
+}
+
+/* Botão fechar do side-menu */
+
+.side-menu-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #e5e7eb;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.logo-menu {
+    text-align: center;
+    margin-top: auto;
+    padding-top: 24px;
+}
+
+.logo-menu img {
+    max-width: 120px;
+    opacity: 0.9;
+    margin: 0 auto;
 }
 
 /* Botões */
@@ -116,13 +204,13 @@ a {
 
 .btn-outline {
     background: transparent;
-    color: #111827;
-    border-color: rgba(17, 24, 39, 0.2);
+    color: #e5e7eb;
+    border-color: rgba(229, 231, 235, 0.5);
 }
 
 .btn-outline:hover {
-    background: rgba(17, 24, 39, 0.04);
-    border-color: rgba(17, 24, 39, 0.4);
+    background: rgba(229, 231, 235, 0.1);
+    border-color: #e5e7eb;
 }
 
 .btn-header {
@@ -141,7 +229,7 @@ a {
     display: flex;
     align-items: center;
     color: #f9fafb;
-    padding-top: 0; /* não precisamos mais compensar header fixo */
+    padding-top: 0;
 }
 
 #background-video {
@@ -211,6 +299,7 @@ a {
 .page-hero {
     background: #f3f4f6;
     border-bottom: 1px solid #e5e7eb;
+    padding: 80px 0 40px 0;
 }
 
 .page-hero h1 {
@@ -223,6 +312,10 @@ a {
 }
 
 /* Sobre / Quem Somos */
+
+.about-section {
+    background: #ffffff;
+}
 
 .about-container {
     display: grid;
@@ -483,29 +576,17 @@ a {
         padding: 60px 0;
     }
 
-    /* Menu topo em telas pequenas - pode ficar menor */
+    .fixed-logo img {
+        height: 52px;
+    }
+
     .top-text-menu {
-        top: 16px;
+        top: 18px;
         right: 12px;
+        gap: 8px;
     }
 
-    .top-text-menu ul {
-        gap: 10px;
-        font-size: 0.8rem;
-        flex-wrap: wrap;
-        justify-content: flex-end;
+    .top-text-menu .top-menu-main {
+        display: none;
     }
-
-   .fixed-logo {
-    position: fixed;
-    top: 16px;
-    left: 16px;
-    z-index: 1000;
-    display: inline-block;
-}
-
-.fixed-logo img {
-    height: 70px;   /* AUMENTEI AQUI */
-    width: auto;
-}
 }
