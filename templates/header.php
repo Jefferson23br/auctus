@@ -66,17 +66,32 @@
 
     <!-- Logo fixa no canto esquerdo -->
     <a href="/" class="fixed-logo">
-        <img src="assets/images/logo-auctus3.png" alt="Logo Auctus Consultoria">
+        <img src="assets/images/logo-auctus.webp" alt="Logo Auctus Consultoria">
     </a>
 
-    <!-- Mini menu superior textual -->
+    <!-- Menu topo fixo com apenas 3 itens principais + botão hambúrguer -->
     <nav class="top-text-menu">
-        <ul>
+        <ul class="top-menu-main">
             <li><a href="/quem-somos.php">Quem Somos</a></li>
             <li><a href="/como-podemos-te-ajudar.php">Como Podemos te Ajudar</a></li>
+            <li><a href="/contato.php">Contato</a></li>
+        </ul>
+
+        <!-- Ícone hambúrguer para itens extras -->
+        <button id="hamburger-icon" class="hamburger-icon" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Menu lateral para itens adicionais -->
+    <aside id="side-menu" class="side-menu">
+        <button id="side-menu-close" class="side-menu-close" aria-label="Fechar menu">×</button>
+
+        <ul>
             <li><a href="/servicos.php">Serviços</a></li>
             <li><a href="/portfolio.php">Portfólio</a></li>
-            <li><a href="/contato.php">Contato</a></li>
             <li><a href="https://www.auctusconsultoria.com.br/Reembolso-Km/frontend/Reembolso" target="_blank">Reembolso KM</a></li>
         </ul>
-    </nav>
+    </aside>
