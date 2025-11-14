@@ -4,6 +4,7 @@
     <!-- SEO Básico -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Auctus Consultoria | Criação de Sites, E-commerce, SaaS e Landing Pages</title>
 
     <meta name="description" content="Auctus Consultoria é especialista em criação de sites, e-commerce, SaaS e landing pages de alta performance. Estratégia, tecnologia e design focados em gerar resultados reais para o seu negócio.">
@@ -47,17 +48,18 @@
     <meta name="apple-mobile-web-app-title" content="Auctus" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Fonte & CSS -->
+    <!-- CSS principal -->
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- Google Analytics 4 -->
-    <!-- SUBSTITUA G-XXXXXXXXXX PELO SEU ID REAL DO GA4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <!-- Google Analytics 4 - SUA PROPRIEDADE -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EV9D7P5QNJ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
+
+      gtag('config', 'G-EV9D7P5QNJ');
     </script>
 </head>
 <body>
@@ -85,6 +87,7 @@
                 Fale com um especialista
             </a>
 
+            <!-- Ícone do menu mobile -->
             <div class="hamburger-icon" id="hamburger-icon">
                 <span></span>
                 <span></span>
