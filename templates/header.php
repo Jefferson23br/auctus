@@ -94,4 +94,8 @@
             <li><a href="/portfolio.php">Portfólio</a></li>
             <li><a href="https://www.auctusconsultoria.com.br/Reembolso-Km/frontend/Reembolso" target="_blank">Reembolso KM</a></li>
         </ul>
+
+        <div class="logo-menu">
+            <img src="assets/images/logo-auctus.webp" alt="Logo Auctus">
+        </div>
     </aside>
