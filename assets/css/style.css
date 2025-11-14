@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     color: #111827;
@@ -23,7 +28,9 @@ a {
     color: inherit;
 }
 
-/* Containers e seções */
+/* ========================
+   BASE / DESKTOP
+   ======================== */
 
 .container {
     width: 100%;
@@ -47,7 +54,7 @@ a {
     margin-bottom: 40px;
 }
 
-/* Logo fixa no canto esquerdo */
+/* LOGO FIXA E MENU (DESKTOP) */
 
 .fixed-logo {
     position: fixed;
@@ -61,8 +68,6 @@ a {
     height: 70px;
     width: auto;
 }
-
-/* Menu textual superior (canto direito) */
 
 .top-text-menu {
     position: fixed;
@@ -84,7 +89,6 @@ a {
     font-size: 0.9rem;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.9);
-    text-decoration: none;
     transition: color 0.2s ease;
 }
 
@@ -92,17 +96,15 @@ a {
     color: #ffffff;
 }
 
-/* Ícone hambúrguer */
-
 .hamburger-icon {
     display: inline-flex;
     flex-direction: column;
     gap: 4px;
     cursor: pointer;
-    background: rgba(15, 23, 42, 0.7);
+    background: rgba(15, 23, 42, 0.8);
     border-radius: 999px;
     padding: 8px;
-    border: 1px solid rgba(148, 163, 184, 0.5);
+    border: 1px solid rgba(148, 163, 184, 0.6);
 }
 
 .hamburger-icon span {
@@ -112,7 +114,7 @@ a {
     border-radius: 999px;
 }
 
-/* Menu lateral (side-menu) */
+/* MENU LATERAL */
 
 .side-menu {
     position: fixed;
@@ -153,8 +155,6 @@ a {
     color: #ffffff;
 }
 
-/* Botão fechar do side-menu */
-
 .side-menu-close {
     position: absolute;
     top: 16px;
@@ -178,7 +178,7 @@ a {
     margin: 0 auto;
 }
 
-/* Botões */
+/* BOTÕES */
 
 .btn {
     display: inline-flex;
@@ -196,7 +196,6 @@ a {
 .btn-primary {
     background: linear-gradient(135deg, #2563eb, #4f46e5);
     color: #ffffff;
-    border-color: transparent;
 }
 
 .btn-primary:hover {
@@ -214,15 +213,11 @@ a {
     border-color: #e5e7eb;
 }
 
-.btn-header {
-    margin-left: 24px;
-}
-
 .btn-block {
     width: 100%;
 }
 
-/* HERO (home) */
+/* HERO */
 
 .hero-section {
     position: relative;
@@ -230,9 +225,9 @@ a {
     display: flex;
     align-items: center;
     color: #f9fafb;
-    padding-top: 0;
 }
 
+/* vídeo de fundo */
 #background-video {
     position: fixed;
     top: 0;
@@ -255,12 +250,12 @@ a {
 
 .hero-content {
     max-width: 650px;
-    padding: 120px 0 40px; /* 120px para não bater na logo/menu */
+    padding: 140px 0 48px;
 }
 
 .hero-tagline {
-    font-size: 0.85rem;
-    letter-spacing: 0.15em;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: #bfdbfe;
 }
@@ -292,19 +287,19 @@ a {
 
 .hero-metricas div strong {
     display: block;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 
-/* Página interna: hero */
+/* PAGE HERO (internas) */
 
 .page-hero {
     background: #f3f4f6;
     border-bottom: 1px solid #e5e7eb;
-    padding: 120px 0 40px 0; /* 120px para compensar logo/menu fixos */
+    padding: 140px 0 40px 0;
 }
 
 .page-hero h1 {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
     margin-bottom: 8px;
 }
 
@@ -312,7 +307,7 @@ a {
     color: #6b7280;
 }
 
-/* SOBRE / QUEM SOMOS */
+/* SOBRE */
 
 .about-section {
     background: #ffffff;
@@ -339,7 +334,7 @@ a {
     border-radius: 16px;
 }
 
-/* Serviços */
+/* SERVIÇOS */
 
 .services-section {
     background: #f9fafb;
@@ -365,40 +360,7 @@ a {
     box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
 }
 
-.service-card h3 {
-    margin-bottom: 10px;
-}
-
-/* Ecossistema (opcional) */
-
-.ecosystem-section {
-    background: linear-gradient(135deg, #0f172a, #111827);
-    color: #e5e7eb;
-}
-
-.ecosystem-container {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 40px;
-    align-items: center;
-}
-
-.ecosystem-list {
-    list-style: none;
-    margin-top: 16px;
-}
-
-.ecosystem-list li {
-    margin-bottom: 8px;
-}
-
-.ecosystem-highlight {
-    background: rgba(15, 23, 42, 0.7);
-    border-radius: 16px;
-    padding: 24px;
-}
-
-/* Portfólio */
+/* PORTFÓLIO */
 
 .portfolio-section {
     background: #ffffff;
@@ -417,39 +379,7 @@ a {
     padding: 24px;
 }
 
-/* Depoimentos */
-
-.testimonials-section {
-    background: #f9fafb;
-}
-
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-    margin-top: 32px;
-}
-
-.testimonial-card {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 24px;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-}
-
-.testimonial-name {
-    display: block;
-    margin-top: 12px;
-    font-weight: 600;
-}
-
-.testimonial-role {
-    display: block;
-    font-size: 0.9rem;
-    color: #6b7280;
-}
-
-/* Contato */
+/* CONTATO */
 
 .contact-section {
     background: #ffffff;
@@ -482,12 +412,6 @@ a {
     margin-bottom: 16px;
 }
 
-.contact-form label {
-    display: block;
-    margin-bottom: 4px;
-    font-size: 0.9rem;
-}
-
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
@@ -499,7 +423,7 @@ a {
     font-size: 0.95rem;
 }
 
-/* Footer */
+/* FOOTER */
 
 .main-footer {
     background: #0b1120;
@@ -544,18 +468,16 @@ a {
 }
 
 /* ===========================
-   BREAKPOINTS / RESPONSIVO
+   RESPONSIVO – TABLET
    =========================== */
 
-/* Tablets / telas médias */
 @media (max-width: 992px) {
     .hero-content {
         max-width: 100%;
-        padding: 120px 0 40px;
     }
 
     .hero-content h1 {
-        font-size: 2.4rem;
+        font-size: 2.2rem;
     }
 
     .services-grid,
@@ -564,7 +486,6 @@ a {
     }
 
     .about-container,
-    .ecosystem-container,
     .contact-container {
         grid-template-columns: 1fr;
     }
@@ -574,39 +495,60 @@ a {
     }
 }
 
-/* Mobile */
+/* ===========================
+   RESPONSIVO – MOBILE
+   (força ajustes fortes)
+   =========================== */
+
 @media (max-width: 768px) {
-    /* Logo e menu */
+
+    /* LOGO E MENU BEM AJUSTADOS */
+    .fixed-logo {
+        top: 10px;
+        left: 10px;
+    }
+
     .fixed-logo img {
-        height: 52px;
+        height: 50px;
     }
 
     .top-text-menu {
-        top: 18px;
-        right: 12px;
-        gap: 8px;
+        top: 10px;
+        right: 10px;
+        gap: 6px;
     }
 
     .top-text-menu .top-menu-main {
-        display: none; /* no mobile, só o hambúrguer */
+        display: none; /* só hambúrguer no mobile */
     }
 
-    /* Hero */
+    .hamburger-icon {
+        padding: 7px;
+    }
+
+    /* HERO MAIS BAIXO E LETRAS MENORES */
     .hero-section {
         min-height: 100vh;
         align-items: flex-start;
     }
 
     .hero-content {
-        padding-top: 140px;   /* mais espaço para logo/menu */
+        padding-top: 150px;   /* espaço para logo + menu */
+        padding-bottom: 40px;
+    }
+
+    .hero-tagline {
+        font-size: 0.7rem;
+        letter-spacing: 0.16em;
     }
 
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;    /* BEM menor para caber bem */
+        line-height: 1.2;
     }
 
     .hero-content p {
-        font-size: 0.98rem;
+        font-size: 0.9rem;
     }
 
     .hero-buttons {
@@ -614,14 +556,22 @@ a {
         align-items: stretch;
     }
 
+    .btn {
+        font-size: 0.9rem;
+        padding: 9px 16px;
+    }
+
     .hero-metricas {
         flex-direction: column;
     }
 
-    /* Seções em coluna única */
+    .hero-metricas div strong {
+        font-size: 1.1rem;
+    }
+
+    /* GRID 1 COLUNA */
     .services-grid,
-    .portfolio-grid,
-    .testimonials-grid {
+    .portfolio-grid {
         grid-template-columns: 1fr;
     }
 
@@ -630,7 +580,11 @@ a {
     }
 
     .page-hero {
-        padding: 120px 0 30px;
+        padding: 150px 0 30px;
+    }
+
+    .page-hero h1 {
+        font-size: 1.8rem;
     }
 
     .footer-container {
@@ -638,14 +592,22 @@ a {
     }
 }
 
-/* Mobile pequeno */
+/* MOBILE MUITO PEQUENO (ex: 320px) */
 @media (max-width: 480px) {
+    .hero-content {
+        padding-top: 155px;
+    }
+
     .hero-content h1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+    }
+
+    .hero-content p {
+        font-size: 0.88rem;
     }
 
     .fixed-logo img {
-        height: 48px;
+        height: 46px;
     }
 
     .side-menu {
