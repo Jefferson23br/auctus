@@ -857,7 +857,7 @@ a {
 /* Grid de 4 cards (2x2) */
 .insights-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* <-- AGORA SÃO 2 COLUNAS */
     gap: 32px;
     margin-top: 32px;
 }
