@@ -105,7 +105,7 @@ include 'templates/header.php';
     <!-- Card 1 -->
     <article class="insight-card">
         <a href="quando-e-hora-de-refazer-o-site" class="insight-card-image-link">
-            <img src="assets/images/posts/refazer-site.jpg" alt="Quando é hora de refazer o site da sua empresa?" class="insight-card-image">
+            <img src="assets/images/posts/erros-criacao-site.webp" alt="Quando é hora de refazer o site da sua empresa?" class="insight-card-image">
         </a>
         <div class="insight-card-content">
             <span class="insight-tag">Estratégia</span>
@@ -128,7 +128,7 @@ include 'templates/header.php';
     <!-- Card 2 -->
     <article class="insight-card">
         <a href="checklist-para-lancar-seu-ecommerce" class="insight-card-image-link">
-            <img src="assets/images/posts/checklist-ecommerce.jpg" alt="Checklist prático para lançar seu e-commerce" class="insight-card-image">
+            <img src="assets/images/posts/erros-criacao-site.webp" alt="Checklist prático para lançar seu e-commerce" class="insight-card-image">
         </a>
         <div class="insight-card-content">
             <span class="insight-tag">E-commerce</span>
@@ -151,7 +151,7 @@ include 'templates/header.php';
     <!-- Card 3 -->
     <article class="insight-card">
         <a href="transformando-processos-em-sistemas-web" class="insight-card-image-link">
-            <img src="assets/images/posts/processos-sistemas.jpg" alt="Como transformar processos manuais em um sistema web escalável" class="insight-card-image">
+            <img src="assets/images/posts/erros-criacao-site.webp" alt="Como transformar processos manuais em um sistema web escalável" class="insight-card-image">
         </a>
         <div class="insight-card-content">
             <span class="insight-tag">SaaS & Sistemas</span>
