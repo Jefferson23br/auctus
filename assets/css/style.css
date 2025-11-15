@@ -607,6 +607,166 @@ a {
     font-size: 0.85rem;
 }
 
+/* ==== BLOG / INSIGHTS – LISTAGEM EM GRADE ==== */
+
+.insights-section {
+    background: #f9fafb;
+}
+
+.insights-header-center {
+    text-align: center;
+}
+
+.insights-title {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.insights-word {
+    color: #111827;
+    font-weight: 700;
+}
+
+.insights-dot {
+    color: #2563eb;
+    font-weight: 700;
+}
+
+.insights-subtitle {
+    margin: 0 auto 40px auto;
+    max-width: 640px;
+}
+
+/* Grade 2x4 para desktop */
+.insights-grid-blog {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.insight-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.insight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+.insight-card-image-link {
+    display: block;
+    overflow: hidden;
+}
+
+.insight-card-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.insight-card-content {
+    padding: 16px 18px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.insight-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #2563eb;
+    background: rgba(37, 99, 235, 0.08);
+    border-radius: 999px;
+    padding: 4px 10px;
+}
+
+.insight-card-content h3 {
+    font-size: 1rem;
+    margin: 4px 0 4px 0;
+}
+
+.insight-card-content h3 a {
+    color: #111827;
+}
+
+.insight-card-content h3 a:hover {
+    color: #2563eb;
+}
+
+.insight-card-content p {
+    font-size: 0.9rem;
+    color: #4b5563;
+}
+
+.insight-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-top: 8px;
+}
+
+/* Paginação do Blog */
+.blog-pagination {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.page-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    font-size: 0.9rem;
+    color: #374151;
+    background: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.page-link:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
+.page-link.active {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    border-color: transparent;
+    color: #ffffff;
+    cursor: default;
+}
+
+.page-link.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Responsivo – blog em 1 coluna no mobile */
+@media (max-width: 768px) {
+    .insights-grid-blog {
+        grid-template-columns: 1fr;
+    }
+
+    .insight-card-image {
+        height: 200px;
+    }
+}
+
 /* ====
    RESPONSIVO – TABLET
 ==== */
