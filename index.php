@@ -101,11 +101,11 @@ include 'templates/header.php';
 
         <div class="insights-grid">
                 
-                <div class="insights-grid">
-    <!-- Card 1 -->
     <article class="insight-card">
         <a href="quando-e-hora-de-refazer-o-site" class="insight-card-image-link">
-            <img src="assets/images/posts/erros-criacao-site.webp" alt="Quando é hora de refazer o site da sua empresa?" class="insight-card-image">
+            <img src="assets/images/posts/erros-criacao-site.webp"
+                 alt="Quando é hora de refazer o site da sua empresa?"
+                 class="insight-card-image">
         </a>
         <div class="insight-card-content">
             <span class="insight-tag">Estratégia</span>
@@ -125,72 +125,82 @@ include 'templates/header.php';
         </div>
     </article>
 
-    <!-- Card 2 -->
+    <!-- mais 3 artigos iguais, com outros links/imagens -->
+
     <article class="insight-card">
-        <a href="checklist-para-lancar-seu-ecommerce" class="insight-card-image-link">
-            <img src="assets/images/posts/erros-criacao-site.webp" alt="Checklist prático para lançar seu e-commerce" class="insight-card-image">
+        <a href="quando-e-hora-de-refazer-o-site" class="insight-card-image-link">
+            <img src="assets/images/posts/erros-criacao-site.webp"
+                 alt="Quando é hora de refazer o site da sua empresa?"
+                 class="insight-card-image">
         </a>
         <div class="insight-card-content">
-            <span class="insight-tag">E-commerce</span>
+            <span class="insight-tag">Estratégia</span>
             <h3>
-                <a href="checklist-para-lancar-seu-ecommerce">
-                    Checklist prático para lançar seu e-commerce com menos risco
+                <a href="quando-e-hora-de-refazer-o-site">
+                    Quando é hora de refazer o site da sua empresa?
                 </a>
             </h3>
             <p>
-                Os principais pontos de tecnologia, logística e marketing para validar
-                antes de abrir sua loja virtual.
+                Como saber se o seu site atual está travando o crescimento do negócio
+                e quais sinais mostram que é hora de uma nova versão.
             </p>
             <div class="insight-meta">
                 <span>Por Auctus Consultoria</span>
-                <span>22/10/2025</span>
+                <span>05/11/2025</span>
             </div>
         </div>
     </article>
 
-    <!-- Card 3 -->
     <article class="insight-card">
-        <a href="transformando-processos-em-sistemas-web" class="insight-card-image-link">
-            <img src="assets/images/posts/erros-criacao-site.webp" alt="Como transformar processos manuais em um sistema web escalável" class="insight-card-image">
+        <a href="quando-e-hora-de-refazer-o-site" class="insight-card-image-link">
+            <img src="assets/images/posts/erros-criacao-site.webp"
+                 alt="Quando é hora de refazer o site da sua empresa?"
+                 class="insight-card-image">
         </a>
         <div class="insight-card-content">
-            <span class="insight-tag">SaaS & Sistemas</span>
+            <span class="insight-tag">Estratégia</span>
             <h3>
-                <a href="transformando-processos-em-sistemas-web">
-                    Como transformar processos manuais em um sistema web escalável
+                <a href="quando-e-hora-de-refazer-o-site">
+                    Quando é hora de refazer o site da sua empresa?
                 </a>
             </h3>
             <p>
-                Do Excel e WhatsApp para uma plataforma SaaS: passos para tirar do papel
-                uma solução digital que realmente escala.
+                Como saber se o seu site atual está travando o crescimento do negócio
+                e quais sinais mostram que é hora de uma nova versão.
             </p>
             <div class="insight-meta">
                 <span>Por Auctus Consultoria</span>
-                <span>10/10/2025</span>
+                <span>05/11/2025</span>
             </div>
         </div>
     </article>
 
-    <!-- Card 4 -->
     <article class="insight-card">
-        <a href="erros-comuns-na-criacao-de-sites" class="insight-card-image-link">
-            <img src="assets/images/posts/erros-criacao-site.webp" alt="5 erros comuns na criação de sites que custam caro depois" class="insight-card-image">
+        <a href="quando-e-hora-de-refazer-o-site" class="insight-card-image-link">
+            <img src="assets/images/posts/erros-criacao-site.webp"
+                 alt="Quando é hora de refazer o site da sua empresa?"
+                 class="insight-card-image">
         </a>
         <div class="insight-card-content">
-            <span class="insight-tag">Criação de Sites</span>
+            <span class="insight-tag">Estratégia</span>
             <h3>
-                <a href="erros-comuns-na-criacao-de-sites">
-                    5 erros comuns na criação de sites que custam caro depois
+                <a href="quando-e-hora-de-refazer-o-site">
+                    Quando é hora de refazer o site da sua empresa?
                 </a>
             </h3>
             <p>
-                O que muita empresa descobre tarde demais depois de lançar um site
-                sem planejamento técnico nem foco em conversão.
+                Como saber se o seu site atual está travando o crescimento do negócio
+                e quais sinais mostram que é hora de uma nova versão.
             </p>
             <div class="insight-meta">
                 <span>Por Auctus Consultoria</span>
-                <span>30/09/2025</span>
+                <span>05/11/2025</span>
             </div>
+        </div>
+    </article>
+
+    
+</div>
         </div>
     </article>
 </div>
