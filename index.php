@@ -87,6 +87,10 @@ include 'templates/header.php';
             </div>
         </div>
     </section>
+
+
+
+
     <!-------------------------------------------------------------------------------------->
 <section class="section insights-section">
     <div class="container">
@@ -207,6 +211,9 @@ include 'templates/header.php';
         </div>
     </div>
 </section>
+
+
+
     <!---------------------------------------------------->
     <section class="section contact-section">
         <div class="container contact-container">
