@@ -826,9 +826,11 @@ a {
     background: #f9fafb;
 }
 
+/* Cabeçalho (título + subtítulo) */
+
 .insights-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
 }
 
 .insights-title {
@@ -854,15 +856,17 @@ a {
     max-width: 520px;
 }
 
-/* Grid de 4 cards (2x2) */
+/* GRID 2x2 NO DESKTOP */
+
 .insights-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* <-- AGORA SÃO 2 COLUNAS */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 colunas */
     gap: 32px;
     margin-top: 32px;
 }
 
-/* Card individual */
+/* CARD */
+
 .insight-card {
     background: #ffffff;
     border-radius: 20px;
@@ -871,6 +875,7 @@ a {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .insight-card:hover {
@@ -878,18 +883,20 @@ a {
     box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
 }
 
-/* Imagem do card */
+/* ÁREA DA IMAGEM – PADRONIZA 16:9 */
+
 .insight-card-image-link {
     display: block;
     width: 100%;
-    height: 240px;
+    aspect-ratio: 16 / 9;            /* mantém 16:9 independente da imagem */
     overflow: hidden;
+    background: #e5e7eb;
 }
 
 .insight-card-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover;               /* corta sobras, mantendo proporção */
     transition: transform 0.3s ease;
 }
 
@@ -897,16 +904,16 @@ a {
     transform: scale(1.05);
 }
 
-/* Conteúdo do card */
+/* CONTEÚDO DO CARD */
+
 .insight-card-content {
-    padding: 24px;
+    padding: 20px 20px 18px 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     flex: 1;
 }
 
-/* Tag de categoria */
 .insight-tag {
     display: inline-block;
     align-self: flex-start;
@@ -920,23 +927,20 @@ a {
     border-radius: 999px;
 }
 
-/* Título do card */
 .insight-card-content h3 {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     margin: 4px 0;
     line-height: 1.4;
 }
 
 .insight-card-content h3 a {
     color: #111827;
-    transition: color 0.2s ease;
 }
 
 .insight-card-content h3 a:hover {
     color: #2563eb;
 }
 
-/* Resumo */
 .insight-card-content p {
     font-size: 0.9rem;
     color: #4b5563;
@@ -944,14 +948,13 @@ a {
     flex: 1;
 }
 
-/* Meta (autor + data) */
 .insight-meta {
     display: flex;
     justify-content: space-between;
     font-size: 0.8rem;
     color: #9ca3af;
     margin-top: 8px;
-    padding-top: 12px;
+    padding-top: 10px;
     border-top: 1px solid #e5e7eb;
 }
 }
