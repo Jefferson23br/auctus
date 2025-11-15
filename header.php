@@ -103,6 +103,7 @@
         <ul>
             <li><a href="servicos">Serviços</a></li>
             <li><a href="portfolio">Portfólio</a></li>
+            <li><a href="blog">Blog / Insights</a></li>
             <li><a href="Reembolso-Km/frontend/Reembolso" target="_blank">Reembolso KM</a></li>
             <li><a href="https://www.dracamilacapeli.com.br" target="_blank">Dra. Camila Capeli</a></li>
         </ul>
