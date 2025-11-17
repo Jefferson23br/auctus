@@ -88,131 +88,121 @@ include 'templates/header.php';
         </div>
     </section>
 
-
-
-
     <!-------------------------------------------------------------------------------------->
-<section class="section insights-section">
-    <div class="container">
-        <div class="insights-header insights-header-center">
-            <h2 class="insights-title">
-                <span class="insights-word">Insights</span><span class="insights-dot">.</span>
-            </h2>
-            <p class="section-subtitle insights-subtitle">
-                Os artigos mais recentes para você ficar por dentro do mundo digital.
-            </p>
-        </div>
+    <section class="section insights-section">
+        <div class="container">
+            <div class="insights-header insights-header-center">
+                <h2 class="insights-title">
+                    <span class="insights-word">Insights</span><span class="insights-dot">.</span>
+                </h2>
+                <p class="section-subtitle insights-subtitle">
+                    Os artigos mais recentes para você ficar por dentro do mundo digital.
+                </p>
+            </div>
 
-        <div class="insights-grid">
+            <div class="insights-grid insights-grid-home">
                 <!-- Card 1 -->
                 <article class="insight-card">
-                    <a href="quando-e-hora-de-refazer-o-site" class="insight-card-image-link">
-                        <img src="assets/images/posts/erros-criacao-site.webp" 
-                            alt="Quando é hora de refazer o site da sua empresa?" 
+                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
+                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp" 
+                            alt="Jensen Huang: História, lições de um Legado" 
                             class="insight-card-image">
                     </a>
                     <div class="insight-card-content">
-                        <span class="insight-tag">Estratégia</span>
+                        <span class="insight-tag">Personalidades</span>
                         <h3>
-                            <a href="quando-e-hora-de-refazer-o-site">
-                                Quando é hora de refazer o site da sua empresa?
+                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
+                                Jensen Huang: História, lições de um Legado
                             </a>
                         </h3>
                         <p>
-                            Como saber se o seu site atual está travando o crescimento do negócio
-                            e quais sinais mostram que é hora de uma nova versão.
+                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
                         </p>
                         <div class="insight-meta">
                             <span>Por Auctus Consultoria</span>
-                            <span>05/11/2025</span>
+                            <span>17/11/2025</span>
                         </div>
                     </div>
                 </article>
 
                 <!-- Card 2 -->
                 <article class="insight-card">
-                    <a href="checklist-para-lancar-seu-ecommerce" class="insight-card-image-link">
-                        <img src="assets/images/posts/erros-criacao-site.webp" 
-                            alt="Checklist prático para lançar seu e-commerce" 
+                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
+                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp" 
+                            alt="Jensen Huang: História, lições de um Legado" 
                             class="insight-card-image">
                     </a>
                     <div class="insight-card-content">
-                        <span class="insight-tag">E-commerce</span>
+                        <span class="insight-tag">Personalidades</span>
                         <h3>
-                            <a href="checklist-para-lancar-seu-ecommerce">
-                                Checklist prático para lançar seu e-commerce com menos risco
+                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
+                                Jensen Huang: História, lições de um Legado
                             </a>
                         </h3>
                         <p>
-                            Os principais pontos de tecnologia, logística e marketing para validar
-                            antes de abrir sua loja virtual.
+                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
                         </p>
                         <div class="insight-meta">
                             <span>Por Auctus Consultoria</span>
-                            <span>22/10/2025</span>
+                            <span>17/11/2025</span>
                         </div>
                     </div>
                 </article>
 
                 <!-- Card 3 -->
                 <article class="insight-card">
-                    <a href="transformando-processos-em-sistemas-web" class="insight-card-image-link">
-                        <img src="assets/images/posts/erros-criacao-site.webp" 
-                            alt="Como transformar processos manuais em um sistema web escalável" 
+                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
+                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp" 
+                            alt="Jensen Huang: História, lições de um Legado" 
                             class="insight-card-image">
                     </a>
                     <div class="insight-card-content">
-                        <span class="insight-tag">SaaS & Sistemas</span>
+                        <span class="insight-tag">Personalidades</span>
                         <h3>
-                            <a href="transformando-processos-em-sistemas-web">
-                                Como transformar processos manuais em um sistema web escalável
+                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
+                                Jensen Huang: História, lições de um Legado
                             </a>
                         </h3>
                         <p>
-                            Do Excel e WhatsApp para uma plataforma SaaS: passos para tirar do papel
-                            uma solução digital que realmente escala.
+                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
                         </p>
                         <div class="insight-meta">
                             <span>Por Auctus Consultoria</span>
-                            <span>10/10/2025</span>
+                            <span>17/11/2025</span>
                         </div>
                     </div>
                 </article>
 
                 <!-- Card 4 -->
                 <article class="insight-card">
-                    <a href="erros-comuns-na-criacao-de-sites" class="insight-card-image-link">
-                        <img src="assets/images/posts/erros-criacao-site.webp" 
-                            alt="5 erros comuns na criação de sites que custam caro depois" 
+                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
+                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp" 
+                            alt="Jensen Huang: História, lições de um Legado" 
                             class="insight-card-image">
                     </a>
                     <div class="insight-card-content">
-                        <span class="insight-tag">Criação de Sites</span>
+                        <span class="insight-tag">Personalidades</span>
                         <h3>
-                            <a href="erros-comuns-na-criacao-de-sites">
-                                5 erros comuns na criação de sites que custam caro depois
+                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
+                                Jensen Huang: História, lições de um Legado
                             </a>
                         </h3>
                         <p>
-                            O que muita empresa descobre tarde demais depois de lançar um site
-                            sem planejamento técnico nem foco em conversão.
+                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
                         </p>
                         <div class="insight-meta">
                             <span>Por Auctus Consultoria</span>
-                            <span>30/09/2025</span>
+                            <span>17/11/2025</span>
                         </div>
                     </div>
                 </article>
             </div>
+
+            <div style="margin-top: 32px; text-align: center;">
+                <a href="blog" class="btn btn-primary">Ver todos os insights</a>
+            </div>
         </div>
-
-        <div style="margin-top: 32px; text-align: center;">
-            <a href="blog" class="btn btn-primary">Ver todos os insights</a>
-        </div>
-    </div>
-</section>
-
-
+    </section>
 
     <!---------------------------------------------------->
     <section class="section contact-section">
