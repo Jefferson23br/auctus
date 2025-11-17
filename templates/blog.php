@@ -31,205 +31,204 @@ include 'templates/header.php';
             <div class="insights-grid insights-grid-blog">
                 <!-- Post 1 -->
                 <article class="insight-card">
-                    <a href="quando-e-hora-de-refazer-o-site" class="insight-card-image-link">
-                        <img src="assets/images/posts/erros-criacao-site.webp"
-                             alt="Quando é hora de refazer o site da sua empresa?"
+                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
+                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp"
+                             alt="Jensen Huang: História, lições de um Legado"
                              class="insight-card-image">
                     </a>
                     <div class="insight-card-content">
-                        <span class="insight-tag">Estratégia</span>
+                        <span class="insight-tag">Personalidades</span>
                         <h3>
-                            <a href="quando-e-hora-de-refazer-o-site">
-                                Quando é hora de refazer o site da sua empresa?
+                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
+                                Jensen Huang: História, lições de um Legado
                             </a>
                         </h3>
                         <p>
-                            Sinais práticos de que seu site atual pode estar travando resultados e o que considerar antes de uma nova versão.
+                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
                         </p>
                         <div class="insight-meta">
                             <span>Por Auctus Consultoria</span>
-                            <span>05/11/2025</span>
+                            <span>17/11/2025</span>
                         </div>
                     </div>
                 </article>
 
                 <!-- Post 2 -->
                 <article class="insight-card">
-                    <a href="checklist-para-lancar-seu-ecommerce" class="insight-card-image-link">
-                        <img src="assets/images/posts/erros-criacao-site.webp"
-                             alt="Checklist prático para lançar seu e-commerce"
+                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
+                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp"
+                             alt="Jensen Huang: História, lições de um Legado"
                              class="insight-card-image">
                     </a>
                     <div class="insight-card-content">
-                        <span class="insight-tag">E-commerce</span>
+                        <span class="insight-tag">Personalidades</span>
                         <h3>
-                            <a href="checklist-para-lancar-seu-ecommerce">
-                                Checklist prático para lançar seu e-commerce com menos risco
+                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
+                                Jensen Huang: História, lições de um Legado
                             </a>
                         </h3>
                         <p>
-                            Pontos essenciais de tecnologia, operação e marketing para validar antes de colocar sua loja virtual no ar.
+                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
                         </p>
                         <div class="insight-meta">
                             <span>Por Auctus Consultoria</span>
-                            <span>22/10/2025</span>
+                            <span>17/11/2025</span>
                         </div>
                     </div>
                 </article>
 
                 <!-- Post 3 -->
                 <article class="insight-card">
-                    <a href="transformando-processos-em-sistemas-web" class="insight-card-image-link">
-                        <img src="assets/images/posts/erros-criacao-site.webp"
-                             alt="Como transformar processos manuais em um sistema web escalável"
+                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
+                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp"
+                             alt="Jensen Huang: História, lições de um Legado"
                              class="insight-card-image">
                     </a>
                     <div class="insight-card-content">
-                        <span class="insight-tag">SaaS & Sistemas</span>
+                        <span class="insight-tag">Personalidades</span>
                         <h3>
-                            <a href="transformando-processos-em-sistemas-web">
-                                Como transformar processos manuais em um sistema web escalável
+                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
+                                Jensen Huang: História, lições de um Legado
                             </a>
                         </h3>
                         <p>
-                            Do Excel e WhatsApp para uma plataforma SaaS: etapas para tirar sua solução digital do papel.
+                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
                         </p>
                         <div class="insight-meta">
                             <span>Por Auctus Consultoria</span>
-                            <span>10/10/2025</span>
+                            <span>17/11/2025</span>
                         </div>
                     </div>
                 </article>
 
                 <!-- Post 4 -->
                 <article class="insight-card">
-                    <a href="erros-comuns-na-criacao-de-sites" class="insight-card-image-link">
-                        <img src="assets/images/posts/erros-criacao-site.webp"
-                             alt="5 erros comuns na criação de sites que custam caro depois"
+                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
+                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp"
+                             alt="Jensen Huang: História, lições de um Legado"
                              class="insight-card-image">
                     </a>
                     <div class="insight-card-content">
-                        <span class="insight-tag">Criação de Sites</span>
+                        <span class="insight-tag">Personalidades</span>
                         <h3>
-                            <a href="erros-comuns-na-criacao-de-sites">
-                                5 erros comuns na criação de sites que custam caro depois
+                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
+                                Jensen Huang: História, lições de um Legado
                             </a>
                         </h3>
                         <p>
-                            O que muitas empresas só percebem depois que o site já está no ar — e como evitar esses erros na origem.
+                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
                         </p>
                         <div class="insight-meta">
                             <span>Por Auctus Consultoria</span>
-                            <span>30/09/2025</span>
+                            <span>17/11/2025</span>
                         </div>
                     </div>
                 </article>
 
                 <!-- Post 5 (exemplo) -->
                 <article class="insight-card">
-                    <a href="como-escolher-uma-agencia-de-sites" class="insight-card-image-link">
-                        <img src="assets/images/posts/erros-criacao-site.webp"
-                             alt="Como escolher uma agência de criação de sites"
+                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
+                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp"
+                             alt="Jensen Huang: História, lições de um Legado"
                              class="insight-card-image">
                     </a>
                     <div class="insight-card-content">
-                        <span class="insight-tag">Criação de Sites</span>
+                        <span class="insight-tag">Personalidades</span>
                         <h3>
-                            <a href="como-escolher-uma-agencia-de-sites">
-                                Como escolher uma boa agência de criação de sites
+                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
+                                Jensen Huang: História, lições de um Legado
                             </a>
                         </h3>
                         <p>
-                            Critérios objetivos para comparar propostas e evitar cair em promessas vazias na hora de contratar.
+                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
                         </p>
                         <div class="insight-meta">
                             <span>Por Auctus Consultoria</span>
-                            <span>15/09/2025</span>
+                            <span>17/11/2025</span>
                         </div>
                     </div>
                 </article>
 
                 <!-- Post 6 (exemplo) -->
                 <article class="insight-card">
-                    <a href="site-institucional-que-gera-leads" class="insight-card-image-link">
-                        <img src="assets/images/posts/erros-criacao-site.webp"
-                             alt="O que não pode faltar em um site institucional que gera leads"
+                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
+                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp"
+                             alt="Jensen Huang: História, lições de um Legado"
                              class="insight-card-image">
                     </a>
                     <div class="insight-card-content">
-                        <span class="insight-tag">Geração de Leads</span>
+                        <span class="insight-tag">Personalidades</span>
                         <h3>
-                            <a href="site-institucional-que-gera-leads">
-                                O que não pode faltar em um site institucional que gera leads
+                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
+                                Jensen Huang: História, lições de um Legado
                             </a>
                         </h3>
                         <p>
-                            Elementos de UX, conteúdo e oferta que tornam seu site uma máquina constante de oportunidades.
+                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
                         </p>
                         <div class="insight-meta">
                             <span>Por Auctus Consultoria</span>
-                            <span>01/09/2025</span>
+                            <span>17/11/2025</span>
                         </div>
                     </div>
                 </article>
 
                 <!-- Post 7 (exemplo) -->
                 <article class="insight-card">
-                    <a href="seo-basico-para-sites-corporativos" class="insight-card-image-link">
-                        <img src="assets/images/posts/erros-criacao-site.webp"
-                             alt="SEO básico para sites corporativos"
+                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
+                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp"
+                             alt="Jensen Huang: História, lições de um Legado"
                              class="insight-card-image">
                     </a>
                     <div class="insight-card-content">
-                        <span class="insight-tag">SEO</span>
+                        <span class="insight-tag">Personalidades</span>
                         <h3>
-                            <a href="seo-basico-para-sites-corporativos">
-                                SEO básico para sites corporativos
+                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
+                                Jensen Huang: História, lições de um Legado
                             </a>
                         </h3>
                         <p>
-                            Ajustes fundamentais de estrutura, conteúdo e desempenho para seu site aparecer melhor no Google.
+                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
                         </p>
                         <div class="insight-meta">
                             <span>Por Auctus Consultoria</span>
-                            <span>20/08/2025</span>
+                            <span>17/11/2025</span>
                         </div>
                     </div>
                 </article>
 
                 <!-- Post 8 (exemplo) -->
                 <article class="insight-card">
-                    <a href="quando-investir-em-um-saas-proprio" class="insight-card-image-link">
-                        <img src="assets/images/posts/erros-criacao-site.webp"
-                             alt="Quando faz sentido investir em um SaaS próprio"
+                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
+                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp"
+                             alt="Jensen Huang: História, lições de um Legado"
                              class="insight-card-image">
                     </a>
                     <div class="insight-card-content">
-                        <span class="insight-tag">SaaS & Produtos Digitais</span>
+                        <span class="insight-tag">Personalidades</span>
                         <h3>
-                            <a href="quando-investir-em-um-saas-proprio">
-                                Quando faz sentido investir em um SaaS próprio
+                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
+                                Jensen Huang: História, lições de um Legado
                             </a>
                         </h3>
                         <p>
-                            Como saber se já é a hora de transformar seu know-how em um produto digital escalável.
+                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
                         </p>
                         <div class="insight-meta">
                             <span>Por Auctus Consultoria</span>
-                            <span>05/08/2025</span>
+                            <span>17/11/2025</span>
                         </div>
                     </div>
                 </article>
-            </div>
 
-            <!-- Paginação -->
+            <!-- Paginação 
             <div class="blog-pagination">
                 <a href="#" class="page-link disabled">Anterior</a>
                 <a href="#" class="page-link active">1</a>
                 <a href="#" class="page-link">2</a>
                 <a href="#" class="page-link">3</a>
                 <a href="#" class="page-link">Próxima</a>
-            </div>
+            </div>-->
         </div>
     </section>
 </main>
