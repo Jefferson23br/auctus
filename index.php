@@ -58,6 +58,20 @@ include 'templates/header.php';
                     <h3>SEO & Analytics</h3>
                     <p>Otimizamos UX/UI e a estrutura técnica e análise de dados para aumentar tráfego qualificado e conversões.</p>
                 </div>
+                <div class="service-card">
+                    <h3>Desenvolvimento de Apps Mobile</h3>
+                    <p>Aplicativos para iOS e Android (Nativos ou Híbridos), focados em performance, usabilidade e engajamento do usuário.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>UI/UX Design & Prototipagem</h3>
+                    <p>Desenho de interfaces intuitivas e jornadas do usuário validadas, garantindo a melhor experiência antes mesmo do código.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Suporte & Manutenção Evolutiva</h3>
+                    <p>Monitoramento, segurança e atualizações constantes para garantir que seu software ou site esteja sempre estável e moderno.</p>
+                </div>
             </div>
             <div style="margin-top: 32px; text-align: center;">
                 <a href="servicos" class="btn btn-primary">Ver todos os serviços</a>
@@ -101,84 +115,81 @@ include 'templates/header.php';
             </div>
 
             <div class="insights-grid insights-grid-home">
-                <!-- Card 1 -->
+               <!-- Post 1 -->
                 <article class="insight-card">
-                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
-                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp" 
-                            alt="Jensen Huang: História, lições de um Legado" 
-                            class="insight-card-image">
+                    <a href="o-sucesso-da-zara" class="insight-card-image-link">
+                        <img src="assets/images/posts/O-Grande-sucesso-da-Zara.webp"
+                             alt="O sucesso da Zara: Estratégias, inovação e impacto no varejo de moda"
+                             class="insight-card-image">
+                    </a>
+                    <div class="insight-card-content">
+                        <span class="insight-tag">E-Commerce</span>
+                        <h3>
+                            <a href="o-sucesso-da-zara">
+                                O sucesso da Zara: Estratégias, inovação e impacto no varejo de moda
+                            </a>
+                        </h3>
+                        <p>
+                            O sucesso da Zara é um fenômeno notável no mundo da moda e do varejo, atribuído a várias estratégias e inovações. 
+                        </p>
+                        <div class="insight-meta">
+                            <span>Por Auctus Consultoria</span>
+                            <span>20/11/2025</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Post 2 -->
+                <article class="insight-card">
+                    <a href="a-ciencia-dos-precos" class="insight-card-image-link">
+                        <img src="assets/images/posts/A-Ciencia-dos-precos-Como-a-Psicologia-influencia-suas-vendas-e-lucros.webp"
+                             alt="A Ciência dos preços: Como a Psicologia influencia suas vendas e lucros"
+                             class="insight-card-image">
+                    </a>
+                    <div class="insight-card-content">
+                        <span class="insight-tag">Insight</span>
+                        <h3>
+                            <a href="a-ciencia-dos-precos">
+                                A Ciência dos preços: Como a Psicologia influencia suas vendas e lucros
+                            </a>
+                        </h3>
+                        <p>
+                            Compreender a importância da psicologia dos preços é fundamental para qualquer negócio que deseje conquistar e reter clientes de forma eficaz.
+                        </p>
+                        <div class="insight-meta">
+                            <span>Por Auctus Consultoria</span>
+                            <span>19/11/2025</span>
+                        </div>
+                    </div>
+                </article>
+                <!-- Post 3 -->
+                <article class="insight-card">
+                    <a href="caito-maia-historia-licoes-e-legado" class="insight-card-image-link">
+                        <img src="assets/images/posts/Quem-e-Caito-Maia.webp"
+                             alt="Caito Maia: História, lições, empresas e o legado de um empreendedor visionário"
+                             class="insight-card-image">
                     </a>
                     <div class="insight-card-content">
                         <span class="insight-tag">Personalidades</span>
                         <h3>
-                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
-                                Jensen Huang: História, lições de um Legado
+                            <a href="caito-maia-historia-licoes-e-legado">
+                                Caito Maia: História, lições de um Legado
                             </a>
                         </h3>
                         <p>
-                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
+                            Caito Maia é um renomado empresário brasileiro, conhecido principalmente por ser o fundador da Chilli Beans, a maior marca de óculos e acessórios da América Latina. ...
                         </p>
                         <div class="insight-meta">
                             <span>Por Auctus Consultoria</span>
-                            <span>17/11/2025</span>
+                            <span>18/11/2025</span>
                         </div>
                     </div>
                 </article>
-
-                <!-- Card 2 -->
+                <!-- Post 4 -->
                 <article class="insight-card">
                     <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
-                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp" 
-                            alt="Jensen Huang: História, lições de um Legado" 
-                            class="insight-card-image">
-                    </a>
-                    <div class="insight-card-content">
-                        <span class="insight-tag">Personalidades</span>
-                        <h3>
-                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
-                                Jensen Huang: História, lições de um Legado
-                            </a>
-                        </h3>
-                        <p>
-                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
-                        </p>
-                        <div class="insight-meta">
-                            <span>Por Auctus Consultoria</span>
-                            <span>17/11/2025</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Card 3 -->
-                <article class="insight-card">
-                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
-                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp" 
-                            alt="Jensen Huang: História, lições de um Legado" 
-                            class="insight-card-image">
-                    </a>
-                    <div class="insight-card-content">
-                        <span class="insight-tag">Personalidades</span>
-                        <h3>
-                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
-                                Jensen Huang: História, lições de um Legado
-                            </a>
-                        </h3>
-                        <p>
-                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
-                        </p>
-                        <div class="insight-meta">
-                            <span>Por Auctus Consultoria</span>
-                            <span>17/11/2025</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Card 4 -->
-                <article class="insight-card">
-                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
-                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp" 
-                            alt="Jensen Huang: História, lições de um Legado" 
-                            class="insight-card-image">
+                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp"
+                             alt="Jensen Huang: História, lições de um Legado"
+                             class="insight-card-image">
                     </a>
                     <div class="insight-card-content">
                         <span class="insight-tag">Personalidades</span>
