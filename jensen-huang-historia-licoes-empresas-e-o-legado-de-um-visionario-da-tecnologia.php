@@ -21,7 +21,7 @@ include 'templates/header.php';
             <div class="post-meta">
                 <span>Por Auctus Consultoria</span>
                 <span>17/11/2025</span>
-                <span>Leitura de 4 minutos</span>
+                <span>Leitura de 10 minutos</span>
             </div>
         </div>
     </section>
@@ -95,7 +95,7 @@ include 'templates/header.php';
             <a href="blog" class="back-link">← Voltar para o Blog</a>
             <div class="next-prev">
                 <!-- Ajustar manualmente em cada post -->
-                <a href="slug-post-anterior">← Post anterior</a>
+                <a href="caito-maia-historia-licoes-e-legado">← Post anterior</a>
                 <a href="blog">Próximo post →</a>
             </div>
         </div>
