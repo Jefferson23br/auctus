@@ -40,6 +40,20 @@ include 'templates/header.php';
                     <h3>SEO & Analytics</h3>
                     <p>Estratégia aliada a dados para aumentar seu tráfego qualificado e otimizar o funil de conversão.</p>
                 </div>
+                <div class="service-card">
+                    <h3>Desenvolvimento de Apps Mobile</h3>
+                    <p>Aplicativos para iOS e Android (Nativos ou Híbridos), focados em performance, usabilidade e engajamento do usuário.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>UI/UX Design & Prototipagem</h3>
+                    <p>Desenho de interfaces intuitivas e jornadas do usuário validadas, garantindo a melhor experiência antes mesmo do código.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Suporte & Manutenção Evolutiva</h3>
+                    <p>Monitoramento, segurança e atualizações constantes para garantir que seu software ou site esteja sempre estável e moderno.</p>
+                </div>
             </div>
         </div>
     </section>
