@@ -31,173 +31,74 @@ include 'templates/header.php';
             <div class="insights-grid insights-grid-blog">
                 <!-- Post 1 -->
                 <article class="insight-card">
-                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
-                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp"
-                             alt="Jensen Huang: História, lições de um Legado"
+                    <a href="o-sucesso-da-zara" class="insight-card-image-link">
+                        <img src="assets/images/posts/O-Grande-sucesso-da-Zara.webp"
+                             alt="O sucesso da Zara: Estratégias, inovação e impacto no varejo de moda"
                              class="insight-card-image">
                     </a>
                     <div class="insight-card-content">
-                        <span class="insight-tag">Personalidades</span>
+                        <span class="insight-tag">E-Commerce</span>
                         <h3>
-                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
-                                Jensen Huang: História, lições de um Legado
+                            <a href="o-sucesso-da-zara">
+                                O sucesso da Zara: Estratégias, inovação e impacto no varejo de moda
                             </a>
                         </h3>
                         <p>
-                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
+                            O sucesso da Zara é um fenômeno notável no mundo da moda e do varejo, atribuído a várias estratégias e inovações. 
                         </p>
                         <div class="insight-meta">
                             <span>Por Auctus Consultoria</span>
-                            <span>17/11/2025</span>
+                            <span>20/11/2025</span>
                         </div>
                     </div>
                 </article>
-
                 <!-- Post 2 -->
                 <article class="insight-card">
-                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
-                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp"
-                             alt="Jensen Huang: História, lições de um Legado"
+                    <a href="a-ciencia-dos-precos" class="insight-card-image-link">
+                        <img src="assets/images/posts/A-Ciencia-dos-precos-Como-a-Psicologia-influencia-suas-vendas-e-lucros.webp"
+                             alt="A Ciência dos preços: Como a Psicologia influencia suas vendas e lucros"
                              class="insight-card-image">
                     </a>
                     <div class="insight-card-content">
-                        <span class="insight-tag">Personalidades</span>
+                        <span class="insight-tag">Insight</span>
                         <h3>
-                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
-                                Jensen Huang: História, lições de um Legado
+                            <a href="a-ciencia-dos-precos">
+                                A Ciência dos preços: Como a Psicologia influencia suas vendas e lucros
                             </a>
                         </h3>
                         <p>
-                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
+                            Compreender a importância da psicologia dos preços é fundamental para qualquer negócio que deseje conquistar e reter clientes de forma eficaz.
                         </p>
                         <div class="insight-meta">
                             <span>Por Auctus Consultoria</span>
-                            <span>17/11/2025</span>
+                            <span>19/11/2025</span>
                         </div>
                     </div>
                 </article>
-
                 <!-- Post 3 -->
                 <article class="insight-card">
-                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
-                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp"
-                             alt="Jensen Huang: História, lições de um Legado"
+                    <a href="caito-maia-historia-licoes-e-legado" class="insight-card-image-link">
+                        <img src="assets/images/posts/Quem-e-Caito-Maia.webp"
+                             alt="Caito Maia: História, lições, empresas e o legado de um empreendedor visionário"
                              class="insight-card-image">
                     </a>
                     <div class="insight-card-content">
                         <span class="insight-tag">Personalidades</span>
                         <h3>
-                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
-                                Jensen Huang: História, lições de um Legado
+                            <a href="caito-maia-historia-licoes-e-legado">
+                                Caito Maia: História, lições de um Legado
                             </a>
                         </h3>
                         <p>
-                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
+                            Caito Maia é um renomado empresário brasileiro, conhecido principalmente por ser o fundador da Chilli Beans, a maior marca de óculos e acessórios da América Latina. ...
                         </p>
                         <div class="insight-meta">
                             <span>Por Auctus Consultoria</span>
-                            <span>17/11/2025</span>
+                            <span>18/11/2025</span>
                         </div>
                     </div>
                 </article>
-
                 <!-- Post 4 -->
-                <article class="insight-card">
-                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
-                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp"
-                             alt="Jensen Huang: História, lições de um Legado"
-                             class="insight-card-image">
-                    </a>
-                    <div class="insight-card-content">
-                        <span class="insight-tag">Personalidades</span>
-                        <h3>
-                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
-                                Jensen Huang: História, lições de um Legado
-                            </a>
-                        </h3>
-                        <p>
-                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
-                        </p>
-                        <div class="insight-meta">
-                            <span>Por Auctus Consultoria</span>
-                            <span>17/11/2025</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 5 (exemplo) -->
-                <article class="insight-card">
-                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
-                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp"
-                             alt="Jensen Huang: História, lições de um Legado"
-                             class="insight-card-image">
-                    </a>
-                    <div class="insight-card-content">
-                        <span class="insight-tag">Personalidades</span>
-                        <h3>
-                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
-                                Jensen Huang: História, lições de um Legado
-                            </a>
-                        </h3>
-                        <p>
-                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
-                        </p>
-                        <div class="insight-meta">
-                            <span>Por Auctus Consultoria</span>
-                            <span>17/11/2025</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 6 (exemplo) -->
-                <article class="insight-card">
-                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
-                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp"
-                             alt="Jensen Huang: História, lições de um Legado"
-                             class="insight-card-image">
-                    </a>
-                    <div class="insight-card-content">
-                        <span class="insight-tag">Personalidades</span>
-                        <h3>
-                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
-                                Jensen Huang: História, lições de um Legado
-                            </a>
-                        </h3>
-                        <p>
-                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
-                        </p>
-                        <div class="insight-meta">
-                            <span>Por Auctus Consultoria</span>
-                            <span>17/11/2025</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 7 (exemplo) -->
-                <article class="insight-card">
-                    <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
-                        <img src="assets/images/posts/quem-e-Jensen-Huang.webp"
-                             alt="Jensen Huang: História, lições de um Legado"
-                             class="insight-card-image">
-                    </a>
-                    <div class="insight-card-content">
-                        <span class="insight-tag">Personalidades</span>
-                        <h3>
-                            <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia">
-                                Jensen Huang: História, lições de um Legado
-                            </a>
-                        </h3>
-                        <p>
-                            Jensen Huang, oficialmente Jen-Hsun Huang, é um empresário e engenheiro elétrico taiwanês-americano, conhecido por ser o cofundador, presidente e CEO da NVIDIA,...
-                        </p>
-                        <div class="insight-meta">
-                            <span>Por Auctus Consultoria</span>
-                            <span>17/11/2025</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Post 8 (exemplo) -->
                 <article class="insight-card">
                     <a href="jensen-huang-historia-licoes-empresas-e-o-legado-de-um-visionario-da-tecnologia" class="insight-card-image-link">
                         <img src="assets/images/posts/quem-e-Jensen-Huang.webp"
