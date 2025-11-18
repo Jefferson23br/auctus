@@ -1,25 +1,26 @@
 RewriteEngine On
 RewriteBase /
 
-# ------------------------------------
-# --- REGRA NOVA PARA O BLOG PHP ---
-# ------------------------------------
-# Se a URL pedida for exatamente "blog",
-# sirva silenciosamente o conteúdo da página PHP do blog.
-# O [L] significa que, se esta regra for aplicada, nenhuma outra regra abaixo será processada.
-RewriteRule ^blog$ /area-cliente/blog/index.php [L]
+# 0) Redirecionar /index.php para /
+RewriteCond %{THE_REQUEST} \s/+index\.php[\s?] [NC]
+RewriteRule ^index\.php$ / [R=301,L]
 
+# 1) Redirecionar qualquer .php digitado na URL para sem .php
+RewriteCond %{THE_REQUEST} \s/+([^ ]+)\.php[\s?] [NC]
+RewriteRule ^ %1 [R=301,L]
 
-# ------------------------------------
-# --- SUAS REGRAS EXISTENTES ---
-# ------------------------------------
-# Carrega arquivos .html sem mostrar na URL
+# 2) Redirecionar qualquer .html digitado na URL para sem .html
+RewriteCond %{THE_REQUEST} \s/+([^ ]+)\.html[\s?] [NC]
+RewriteRule ^ %1 [R=301,L]
+
+# 3) Carregar o .php quando acessa sem extensão
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.+)$ $1.php [L]
+
+# 4) Carregar o .html quando acessa sem extensão
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^(.*)$ $1.html [L,NC]
-
-# Redireciona URLs com .html para sem .html
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)\.html$ /$1 [L,R=301,NC]
+RewriteRule ^(.+)$ $1.html [L]
