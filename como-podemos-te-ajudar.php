@@ -5,6 +5,7 @@ $pageKeywords = 'como podemos ajudar, consultoria digital, criação de sites, e
 $pageUrl = 'https://www.auctusconsultoria.com.br/como-podemos-te-ajudar.php';
 include 'templates/header.php';
 ?>
+
 <main class="page page-como-ajudar">
     <section class="page-hero-image">
         <div class="page-hero-overlay"></div>
