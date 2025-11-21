@@ -961,7 +961,7 @@ a {
 /* 4 cards por vez no desktop */
 .testimonial-card {
     flex: 0 0 calc((100% - 72px) / 4);
-    background: #ffffff;
+    background: #ffff;
     border-radius: 16px;
     padding: 24px;
     box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
@@ -1359,4 +1359,81 @@ a {
         font-size: 1.6rem;
     }
     
+}
+
+/* ====
+   BOTÃO FLUTUANTE DE SUPORTE (WHATSAPP)
+==== */
+
+.support-floating-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+.support-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.support-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.support-text-bubble {
+    position: relative;
+    background: #25d366; /* verde WhatsApp */
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 18px;
+    font-size: 14px;
+    line-height: 1.3;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-weight: 500;
+    max-width: 180px;
+}
+
+.support-text-bubble::after {
+    content: "";
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent #25d366 transparent transparent;
+}
+
+/* Ajustes responsivos para o botão flutuante */
+@media (max-width: 600px) {
+    .support-floating-button {
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .support-avatar {
+        width: 50px;
+        height: 50px;
+    }
+
+    .support-text-bubble {
+        font-size: 13px;
+        max-width: 160px;
+        padding: 8px 12px;
+    }
 }
