@@ -59,7 +59,23 @@ $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
 if (mail($emailDestino, $assunto, $corpo, $headers)) {
-    header("Location: contato.php?sucesso=1");
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <!-- Event snippet for Enviar formulário de lead conversion page -->
+        <script>
+          gtag('event', 'conversion', {'send_to': 'AW-17742202169/GZ2_CMTmo8MbELmKkoxC'});
+        </script>
+    </head>
+    <body>
+        <script>
+            window.location.href = 'contato.php?sucesso=1';
+        </script>
+    </body>
+    </html>
+    <?php
     exit;
 } else {
     header("Location: contato.php?erro=envio");
