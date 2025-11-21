@@ -44,9 +44,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // ====================================
+    // ====
     // CARROSSEL DE DEPOIMENTOS
-    // ====================================
+    // ====
     
     const carousel = document.getElementById('testimonials-carousel');
     const indicatorsContainer = document.getElementById('testimonials-indicators');
