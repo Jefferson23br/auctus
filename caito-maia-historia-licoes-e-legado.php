@@ -8,6 +8,7 @@ $pageOgImage = 'https://www.auctusconsultoria.com.br/assets/images/posts/Quem-e-
 
 include 'templates/header.php';
 ?>
+
 <main class="post-page">
     <!-- Hero interno reaproveitando a imagem padrão das páginas -->
     <section class="page-hero-image">
