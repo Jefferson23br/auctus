@@ -63,15 +63,11 @@ a {
    LOGO FIXA E MENU (DESKTOP)
 ==== */
 
-.fixed-logo {
-    position: fixed;
-    top: 16px;
-    left: 16px;
-    z-index: 1000;
+.header-logo {
     display: inline-block;
 }
 
-.fixed-logo img {
+.header-logo img {
     height: 70px;
     width: auto;
 }
@@ -1181,12 +1177,7 @@ a {
     }
 
     /* LOGO E MENU */
-    .fixed-logo {
-        top: 12px;
-        left: 12px;
-    }
-
-    .fixed-logo img {
+    .header-logo img {
         height: 50px;
     }
 
@@ -1317,12 +1308,7 @@ a {
         font-size: 14px;
     }
 
-    .fixed-logo {
-        top: 10px;
-        left: 10px;
-    }
-
-    .fixed-logo img {
+    .header-logo img {
         height: 45px;
     }
 
@@ -1397,7 +1383,7 @@ a {
 
 .support-text-bubble {
     position: relative;
-    background: #25d366; /* verde WhatsApp */
+    background: #25d366;
     color: #fff;
     padding: 10px 14px;
     border-radius: 18px;
@@ -1435,5 +1421,166 @@ a {
         font-size: 13px;
         max-width: 160px;
         padding: 8px 12px;
+    }
+}
+
+/* ====
+   SELETOR DE IDIOMA NO HEADER
+   (ao lado da logo fixa)
+==== */
+
+.header-logo-container {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.language-selector {
+    position: relative;
+}
+
+.lang-toggle {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #e5e7eb;
+    border-radius: 999px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.18);
+}
+
+.lang-toggle:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.24);
+    border-color: #2563eb;
+}
+
+.flag-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.lang-dropdown {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+    min-width: 160px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.2s ease;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.lang-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: #111827;
+    font-size: 0.85rem;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.lang-option:hover {
+    background: #f3f4f6;
+}
+
+.lang-option.active {
+    background: #e0edff;
+    color: #1d4ed8;
+    font-weight: 600;
+}
+
+.lang-option .flag-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Responsivo seletor de idioma */
+@media (max-width: 768px) {
+    .header-logo-container {
+        top: 12px;
+        left: 12px;
+        gap: 6px;
+    }
+
+    .lang-toggle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .flag-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .lang-dropdown {
+        top: 45px;
+        min-width: 140px;
+    }
+
+    .lang-option {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+
+    .lang-option .flag-icon {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-logo-container {
+        top: 10px;
+        left: 10px;
+    }
+
+    .lang-toggle {
+        width: 32px;
+        height: 32px;
+    }
+
+    .flag-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .lang-dropdown {
+        top: 40px;
+        min-width: 120px;
+    }
+
+    .lang-option {
+        font-size: 0.75rem;
+        padding: 6px 10px;
+    }
+
+    .lang-option .flag-icon {
+        width: 16px;
+        height: 16px;
     }
 }
