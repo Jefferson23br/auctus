@@ -201,4 +201,33 @@ document.addEventListener('DOMContentLoaded', function () {
         updateCarousel();
         startAutoplay();
     }
+
+    // ====
+    // SELETOR DE IDIOMA NO HEADER
+    // ====
+
+    const langToggle = document.getElementById('lang-toggle');
+    const langDropdown = document.getElementById('lang-dropdown');
+
+    if (langToggle && langDropdown) {
+        // Abre/fecha o dropdown ao clicar no botão
+        langToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            langDropdown.classList.toggle('active');
+        });
+
+        // Fecha ao clicar fora
+        document.addEventListener('click', function (e) {
+            if (!langDropdown.contains(e.target) && !langToggle.contains(e.target)) {
+                langDropdown.classList.remove('active');
+            }
+        });
+
+        // Fecha ao apertar ESC
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                langDropdown.classList.remove('active');
+            }
+        });
+    }
 });
