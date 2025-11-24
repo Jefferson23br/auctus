@@ -10,15 +10,18 @@
     $defaultDescription = 'Auctus Consultoria cria sites, e-commerce, SaaS e landing pages de alta performance em Ribeirão Preto e em todo o Brasil, com foco em SEO, geração de leads e resultados reais.';
     $defaultKeywords = 'Auctus Consultoria, criação de sites, agência de sites Ribeirão Preto, e-commerce, loja virtual, SaaS, landing page, desenvolvimento web, SEO, marketing digital, consultoria em TI';
     $defaultUrl = 'https://www.auctusconsultoria.com.br/';
-    $seoTitle = isset($pageTitle) && $pageTitle !== '' ? $pageTitle : $defaultTitle;
+
+    $seoTitle       = isset($pageTitle) && $pageTitle !== '' ? $pageTitle : $defaultTitle;
     $seoDescription = isset($pageDescription) && $pageDescription !== '' ? $pageDescription : $defaultDescription;
-    $seoKeywords = isset($pageKeywords) && $pageKeywords !== '' ? $pageKeywords : $defaultKeywords;
+    $seoKeywords    = isset($pageKeywords) && $pageKeywords !== '' ? $pageKeywords : $defaultKeywords;
+
     if (isset($pageUrl) && $pageUrl !== '') {
         $canonicalUrl = $pageUrl;
     } else {
-        $requestUri = $_SERVER['REQUEST_URI'] ?? '/';
+        $requestUri  = $_SERVER['REQUEST_URI'] ?? '/';
         $canonicalUrl = rtrim($defaultUrl, '/') . $requestUri;
     }
+
     $ogImage = isset($pageOgImage) && $pageOgImage !== ''
         ? $pageOgImage
         : 'https://www.auctusconsultoria.com.br/assets/images/og-image.jpg';
@@ -27,17 +30,21 @@
     <meta name="description" content="<?php echo htmlspecialchars($seoDescription, ENT_QUOTES, 'UTF-8'); ?>">
     <meta name="keywords" content="<?php echo htmlspecialchars($seoKeywords, ENT_QUOTES, 'UTF-8'); ?>">
     <meta name="author" content="Auctus Consultoria">
+
     <link rel="canonical" href="<?php echo htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8'); ?>">
+
     <meta property="og:title" content="<?php echo htmlspecialchars($seoTitle, ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:description" content="<?php echo htmlspecialchars($seoDescription, ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?php echo htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:image" content="<?php echo htmlspecialchars($ogImage, ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:site_name" content="Auctus Consultoria">
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?php echo htmlspecialchars($seoTitle, ENT_QUOTES, 'UTF-8'); ?>">
     <meta name="twitter:description" content="<?php echo htmlspecialchars($seoDescription, ENT_QUOTES, 'UTF-8'); ?>">
     <meta name="twitter:image" content="<?php echo htmlspecialchars($ogImage, ENT_QUOTES, 'UTF-8'); ?>">
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -66,13 +73,16 @@
       }
     }
     </script>
+
     <link rel="icon" type="image/webp" href="assets/images/favicon-96x96.webp" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.webp" />
     <meta name="apple-mobile-web-app-title" content="Auctus" />
     <link rel="manifest" href="site.webmanifest" />
+
     <link rel="stylesheet" href="assets/css/style.css">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EV9D7P5QNJ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -82,15 +92,38 @@
     </script>
 </head>
 <body>
-    <a href="index.php" class="fixed-logo">
-        <img src="assets/images/logo-auctus.webp" alt="Logo Auctus Consultoria em Tecnologia">
-    </a>
+    <div class="header-logo-container">
+        <a href="index.php" class="header-logo">
+            <img src="assets/images/logo-auctus.webp" alt="Logo Auctus Consultoria em Tecnologia">
+        </a>
+
+        <div class="language-selector">
+            <!-- PT sempre leva para index.php; EN leva para index-en.php -->
+            <button id="lang-toggle" class="lang-toggle" aria-label="Selecionar idioma">
+                <img
+                    src="assets/images/flags/br.svg"
+                    alt="Português"
+                    class="flag-icon"
+                >
+            </button>
+            <div id="lang-dropdown" class="lang-dropdown">
+                <a href="index.php" class="lang-option active">
+                    <img src="assets/images/flags/br.svg" alt="Português" class="flag-icon">
+                    <span>Português</span>
+                </a>
+                <a href="index-en.php" class="lang-option">
+                    <img src="assets/images/flags/us.svg" alt="English" class="flag-icon">
+                    <span>English</span>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <nav class="top-text-menu">
         <ul class="top-menu-main">
             <li><a href="quem-somos">Quem Somos</a></li>
             <li><a href="como-podemos-te-ajudar">Como Podemos te Ajudar</a></li>
-            <li><a href="contato">Contato</a></li>
+            <li><a href="contato.php">Contato</a></li>
         </ul>
         <button id="hamburger-icon" class="hamburger-icon" aria-label="Abrir menu">
             <span></span>
