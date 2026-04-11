@@ -461,7 +461,7 @@ a {
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
     gap: 24px;
     margin-top: 32px;
 }
@@ -474,6 +474,129 @@ a {
 
 .portfolio-item h3 {
     margin-bottom: 10px;
+}
+
+.portfolio-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.1);
+}
+
+.portfolio-card-image-link {
+    display: block;
+    aspect-ratio: 16 / 9;
+    background: #f3f4f6;
+    overflow: hidden;
+}
+
+.portfolio-card-image-link--static {
+    cursor: default;
+}
+
+.portfolio-card-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.portfolio-card-body {
+    padding: 20px 20px 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+    text-align: center;
+}
+
+.portfolio-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px 12px;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.portfolio-card-stacks {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px 14px;
+    margin-top: 4px;
+}
+
+.portfolio-card-soon {
+    margin: 4px 0 0;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.portfolio-card-tag {
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+.portfolio-card-year {
+    font-weight: 600;
+    color: #475569;
+}
+
+.portfolio-card-stack {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.portfolio-card-stack-icon {
+    flex-shrink: 0;
+    display: block;
+}
+
+.portfolio-card-title {
+    font-size: 1.15rem;
+    margin: 0;
+    line-height: 1.3;
+    color: #0f172a;
+}
+
+.portfolio-card-summary {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: #475569;
+    flex: 1;
+}
+
+.portfolio-card-url {
+    font-size: 0.88rem;
+    color: #15803d;
+    text-decoration: none;
+    word-break: break-all;
+    margin-top: 4px;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.portfolio-card-url:hover {
+    text-decoration: underline;
 }
 
 /* ====
