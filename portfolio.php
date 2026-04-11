@@ -10,24 +10,16 @@ include 'templates/header.php';
         <div class="page-hero-overlay"></div>
         <div class="page-hero-content container">
             <h1>Portfólio</h1>
-            <p>Alguns dos tipos de projetos e soluções que desenvolvemos.</p>
+            <p>Cases reais com imagem, stack e link para o projeto ao vivo.</p>
         </div>
     </section>
     <section class="section portfolio-section">
         <div class="container">
             <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <h3>Site Institucional</h3>
-                    <p>Presença digital profissional para empresas que precisam se posicionar com clareza e autoridade.</p>
-                </div>
-                <div class="portfolio-item">
-                    <h3>E-commerce Integrado</h3>
-                    <p>Lojas virtuais conectadas a meios de pagamento, logística e automações de marketing.</p>
-                </div>
-                <div class="portfolio-item">
-                    <h3>Portais & Sistemas Web</h3>
-                    <p>Soluções personalizadas para gestão interna, área do cliente, dashboards e mais.</p>
-                </div>
+                <?php
+                require_once __DIR__ . '/data/portfolio-items.php';
+                include __DIR__ . '/templates/partials/portfolio-cards.php';
+                ?>
             </div>
         </div>
     </section>

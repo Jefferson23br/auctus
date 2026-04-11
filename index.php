@@ -81,20 +81,13 @@ include 'templates/header.php';
     <section class="section portfolio-section">
     <div class="container">
     <h2>Projetos que impulsionam negócios</h2>
-    <p class="section-subtitle">Desenvolvemos soluções digitais para diferentes segmentos e modelos de negócio.</p>
+    <p class="section-subtitle">Cases reais com preview, tecnologia e acesso ao projeto publicado.</p>
     <div class="portfolio-grid">
-    <div class="portfolio-item">
-    <h3>Sites institucionais</h3>
-    <p>Presença digital forte e profissional para empresas que querem se posicionar no mercado.</p>
-    </div>
-    <div class="portfolio-item">
-    <h3>Lojas virtuais</h3>
-    <p>E-commerce com foco em conversão, usabilidade e integração com ferramentas essenciais.</p>
-    </div>
-    <div class="portfolio-item">
-    <h3>Sistemas personalizados</h3>
-    <p>Portais, sistemas internos e soluções sob medida para o dia a dia da sua operação.</p>
-    </div>
+    <?php
+    $portfolioHomeLimit = 3;
+    require_once __DIR__ . '/data/portfolio-items.php';
+    include __DIR__ . '/templates/partials/portfolio-cards.php';
+    ?>
     </div>
     <div style="margin-top: 32px; text-align: center;">
     <a href="portfolio" class="btn btn-primary">Conhecer mais</a>
