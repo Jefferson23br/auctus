@@ -32,4 +32,18 @@ $portfolioItems = [
             ['name' => 'PostgreSQL', 'icon' => 'assets/images/stacks/postgresql.svg'],
         ],
     ],
+    [
+        'title'   => 'PCP Premium Produção',
+        'url'     => 'https://api4.auctusconsultoria.com.br',
+        'summary' => 'Sistema de PCP (Planejamento e Controle da Produção) que modernizou operação industrial: da base legada em VBA e Excel para uma plataforma SaaS full-stack com API em Node.js e Express, PostgreSQL e interface web em React. Cobre cadastros industriais, ordens de produção com roteiros, dashboard Kanban, Gantt operacional, monitor para chão de fábrica e relatórios gerenciais (incluindo OEE), com autenticação JWT, exportação e deploy orientado a produção (PM2 e Nginx).',
+        'image'   => 'assets/images/portfolio/pcp-premium-producao.webp',
+        'tag'     => 'SaaS · PCP · Indústria',
+        'year'    => 2026,
+        'stacks'  => [
+            ['name' => 'Node.js', 'icon' => 'assets/images/stacks/nodejs.svg'],
+            ['name' => 'Express', 'icon' => ''],
+            ['name' => 'PostgreSQL', 'icon' => 'assets/images/stacks/postgresql.svg'],
+            ['name' => 'React.js', 'icon' => 'assets/images/stacks/react.svg'],
+        ],
+    ],
 ];
