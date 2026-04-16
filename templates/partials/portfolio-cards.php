@@ -36,6 +36,8 @@ foreach ($items as $item) :
     $displayUrl = ($hasUrl && $host)
         ? 'www.' . preg_replace('#^www\.#', '', $host)
         : '';
+    $urlLabel = isset($item['url_label']) ? trim((string) $item['url_label']) : '';
+    $displayLink = $urlLabel !== '' ? $urlLabel : $displayUrl;
 
     $onErrorJs = 'this.onerror=null;this.src=' . json_encode('assets/images/portfolio/placeholder.svg', JSON_UNESCAPED_SLASHES) . ';';
     ?>
@@ -91,7 +93,7 @@ foreach ($items as $item) :
             <h3 class="portfolio-card-title"><?php echo $title; ?></h3>
             <p class="portfolio-card-summary"><?php echo $summary; ?></p>
             <?php if ($hasUrl) : ?>
-            <a href="<?php echo $href; ?>" class="portfolio-card-url" target="_blank" rel="noopener noreferrer"><?php echo htmlspecialchars($displayUrl, ENT_QUOTES, 'UTF-8'); ?></a>
+            <a href="<?php echo $href; ?>" class="portfolio-card-url" target="_blank" rel="noopener noreferrer"><?php echo htmlspecialchars($displayLink, ENT_QUOTES, 'UTF-8'); ?></a>
             <?php else : ?>
             <p class="portfolio-card-soon">Em desenvolvimento</p>
             <?php endif; ?>
