@@ -46,4 +46,19 @@ $portfolioItems = [
             ['name' => 'React.js', 'icon' => 'assets/images/stacks/react.svg'],
         ],
     ],
+    [
+        'title'   => 'FakeGps Simulator',
+        'url'     => 'https://play.google.com/store/apps/details?id=com.fakegpsfakesimulator',
+        'url_label' => 'Android',
+        'summary' => 'Aplicativo Android para simular deslocamento GPS em rota real entre dois pontos, com controle de velocidade e atualização progressiva da localização do dispositivo. Permite selecionar origem e destino no mapa, traçar rota e executar simulação em foreground service com notificação persistente.',
+        'image'   => 'assets/images/portfolio/fakegps-simulator.webp',
+        'tag'     => 'App Mobile · Localização',
+        'year'    => 2026,
+        'stacks'  => [
+            ['name' => 'Kotlin', 'icon' => ''],
+            ['name' => 'Android', 'icon' => ''],
+            ['name' => 'Jetpack Compose', 'icon' => ''],
+            ['name' => 'Firebase', 'icon' => ''],
+        ],
+    ],
 ];
