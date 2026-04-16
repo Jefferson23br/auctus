@@ -21,6 +21,8 @@ foreach ($items as $item) :
     $stackIcon = htmlspecialchars($item['stack_icon'], ENT_QUOTES, 'UTF-8');
     $host = parse_url($item['url'], PHP_URL_HOST) ?: '';
     $displayUrl = $host ? 'www.' . preg_replace('#^www\.#', '', $host) : $href;
+    $urlLabel = isset($item['url_label']) ? trim((string) $item['url_label']) : '';
+    $displayLink = $urlLabel !== '' ? $urlLabel : $displayUrl;
     ?>
     <article class="portfolio-card">
         <a href="<?php echo $href; ?>" class="portfolio-card-image-link" target="_blank" rel="noopener noreferrer">
@@ -45,7 +47,7 @@ foreach ($items as $item) :
             </div>
             <h3 class="portfolio-card-title"><?php echo $title; ?></h3>
             <p class="portfolio-card-summary"><?php echo $summary; ?></p>
-            <a href="<?php echo $href; ?>" class="portfolio-card-url" target="_blank" rel="noopener noreferrer"><?php echo htmlspecialchars($displayUrl, ENT_QUOTES, 'UTF-8'); ?></a>
+            <a href="<?php echo $href; ?>" class="portfolio-card-url" target="_blank" rel="noopener noreferrer"><?php echo htmlspecialchars($displayLink, ENT_QUOTES, 'UTF-8'); ?></a>
         </div>
     </article>
 <?php endforeach; ?>
