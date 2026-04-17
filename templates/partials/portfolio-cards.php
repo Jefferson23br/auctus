@@ -38,6 +38,20 @@ foreach ($items as $item) :
         : '';
     $urlLabel = isset($item['url_label']) ? trim((string) $item['url_label']) : '';
     $displayLink = $urlLabel !== '' ? $urlLabel : $displayUrl;
+    $secondaryRawUrl = isset($item['secondary_url']) ? trim((string) $item['secondary_url']) : '';
+    $hasSecondaryUrl = $secondaryRawUrl !== '' && $secondaryRawUrl !== '#';
+    $secondaryHref = $hasSecondaryUrl ? htmlspecialchars($secondaryRawUrl, ENT_QUOTES, 'UTF-8') : '';
+    $secondaryUrlLabel = isset($item['secondary_url_label']) ? trim((string) $item['secondary_url_label']) : '';
+
+    if ($hasSecondaryUrl) {
+        $secondaryHost = parse_url($secondaryRawUrl, PHP_URL_HOST) ?: '';
+        $secondaryDisplayUrl = $secondaryHost !== ''
+            ? 'www.' . preg_replace('#^www\.#', '', $secondaryHost)
+            : '';
+        $secondaryDisplayLink = $secondaryUrlLabel !== '' ? $secondaryUrlLabel : $secondaryDisplayUrl;
+    } else {
+        $secondaryDisplayLink = '';
+    }
 
     $onErrorJs = 'this.onerror=null;this.src=' . json_encode('assets/images/portfolio/placeholder.svg', JSON_UNESCAPED_SLASHES) . ';';
     ?>
@@ -94,6 +108,9 @@ foreach ($items as $item) :
             <p class="portfolio-card-summary"><?php echo $summary; ?></p>
             <?php if ($hasUrl) : ?>
             <a href="<?php echo $href; ?>" class="portfolio-card-url" target="_blank" rel="noopener noreferrer"><?php echo htmlspecialchars($displayLink, ENT_QUOTES, 'UTF-8'); ?></a>
+            <?php if ($hasSecondaryUrl) : ?>
+            <a href="<?php echo $secondaryHref; ?>" class="portfolio-card-url" target="_blank" rel="noopener noreferrer"><?php echo htmlspecialchars($secondaryDisplayLink, ENT_QUOTES, 'UTF-8'); ?></a>
+            <?php endif; ?>
             <?php else : ?>
             <p class="portfolio-card-soon">Em desenvolvimento</p>
             <?php endif; ?>
