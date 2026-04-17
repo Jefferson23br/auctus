@@ -64,18 +64,6 @@ if (mail($emailDestino, $assunto, $corpo, $headers)) {
     <html>
     <head>
         <meta charset="UTF-8">
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17742202169"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'AW-17742202169');
-        </script>
-        <!-- Event snippet for Enviar formulário de lead conversion page -->
-        <script>
-          gtag('event', 'conversion', {'send_to': 'AW-17742202169/GZ2_CMTmo8MbELmKkoxC'});
-        </script>
     </head>
     <body>
         <script>
