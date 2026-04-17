@@ -62,10 +62,6 @@ if (mail($destinationEmail, $subject, $body, $headers)) {
     <html>
     <head>
         <meta charset="UTF-8">
-        <!-- Event snippet can stay the same if you track the same conversion -->
-        <script>
-        gtag('event', 'conversion', {'send_to': 'AW-17742202169/GZ2_CMTmo8MbELmKkoxC'});
-        </script>
     </head>
     <body>
         <script>
