@@ -54,14 +54,6 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EV9D7P5QNJ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-EV9D7P5QNJ');
-      gtag('config', 'AW-17742202169');
-    </script>
 </head>
 <body>
     <div class="header-logo-container">
