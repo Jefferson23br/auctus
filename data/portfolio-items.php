@@ -63,13 +63,11 @@ $portfolioItems = [
     ],
     [
         'title'   => 'Reembolso de Quilometragem',
-        'url'     => 'https://auctusconsultoria.com.br/Reembolso-Km/frontend/Reembolso.html',
-        'url_label' => 'Site',
-        'secondary_url' => 'https://play.google.com/store/apps/details?id=com.jefferson23br.ReembolsoKm&pcampaignid=web_share',
-        'secondary_url_label' => 'Android',
-        'summary' => 'Plataforma web e mobile para gestao de reembolso por quilometragem, com dashboard por periodo, cadastro de veiculos, lancamento de viagens e despesas com comprovantes, controle de pagamentos e relatorios prontos para impressao/PDF.',
+        'url'     => 'https://play.google.com/store/apps/details?id=com.jefferson23br.ReembolsoKm&pcampaignid=web_share',
+        'url_label' => 'Android',
+        'summary' => 'Aplicativo para gestão de reembolso por quilometragem, com dashboard por período, cadastro de veículos, lançamento de viagens e despesas com comprovantes, controle de pagamentos e relatórios prontos para impressão/PDF.',
         'image'   => 'assets/images/portfolio/reembolso-km.webp',
-        'tag'     => 'Web + App Mobile · Financas',
+        'tag'     => 'App Mobile · Finanças',
         'year'    => 2026,
         'stacks'  => [
             ['name' => 'React Native', 'icon' => 'assets/images/stacks/react.svg'],
