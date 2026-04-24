@@ -20,6 +20,7 @@
                 <li><a href="services-en.php">Services</a></li>
                 <li><a href="portfolio-en.php">Portfolio</a></li>
                 <li><a href="contact-en.php">Contact</a></li>
+                <li><a href="privacy-policy.php">Privacy Policy</a></li>
             </ul>
         </div>
     </div>
