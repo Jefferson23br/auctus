@@ -6,8 +6,37 @@
  * - stacks: lista de ['name' => '...', 'icon' => 'caminho.svg'] (preferido)
  * - ou legado: stack + stack_icon (um só)
  * - url vazio = projeto sem link público (ex.: em desenvolvimento)
+ * - no_link_note: texto opcional quando url vazio (ex.: sem demo por contrato)
  */
 $portfolioItems = [
+    [
+        'title'   => 'DANFE Visualizador',
+        'url'     => 'https://cornflowerblue-goldfinch-949602.hostingersite.com/',
+        'url_label' => 'Acessar aplicação',
+        'summary' => 'Ferramenta online para gerar e visualizar DANFE (NF-e) e DANFS-e a partir de XML fiscal: envio do arquivo, geração de PDF e pré-visualização no navegador, sem depender de instalação local. Arquitetura com frontend em HTML, CSS e JavaScript (vanilla) e API em PHP, pensada para agilidade na rotina contábil e administrativa.',
+        'image'   => 'assets/images/portfolio/danfe-visualizador.webp',
+        'tag'     => 'Web app · Fiscal',
+        'year'    => 2026,
+        'stacks'  => [
+            ['name' => 'PHP', 'icon' => 'assets/images/stacks/php.svg'],
+            ['name' => 'JavaScript', 'icon' => 'assets/images/stacks/javascript.svg'],
+            ['name' => 'HTML5', 'icon' => 'assets/images/stacks/html5.svg'],
+        ],
+    ],
+    [
+        'title'   => 'NFe Monitor',
+        'url'     => '',
+        'no_link_note' => 'Sem demonstração pública (entrega sem link por escopo contratual).',
+        'summary' => 'Monitor em PHP (CLI) para consulta automática de documentos fiscais na SEFAZ (distribuição DFe), com NSU incremental, processamento de XML, persistência em PostgreSQL e trilha de logs. Integração via certificado digital A1 e biblioteca sped-nfe, com controle de tentativas e prevenção de bloqueio por consumo indevido.',
+        'image'   => 'assets/images/portfolio/nfe-monitor.webp',
+        'tag'     => 'Backend · Fiscal · CLI',
+        'year'    => 2026,
+        'stacks'  => [
+            ['name' => 'PHP', 'icon' => 'assets/images/stacks/php.svg'],
+            ['name' => 'PostgreSQL', 'icon' => 'assets/images/stacks/postgresql.svg'],
+            ['name' => 'Composer', 'icon' => ''],
+        ],
+    ],
     [
         'title'   => 'Dr. Camila Capeli',
         'url'     => 'https://www.dracamilacapeli.com.br',
