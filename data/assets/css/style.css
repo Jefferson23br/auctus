@@ -653,6 +653,21 @@ a {
     text-decoration: underline;
 }
 
+.portfolio-card-soon {
+    margin: 4px 0 0;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.portfolio-card-no-link {
+    margin: 4px 0 0;
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.45;
+    color: #64748b;
+}
+
 /* ====
    CONTATO
 ==== */
