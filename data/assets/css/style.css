@@ -430,11 +430,19 @@ a {
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
     gap: 24px;
     margin-top: 32px;
 }
 
+.service-card-wrap {
+    position: relative;
+    outline: none;
+}
+
 .service-card {
+    position: relative;
+    overflow: hidden;
     background: #ffff;
     border-radius: 16px;
     padding: 24px;
@@ -442,13 +450,78 @@ a {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.service-card:hover {
+.service-card-wrap:hover .service-card,
+.service-card-wrap:focus-within .service-card {
     transform: translateY(-4px);
     box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
 }
 
 .service-card h3 {
+    position: relative;
+    z-index: 1;
     margin-bottom: 10px;
+}
+
+.service-card > p:not(.service-card-popover) {
+    position: relative;
+    z-index: 1;
+}
+
+/* Janela pequena: sobe de baixo, dentro do cartão */
+.service-card-popover {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    top: auto;
+    z-index: 2;
+    margin: 0;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    color: #334155;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    border: 1px solid #c7d2fe;
+    border-radius: 10px;
+    box-shadow: 0 10px 28px rgba(30, 64, 175, 0.18), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+    transform: translateY(calc(100% + 18px));
+    transition: transform 0.32s cubic-bezier(0.25, 0.9, 0.35, 1);
+    pointer-events: none;
+    will-change: transform;
+    max-width: none;
+}
+
+.service-card-popover__link {
+    display: inline-block;
+    font-weight: 600;
+    color: #1d4ed8;
+    text-decoration: none;
+    text-align: center;
+}
+
+.service-card-popover__link:hover {
+    text-decoration: underline;
+    color: #1e3a8a;
+}
+
+.service-card-wrap:hover .service-card-popover,
+.service-card-wrap:focus-within .service-card-popover {
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.service-card-wrap:focus-visible {
+    border-radius: 16px;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2563eb;
+}
+
+@media (hover: none) {
+    .service-card-popover {
+        display: none;
+    }
 }
 
 /* ====
