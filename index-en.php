@@ -36,41 +36,68 @@ include 'header-en.php';
             <p class="section-subtitle">Services designed to accelerate your digital growth.</p>
 
             <div class="services-grid">
-                <div class="service-card">
-                    <h3>Professional Websites</h3>
-                    <p>Modern, responsive and SEO‑optimized corporate websites, built to generate credibility and opportunities.</p>
+                <div class="service-card-wrap" tabindex="0" aria-label="Professional websites">
+                    <div class="service-card">
+                        <h3>Professional Websites</h3>
+                        <p>Modern, responsive and SEO‑optimized corporate websites, built to generate credibility and opportunities.</p>
+                        <div class="service-card-popover" role="region" aria-label="Action"><a href="services-en.php" class="service-card-popover__link">Service details</a></div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3>E-commerce & Online Stores</h3>
-                    <p>Complete structure to sell online with great user experience, security and scalability.</p>
+                <div class="service-card-wrap" tabindex="0" aria-label="E-commerce and online stores">
+                    <div class="service-card">
+                        <h3>E-commerce & Online Stores</h3>
+                        <p>Complete structure to sell online with great user experience, security and scalability.</p>
+                        <div class="service-card-popover" role="region" aria-label="Action"><a href="services-en.php" class="service-card-popover__link">Service details</a></div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3>SaaS & Web Systems</h3>
-                    <p>Custom platforms for management, automation and scaling your business.</p>
+                <div class="service-card-wrap" tabindex="0" aria-label="SaaS and web systems">
+                    <div class="service-card">
+                        <h3>SaaS & Web Systems</h3>
+                        <p>Custom platforms for management, automation and scaling your business.</p>
+                        <div class="service-card-popover" role="region" aria-label="Action"><a href="services-en.php" class="service-card-popover__link">Service details</a></div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3>High-Converting Landing Pages</h3>
-                    <p>Pages focused on campaigns, launches, lead generation and specific offers.</p>
+                <div class="service-card-wrap" tabindex="0" aria-label="High-converting landing pages">
+                    <div class="service-card">
+                        <h3>High-Converting Landing Pages</h3>
+                        <p>Pages focused on campaigns, launches, lead generation and specific offers.</p>
+                        <div class="service-card-popover" role="region" aria-label="Action"><a href="services-en.php" class="service-card-popover__link">Service details</a></div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3>Integrations & Automation</h3>
-                    <p>Integrations with APIs, ERPs, CRMs, payment gateways and marketing tools.</p>
+                <div class="service-card-wrap" tabindex="0" aria-label="Integrations and automation">
+                    <div class="service-card">
+                        <h3>Integrations & Automation</h3>
+                        <p>Integrations with APIs, ERPs, CRMs, payment gateways and marketing tools.</p>
+                        <div class="service-card-popover" role="region" aria-label="Action"><a href="services-en.php" class="service-card-popover__link">Service details</a></div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3>SEO & Analytics</h3>
-                    <p>We optimize UX/UI, technical structure and analytics to increase qualified traffic and conversions.</p>
+                <div class="service-card-wrap" tabindex="0" aria-label="SEO and analytics">
+                    <div class="service-card">
+                        <h3>SEO & Analytics</h3>
+                        <p>We optimize UX/UI, technical structure and analytics to increase qualified traffic and conversions.</p>
+                        <div class="service-card-popover" role="region" aria-label="Action"><a href="services-en.php" class="service-card-popover__link">Service details</a></div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3>Mobile App Development</h3>
-                    <p>iOS and Android apps, focused on performance, usability and user engagement.</p>
+                <div class="service-card-wrap" tabindex="0" aria-label="Mobile app development">
+                    <div class="service-card">
+                        <h3>Mobile App Development</h3>
+                        <p>iOS and Android apps, focused on performance, usability and user engagement.</p>
+                        <div class="service-card-popover" role="region" aria-label="Action"><a href="services-en.php" class="service-card-popover__link">Service details</a></div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3>UI/UX Design & Prototyping</h3>
-                    <p>Intuitive interfaces and validated user journeys, ensuring the best experience before coding.</p>
+                <div class="service-card-wrap" tabindex="0" aria-label="UI/UX and prototyping">
+                    <div class="service-card">
+                        <h3>UI/UX Design & Prototyping</h3>
+                        <p>Intuitive interfaces and validated user journeys, ensuring the best experience before coding.</p>
+                        <div class="service-card-popover" role="region" aria-label="Action"><a href="services-en.php" class="service-card-popover__link">Service details</a></div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3>Support & Continuous Improvement</h3>
-                    <p>Monitoring, security and ongoing updates to keep your software or website stable and modern.</p>
+                <div class="service-card-wrap" tabindex="0" aria-label="Support and maintenance">
+                    <div class="service-card">
+                        <h3>Support & Continuous Improvement</h3>
+                        <p>Monitoring, security and ongoing updates to keep your software or website stable and modern.</p>
+                        <div class="service-card-popover" role="region" aria-label="Action"><a href="services-en.php" class="service-card-popover__link">Service details</a></div>
+                    </div>
                 </div>
             </div>
 
