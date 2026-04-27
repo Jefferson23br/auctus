@@ -630,6 +630,14 @@ a {
     color: #64748b;
 }
 
+.portfolio-card-no-link {
+    margin: 4px 0 0;
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.45;
+    color: #64748b;
+}
+
 .portfolio-card-tag {
     background: #eff6ff;
     color: #1d4ed8;
