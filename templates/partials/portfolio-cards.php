@@ -42,6 +42,7 @@ foreach ($items as $item) :
     $hasSecondaryUrl = $secondaryRawUrl !== '' && $secondaryRawUrl !== '#';
     $secondaryHref = $hasSecondaryUrl ? htmlspecialchars($secondaryRawUrl, ENT_QUOTES, 'UTF-8') : '';
     $secondaryUrlLabel = isset($item['secondary_url_label']) ? trim((string) $item['secondary_url_label']) : '';
+    $noLinkNote = isset($item['no_link_note']) ? trim((string) $item['no_link_note']) : '';
 
     if ($hasSecondaryUrl) {
         $secondaryHost = parse_url($secondaryRawUrl, PHP_URL_HOST) ?: '';
@@ -112,7 +113,11 @@ foreach ($items as $item) :
             <a href="<?php echo $secondaryHref; ?>" class="portfolio-card-url" target="_blank" rel="noopener noreferrer"><?php echo htmlspecialchars($secondaryDisplayLink, ENT_QUOTES, 'UTF-8'); ?></a>
             <?php endif; ?>
             <?php else : ?>
+            <?php if ($noLinkNote !== '') : ?>
+            <p class="portfolio-card-no-link"><?php echo htmlspecialchars($noLinkNote, ENT_QUOTES, 'UTF-8'); ?></p>
+            <?php else : ?>
             <p class="portfolio-card-soon">Em desenvolvimento</p>
+            <?php endif; ?>
             <?php endif; ?>
         </div>
     </article>
