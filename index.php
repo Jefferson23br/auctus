@@ -34,43 +34,68 @@ include 'templates/header.php';
     <h2>Nossas principais soluções</h2>
     <p class="section-subtitle">Serviços pensados para acelerar o crescimento do seu negócio no digital.</p>
     <div class="services-grid">
+    <div class="service-card-wrap" tabindex="0" aria-label="Criação de sites profissionais">
     <div class="service-card">
     <h3>Criação de Sites Profissionais</h3>
     <p>Sites institucionais modernos, responsivos e otimizados para SEO, focados em gerar credibilidade e oportunidades.</p>
+    <div class="service-card-popover" role="region" aria-label="Ação"><a href="servicos" class="service-card-popover__link">Detalhes do serviço</a></div>
     </div>
+    </div>
+    <div class="service-card-wrap" tabindex="0" aria-label="E-commerce e lojas virtuais">
     <div class="service-card">
     <h3>E-commerce & Lojas Virtuais</h3>
     <p>Estrutura completa para vender online com boa experiência de compra, segurança e escalabilidade.</p>
+    <div class="service-card-popover" role="region" aria-label="Ação"><a href="servicos" class="service-card-popover__link">Detalhes do serviço</a></div>
     </div>
+    </div>
+    <div class="service-card-wrap" tabindex="0" aria-label="SaaS e sistemas web">
     <div class="service-card">
     <h3>SaaS & Sistemas Web</h3>
     <p>Plataformas sob medida para gestão, automação e escalabilidade do seu negócio.</p>
+    <div class="service-card-popover" role="region" aria-label="Ação"><a href="servicos" class="service-card-popover__link">Detalhes do serviço</a></div>
     </div>
+    </div>
+    <div class="service-card-wrap" tabindex="0" aria-label="Landing pages de alta conversão">
     <div class="service-card">
     <h3>Landing Pages de Alta Conversão</h3>
     <p>Páginas focadas em campanhas, lançamentos, captura de leads e vendas específicas.</p>
+    <div class="service-card-popover" role="region" aria-label="Ação"><a href="servicos" class="service-card-popover__link">Detalhes do serviço</a></div>
     </div>
+    </div>
+    <div class="service-card-wrap" tabindex="0" aria-label="Integrações e automação">
     <div class="service-card">
     <h3>Integrações & Automação</h3>
     <p>Integrações com APIs, ERPs, CRMs, gateways de pagamento e ferramentas de marketing.</p>
+    <div class="service-card-popover" role="region" aria-label="Ação"><a href="servicos" class="service-card-popover__link">Detalhes do serviço</a></div>
     </div>
+    </div>
+    <div class="service-card-wrap" tabindex="0" aria-label="SEO e analytics">
     <div class="service-card">
     <h3>SEO & Analytics</h3>
     <p>Otimizamos UX/UI e a estrutura técnica e análise de dados para aumentar tráfego qualificado e conversões.</p>
+    <div class="service-card-popover" role="region" aria-label="Ação"><a href="servicos" class="service-card-popover__link">Detalhes do serviço</a></div>
     </div>
+    </div>
+    <div class="service-card-wrap" tabindex="0" aria-label="Desenvolvimento de apps mobile">
     <div class="service-card">
     <h3>Desenvolvimento de Apps Mobile</h3>
     <p>Aplicativos para iOS e Android (Nativos ou Híbridos), focados em performance, usabilidade e engajamento do usuário.</p>
+    <div class="service-card-popover" role="region" aria-label="Ação"><a href="servicos" class="service-card-popover__link">Detalhes do serviço</a></div>
     </div>
-
+    </div>
+    <div class="service-card-wrap" tabindex="0" aria-label="UI/UX e prototipagem">
     <div class="service-card">
     <h3>UI/UX Design & Prototipagem</h3>
     <p>Desenho de interfaces intuitivas e jornadas do usuário validadas, garantindo a melhor experiência antes mesmo do código.</p>
+    <div class="service-card-popover" role="region" aria-label="Ação"><a href="servicos" class="service-card-popover__link">Detalhes do serviço</a></div>
     </div>
-
+    </div>
+    <div class="service-card-wrap" tabindex="0" aria-label="Suporte e manutenção">
     <div class="service-card">
     <h3>Suporte & Manutenção Evolutiva</h3>
     <p>Monitoramento, segurança e atualizações constantes para garantir que seu software ou site esteja sempre estável e moderno.</p>
+    <div class="service-card-popover" role="region" aria-label="Ação"><a href="servicos" class="service-card-popover__link">Detalhes do serviço</a></div>
+    </div>
     </div>
     </div>
     <div style="margin-top: 32px; text-align: center;">
