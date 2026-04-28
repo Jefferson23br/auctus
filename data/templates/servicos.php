@@ -28,10 +28,10 @@ include 'templates/header.php';
                     <h3>SaaS & Sistemas Web</h3>
                     <p>Aplicações web personalizadas para gestão, automação de processos e escala do seu negócio, como criação de aplicativos mobile.</p>
                 </div>
-                <div class="service-card">
+                <a class="service-card service-card--link" href="criacao-landing-pages.php">
                     <h3>Landing Pages</h3>
                     <p>Páginas focadas em conversão para campanhas específicas, lançamentos, captação de leads e vendas.</p>
-                </div>
+                </a>
                 <div class="service-card">
                     <h3>Integrações & Automação</h3>
                     <p>Integração com APIs, ERPs, CRMs, gateways de pagamento e ferramentas de marketing.</p>
