@@ -59,19 +59,7 @@ $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
 if (mail($emailDestino, $assunto, $corpo, $headers)) {
-    ?>
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-    </head>
-    <body>
-        <script>
-            window.location.href = 'contato.php?sucesso=1';
-        </script>
-    </body>
-    </html>
-    <?php
+    header("Location: obrigado.php");
     exit;
 } else {
     header("Location: contato.php?erro=envio");
