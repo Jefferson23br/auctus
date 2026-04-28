@@ -57,19 +57,7 @@ $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
 if (mail($destinationEmail, $subject, $body, $headers)) {
-    ?>
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-    </head>
-    <body>
-        <script>
-        window.location.href = 'contact-en.php?success=1';
-        </script>
-    </body>
-    </html>
-    <?php
+    header("Location: thank-you-en.php");
     exit;
 } else {
     header("Location: contact-en.php?error=send");
