@@ -467,6 +467,24 @@ a {
     z-index: 1;
 }
 
+/* Cartão inteiro clicável (ex.: Landing Pages em servicos / services-en) */
+a.service-card.service-card--link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.service-card.service-card--link:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+.service-card.service-card--link:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2563eb;
+}
+
 /* Janela pequena: sobe de baixo, dentro do cartão (não replica o bloco inteiro) */
 .service-card-popover {
     position: absolute;
@@ -1083,6 +1101,55 @@ a {
 
 .post-content strong {
     font-weight: 600;
+}
+
+.post-content .table-wrap {
+    overflow-x: auto;
+    margin: 20px 0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.post-content table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+.post-content th,
+.post-content td {
+    border: 1px solid #e5e7eb;
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.post-content th {
+    background: #f8fafc;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.post-content tbody tr:nth-child(even) td {
+    background: #fafbfc;
+}
+
+.post-highlight-box .post-highlight-box__title,
+.post-highlight-box h3 {
+    font-size: 1.1rem;
+    margin: 0 0 12px 0;
+    color: #0f172a;
+}
+
+.service-card h3 a.service-card__title-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.service-card h3 a.service-card__title-link:hover {
+    color: #2563eb;
+    text-decoration: underline;
 }
 
 .post-highlight-box {
