@@ -98,8 +98,8 @@
     <aside id="side-menu" class="side-menu">
         <button id="side-menu-close" class="side-menu-close" aria-label="Close menu">×</button>
         <ul>
-            <li><a href="services-en">Services</a></li>
-            <li><a href="portfolio-en">Portfolio</a></li>
+            <li><a href="services-en.php">Services</a></li>
+            <li><a href="portfolio-en.php">Portfolio</a></li>
             <li><a href="blog-en">Blog / Insights</a></li>
         </ul>
         <div class="logo-menu">
