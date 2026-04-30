@@ -28,7 +28,24 @@ include 'templates/header.php';
             </div>
 
             <div class="contact-form-wrapper">
-                <form class="contact-form briefing-form" method="POST" action="#">
+                <?php
+                if (isset($_GET['erro'])) {
+                    $erro = $_GET['erro'];
+                    if ($erro === 'campos_obrigatorios') {
+                        echo '<div class="alert alert-error">Por favor, preencha todos os campos obrigatórios.</div>';
+                    } elseif ($erro === 'email_invalido') {
+                        echo '<div class="alert alert-error">Por favor, informe um e-mail válido.</div>';
+                    } elseif ($erro === 'servico_obrigatorio') {
+                        echo '<div class="alert alert-error">Selecione pelo menos um serviço de interesse.</div>';
+                    } elseif ($erro === 'lgpd_obrigatorio') {
+                        echo '<div class="alert alert-error">E necessário aceitar o termo LGPD para enviar.</div>';
+                    } elseif ($erro === 'envio') {
+                        echo '<div class="alert alert-error">Nao foi possivel enviar agora. Tente novamente em instantes.</div>';
+                    }
+                }
+                ?>
+
+                <form class="contact-form briefing-form" method="POST" action="enviar-briefing.php">
                     <fieldset class="briefing-fieldset">
                         <legend>Dados pessoais e da empresa</legend>
 
