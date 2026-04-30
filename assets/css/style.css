@@ -855,11 +855,14 @@ a.service-card.service-card--link {
     padding: 10px 12px;
     background: #fff;
     min-height: 50px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, transform 0.15s ease;
 }
 
 .choice-card:hover {
     border-color: #93c5fd;
     background: #f8fbff;
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.08);
+    transform: translateY(-1px);
 }
 
 .choice-card input {
@@ -904,6 +907,7 @@ a.service-card.service-card--link {
     line-height: 1.35;
     display: inline-block;
     transform: translateY(0);
+    color: #0f172a;
 }
 
 .choice-grid-budget .choice-card {
@@ -913,12 +917,14 @@ a.service-card.service-card--link {
 /* Forca layout profissional nas opcoes (caixa antes + texto depois) */
 .contact-form label.choice-card,
 .contact-form label.choice-inline-item {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
     margin-bottom: 0;
     cursor: pointer;
+    text-align: left;
 }
 
 .contact-form label.choice-card span,
@@ -932,12 +938,40 @@ a.service-card.service-card--link {
 .contact-form label.choice-card input[type="radio"],
 .contact-form label.choice-inline-item input[type="checkbox"],
 .contact-form label.choice-inline-item input[type="radio"] {
-    order: 0;
+    order: 0 !important;
+    float: none !important;
+    position: static !important;
 }
 
 .contact-form label.choice-card span,
 .contact-form label.choice-inline-item span {
-    order: 1;
+    order: 1 !important;
+    float: none !important;
+}
+
+/* Estado marcado com destaque visual */
+.choice-card:has(input:checked) {
+    border-color: #2563eb;
+    background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.16);
+}
+
+.choice-card:has(input:checked) span {
+    color: #1e3a8a;
+    font-weight: 600;
+}
+
+.choice-inline-item:has(input:checked) span {
+    color: #1e3a8a;
+    font-weight: 600;
+}
+
+/* Foco acessível */
+.choice-card:has(input:focus-visible),
+.choice-inline-item:has(input:focus-visible) {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+    border-radius: 10px;
 }
 
 .is-hidden {
@@ -974,6 +1008,36 @@ a.service-card.service-card--link {
     width: 100%;
     max-width: 100%;
     padding: 30px;
+}
+
+.briefing-section .briefing-container {
+    max-width: 1080px;
+}
+
+.briefing-intro {
+    text-align: center;
+    max-width: 840px;
+    margin: 0 auto 24px auto;
+}
+
+.briefing-intro h2 {
+    margin-bottom: 12px;
+}
+
+.briefing-intro p {
+    color: #4b5563;
+}
+
+.briefing-infos {
+    margin-top: 18px;
+    display: inline-block;
+    text-align: left;
+}
+
+.briefing-form-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 /* ====
