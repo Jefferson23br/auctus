@@ -751,7 +751,7 @@ a.service-card.service-card--link {
     font-weight: 500;
 }
 
-.contact-form input,
+.contact-form input:not([type="checkbox"]):not([type="radio"]),
 .contact-form select,
 .contact-form textarea {
     width: 100%;
@@ -764,6 +764,20 @@ a.service-card.service-card--link {
 
 .contact-form textarea {
     resize: vertical;
+}
+
+.contact-form input[type="checkbox"],
+.contact-form input[type="radio"] {
+    width: 18px !important;
+    height: 18px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    accent-color: #2563eb;
+    flex: 0 0 18px;
 }
 
 .briefing-form {
@@ -914,6 +928,18 @@ a.service-card.service-card--link {
     line-height: 1.35;
 }
 
+.contact-form label.choice-card input[type="checkbox"],
+.contact-form label.choice-card input[type="radio"],
+.contact-form label.choice-inline-item input[type="checkbox"],
+.contact-form label.choice-inline-item input[type="radio"] {
+    order: 0;
+}
+
+.contact-form label.choice-card span,
+.contact-form label.choice-inline-item span {
+    order: 1;
+}
+
 .is-hidden {
     display: none;
 }
@@ -936,6 +962,18 @@ a.service-card.service-card--link {
 
 .lgpd-accept {
     margin-top: 6px;
+}
+
+/* Briefing em coluna unica: texto acima, formulario abaixo e mais largo */
+.page-briefing .contact-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+.page-briefing .contact-form-wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding: 30px;
 }
 
 /* ====
