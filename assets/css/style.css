@@ -856,6 +856,9 @@ a.service-card.service-card--link {
     background: #fff;
     min-height: 50px;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, transform 0.15s ease;
+    color: #0f172a;
+    font-size: 0.9rem;
+    line-height: 1.35;
 }
 
 .choice-card:hover {
@@ -925,6 +928,7 @@ a.service-card.service-card--link {
     margin-bottom: 0;
     cursor: pointer;
     text-align: left;
+    white-space: normal;
 }
 
 .contact-form label.choice-card span,
@@ -962,6 +966,12 @@ a.service-card.service-card--link {
 }
 
 .choice-inline-item:has(input:checked) span {
+    color: #1e3a8a;
+    font-weight: 600;
+}
+
+.choice-card:has(input:checked),
+.choice-inline-item:has(input:checked) {
     color: #1e3a8a;
     font-weight: 600;
 }
