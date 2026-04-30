@@ -88,11 +88,11 @@ include 'templates/header.php';
                             <div class="choice-inline">
                                 <label class="choice-inline-item">
                                     <input type="radio" name="possui_site" value="sim" required>
-                                    <span>Sim</span>
+                                    Sim
                                 </label>
                                 <label class="choice-inline-item">
                                     <input type="radio" name="possui_site" value="nao" required>
-                                    <span>Nao</span>
+                                    Nao
                                 </label>
                             </div>
                         </div>
@@ -128,47 +128,47 @@ include 'templates/header.php';
                         <div class="choice-grid">
                             <label class="choice-card">
                                 <input type="checkbox" name="servicos[]" value="criacao-site" class="service-option">
-                                <span>Criacao de Site</span>
+                                Criacao de Site
                             </label>
                             <label class="choice-card">
                                 <input type="checkbox" name="servicos[]" value="criacao-landing-page" class="service-option">
-                                <span>Criacao de Landing Page</span>
+                                Criacao de Landing Page
                             </label>
                             <label class="choice-card">
                                 <input type="checkbox" name="servicos[]" value="criacao-saas" class="service-option">
-                                <span>Criacao de SaaS de Negocio</span>
+                                Criacao de SaaS de Negocio
                             </label>
                             <label class="choice-card">
                                 <input type="checkbox" name="servicos[]" value="automacao-processos" class="service-option">
-                                <span>Automacao de Processos Gerenciais</span>
+                                Automacao de Processos Gerenciais
                             </label>
                             <label class="choice-card">
                                 <input type="checkbox" name="servicos[]" value="alteracao-site" class="service-option">
-                                <span>Alteracao de Site</span>
+                                Alteracao de Site
                             </label>
                             <label class="choice-card">
                                 <input type="checkbox" name="servicos[]" value="alteracao-landing-page" class="service-option">
-                                <span>Alteracao de Landing Page</span>
+                                Alteracao de Landing Page
                             </label>
                             <label class="choice-card">
                                 <input type="checkbox" name="servicos[]" value="alteracao-saas" class="service-option">
-                                <span>Alteracao de SaaS de Negocio</span>
+                                Alteracao de SaaS de Negocio
                             </label>
                             <label class="choice-card">
                                 <input type="checkbox" name="servicos[]" value="otimizacao-seo" class="service-option">
-                                <span>Otimizacao de SEO</span>
+                                Otimizacao de SEO
                             </label>
                             <label class="choice-card">
                                 <input type="checkbox" name="servicos[]" value="google-ads" class="service-option">
-                                <span>Criacao e Estudos de Marketing no Google Ads</span>
+                                Criacao e Estudos de Marketing no Google Ads
                             </label>
                             <label class="choice-card">
                                 <input type="checkbox" name="servicos[]" value="trafego-pago" class="service-option">
-                                <span>Trafego Pago</span>
+                                Trafego Pago
                             </label>
                             <label class="choice-card">
                                 <input type="checkbox" name="servicos[]" value="outro" id="servico-outro-checkbox" class="service-option">
-                                <span>Outro</span>
+                                Outro
                             </label>
                         </div>
 
@@ -183,31 +183,31 @@ include 'templates/header.php';
                         <div class="choice-grid choice-grid-budget">
                             <label class="choice-card choice-card-radio">
                                 <input type="radio" name="investimento" value="100-1000" required>
-                                <span>R$ 100,00 a R$ 1.000,00</span>
+                                R$ 100,00 a R$ 1.000,00
                             </label>
                             <label class="choice-card choice-card-radio">
                                 <input type="radio" name="investimento" value="1001-2000" required>
-                                <span>R$ 1.001,00 a R$ 2.000,00</span>
+                                R$ 1.001,00 a R$ 2.000,00
                             </label>
                             <label class="choice-card choice-card-radio">
                                 <input type="radio" name="investimento" value="2001-3000" required>
-                                <span>R$ 2.001,00 a R$ 3.000,00</span>
+                                R$ 2.001,00 a R$ 3.000,00
                             </label>
                             <label class="choice-card choice-card-radio">
                                 <input type="radio" name="investimento" value="3001-4000" required>
-                                <span>R$ 3.001,00 a R$ 4.000,00</span>
+                                R$ 3.001,00 a R$ 4.000,00
                             </label>
                             <label class="choice-card choice-card-radio">
                                 <input type="radio" name="investimento" value="4000-6000" required>
-                                <span>R$ 4.000,00 a R$ 6.000,00</span>
+                                R$ 4.000,00 a R$ 6.000,00
                             </label>
                             <label class="choice-card choice-card-radio">
                                 <input type="radio" name="investimento" value="acima-6000" required>
-                                <span>Acima de R$ 6.000,00</span>
+                                Acima de R$ 6.000,00
                             </label>
                             <label class="choice-card choice-card-radio">
                                 <input type="radio" name="investimento" value="outro" id="investimento-outro-radio" required>
-                                <span>Outro valor</span>
+                                Outro valor
                             </label>
                         </div>
 
@@ -248,7 +248,7 @@ include 'templates/header.php';
                             </p>
                             <label class="choice-inline-item lgpd-accept">
                                 <input type="checkbox" name="aceite_lgpd" value="sim" required>
-                                <span>Li e aceito o termo de compartilhamento e tratamento de dados pessoais.</span>
+                                Li e aceito o termo de compartilhamento e tratamento de dados pessoais.
                             </label>
                         </div>
                     </fieldset>
