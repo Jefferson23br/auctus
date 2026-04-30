@@ -15,19 +15,19 @@ include 'templates/header.php';
         </div>
     </section>
 
-    <section class="section contact-section">
-        <div class="container contact-container">
-            <div class="contact-text">
+    <section class="section contact-section briefing-section">
+        <div class="container briefing-container">
+            <div class="briefing-intro">
                 <h2>Conte para a Auctus o que voce precisa</h2>
                 <p>Com estas respostas, conseguimos acelerar o diagnóstico inicial e sugerir a melhor estrategia para o seu negócio.</p>
-                <ul class="contact-infos">
+                <ul class="contact-infos briefing-infos">
                     <li><strong>Tempo medio:</strong> 4 a 7 minutos</li>
                     <li><strong>Retorno:</strong> em até 1 dia util</li>
                     <li><strong>Canal preferencial:</strong> WhatsApp +55 (35) 99918-7047</li>
                 </ul>
             </div>
 
-            <div class="contact-form-wrapper">
+            <div class="contact-form-wrapper briefing-form-wrapper">
                 <?php
                 if (isset($_GET['erro'])) {
                     $erro = $_GET['erro'];
