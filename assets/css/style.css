@@ -808,6 +808,24 @@ a.service-card.service-card--link {
     width: auto;
 }
 
+.choice-inline-item input[type="checkbox"],
+.choice-inline-item input[type="radio"] {
+    appearance: auto;
+    -webkit-appearance: auto;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    accent-color: #2563eb;
+    flex-shrink: 0;
+}
+
 .choice-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -835,13 +853,65 @@ a.service-card.service-card--link {
     margin-top: 2px;
 }
 
+.choice-card input[type="checkbox"],
+.choice-card input[type="radio"] {
+    appearance: auto;
+    -webkit-appearance: auto;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    accent-color: #2563eb;
+    flex-shrink: 0;
+}
+
+/* Reset para não herdar estilo de input text/select/textarea */
+.contact-form .choice-card input[type="checkbox"],
+.contact-form .choice-card input[type="radio"],
+.contact-form .choice-inline-item input[type="checkbox"],
+.contact-form .choice-inline-item input[type="radio"] {
+    width: 18px;
+    min-width: 18px;
+    max-width: 18px;
+    height: 18px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+}
+
 .choice-card span {
     font-size: 0.9rem;
     line-height: 1.35;
+    display: inline-block;
+    transform: translateY(0);
 }
 
 .choice-grid-budget .choice-card {
     min-height: 42px;
+}
+
+/* Forca layout profissional nas opcoes (caixa antes + texto depois) */
+.contact-form label.choice-card,
+.contact-form label.choice-inline-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.contact-form label.choice-card span,
+.contact-form label.choice-inline-item span {
+    display: block;
+    margin: 0;
+    line-height: 1.35;
 }
 
 .is-hidden {
