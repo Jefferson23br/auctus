@@ -20,6 +20,7 @@
                 <li><a href="servicos.php">Serviços</a></li>
                 <li><a href="portfolio.php">Portfólio</a></li>
                 <li><a href="contato.php">Contato</a></li>
+                <li><a href="briefing-projeto.php">Briefing de Projeto</a></li>
                 <li><a href="politica-privacidade.php">Política de Privacidade</a></li>
             </ul>
         </div>
