@@ -21,7 +21,7 @@ include 'header-en.php';
                 <h2>Message sent successfully</h2>
                 <p>Our team will review your details and get back to you shortly.</p>
                 <p>To speed things up, you can contact us directly on WhatsApp:</p>
-                <a class="btn btn-primary" href="https://wa.me/5535999187047" target="_blank" rel="noopener noreferrer">
+                <a class="btn btn-primary" href="https://wa.me/5535984047074" target="_blank" rel="noopener noreferrer">
                     Chat on WhatsApp
                 </a>
             </div>
