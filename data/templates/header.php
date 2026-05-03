@@ -73,7 +73,7 @@
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+55-35-99918-7047",
+        "telephone": "+55-35-98404-7074",
         "contactType": "customer service",
         "areaServed": "BR",
         "availableLanguage": ["Portuguese"]
