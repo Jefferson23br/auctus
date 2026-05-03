@@ -7,7 +7,7 @@
 
         <div class="footer-col">
             <h4>Contact</h4>
-            <p><strong>WhatsApp:</strong> <a href="https://wa.me/5535999187047" target="_blank" rel="noopener noreferrer">+55 (35) 99918-7047</a></p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/5535984047074" target="_blank" rel="noopener noreferrer">+55 (35) 98404-7074</a></p>
             <p><strong>Email:</strong> contact@auctusconsultoria.com.br</p>
             <p><strong>Location:</strong> Ribeirão Preto - São Paulo, Brazil</p>
         </div>
@@ -32,7 +32,7 @@
 </footer>
 
 <!-- Floating WhatsApp support button -->
-<a href="https://wa.me/5535999187047?text=Hello%2C+I%27d+like+some+help+with+my+website."
+<a href="https://wa.me/5535984047074?text=Hello%2C+I%27d+like+some+help+with+my+website."
    class="support-floating-button"
    target="_blank"
    rel="noopener noreferrer"
