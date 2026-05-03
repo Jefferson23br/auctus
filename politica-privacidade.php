@@ -105,7 +105,7 @@ include 'templates/header.php';
                 encomendada.
             </p>
             <p>
-                A integração de <a href="https://wa.me/5535999187047" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                A integração de <a href="https://wa.me/5535984047074" target="_blank" rel="noopener noreferrer">WhatsApp</a>
                 abre aplicação e termos do Meta: o tratamento a partir daí fica sujeito às políticas da Meta, além
                 do que a Auctus fizer com as mensagens que lhe endereçar.
             </p>
