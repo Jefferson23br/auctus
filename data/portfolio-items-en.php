@@ -4,6 +4,22 @@
  */
 $portfolioItems = [
     [
+        'title'   => 'Fiscal SaaS',
+        'url'     => 'https://mediumspringgreen-rail-800013.hostingersite.com/login',
+        'url_label' => 'Open application',
+        'summary' => 'Multi-tenant fiscal SaaS: XML import (NF-e and NFS-e), inbound/outbound detection, tax regimes, per-tax assessment panels, installment credits, payments and statements, Lucro Real (IRPJ/CSLL), inventory, and exports — with per-company isolation and access invites. Monorepo with a Node.js, Express, Prisma, PostgreSQL, and Redis REST API; Next.js and React dashboard (CSS Modules); JWT in HttpOnly cookies; Docker, PM2, Nginx, and Cloudflare in production.',
+        'image'   => 'assets/images/portfolio/fiscal-saas.webp',
+        'tag'     => 'SaaS · Tax',
+        'year'    => 2026,
+        'stacks'  => [
+            ['name' => 'Node.js', 'icon' => 'assets/images/stacks/nodejs.svg'],
+            ['name' => 'Express', 'icon' => ''],
+            ['name' => 'PostgreSQL', 'icon' => 'assets/images/stacks/postgresql.svg'],
+            ['name' => 'Next.js', 'icon' => ''],
+            ['name' => 'React.js', 'icon' => 'assets/images/stacks/react.svg'],
+        ],
+    ],
+    [
         'title'   => 'DANFE Visualizer',
         'url'     => 'https://cornflowerblue-goldfinch-949602.hostingersite.com/',
         'url_label' => 'Open application',
