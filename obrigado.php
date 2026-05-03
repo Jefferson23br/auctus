@@ -21,7 +21,7 @@ include 'templates/header.php';
                 <h2>Mensagem enviada com sucesso</h2>
                 <p>Nosso time vai analisar suas informações e retornar em breve.</p>
                 <p>Para agilizar, você pode falar diretamente conosco no WhatsApp:</p>
-                <a class="btn btn-primary" href="https://wa.me/5535999187047" target="_blank" rel="noopener noreferrer">
+                <a class="btn btn-primary" href="https://wa.me/5535984047074" target="_blank" rel="noopener noreferrer">
                     Chamar no WhatsApp
                 </a>
             </div>
