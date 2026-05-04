@@ -21,7 +21,7 @@ include 'header-en.php';
                 <h2>Talk to Auctus Consulting</h2>
                 <p>We’ll understand your current situation and propose the best digital solution for your business.</p>
                 <ul class="contact-infos">
-                    <li><strong>WhatsApp:</strong> <a href="https://wa.me/5535984047074" target="_blank">+55 (35) 98404-7074</a></li>
+                    <li><strong>WhatsApp:</strong> <a href="https://wa.me/5535984047078" target="_blank">+55 (35) 98404-7078</a></li>
                     <li><strong>Email:</strong> contact@auctusconsultoria.com.br</li>
                     <li><strong>Service hours:</strong> Monday to Friday, 9am to 6pm (BRT)</li>
                     <li><strong>Location:</strong> Ribeirão Preto - São Paulo, Brazil</li>

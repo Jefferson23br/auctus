@@ -23,7 +23,7 @@ include 'templates/header.php';
                 <ul class="contact-infos briefing-infos">
                     <li><strong>Tempo medio:</strong> 4 a 7 minutos</li>
                     <li><strong>Retorno:</strong> em até 1 dia util</li>
-                    <li><strong>Canal preferencial:</strong> WhatsApp +55 (35) 98404-7074</li>
+                    <li><strong>Canal preferencial:</strong> WhatsApp +55 (35) 98404-7078</li>
                 </ul>
             </div>
 

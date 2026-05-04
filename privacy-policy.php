@@ -84,7 +84,7 @@ include 'header-en.php';
             <p>
                 We do not sell your data. The main recipients or subprocessors, where applicable, are
                 <strong>Google</strong> (for Analytics and Google Ads) and our <strong>web hosting</strong> provider. Opening
-                <a href="https://wa.me/5535984047074" target="_blank" rel="noopener noreferrer">WhatsApp</a> is
+                <a href="https://wa.me/5535984047078" target="_blank" rel="noopener noreferrer">WhatsApp</a> is
                 subject to Meta’s terms and privacy policy.
             </p>
 

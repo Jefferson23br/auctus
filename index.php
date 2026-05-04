@@ -413,7 +413,7 @@ include 'templates/header.php';
     <p>Preencha o formulário ou fale com a gente pelo WhatsApp. Vamos entender seu momento e desenhar a melhor solução para o seu negócio.</p>
 
     <ul class="contact-infos">
-    <li><strong>WhatsApp:</strong> <a href="https://wa.me/5535984047074" target="_blank">+55 (35) 98404-7074</a></li>
+    <li><strong>WhatsApp:</strong> <a href="https://wa.me/5535984047078" target="_blank">+55 (35) 98404-7078</a></li>
     <li><strong>E-mail:</strong> contato@auctusconsultoria.com.br</li>
     <li><strong>Atendimento:</strong> Segunda a Sexta, das 09h às 18h</li>
     <li><strong>Localização:</strong> Ribeirão Preto - São Paulo, Brasil</li>
