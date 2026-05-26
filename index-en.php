@@ -254,7 +254,7 @@ include 'header-en.php';
         <div class="testimonials-header">
             <h2>What our clients say</h2>
             <p class="section-subtitle insights-subtitle">
-                Real reviews from companies that trusted Auctus to transform their digital presence.
+                Testimonials from companies that trusted Auctus to transform their digital presence.
             </p>
         </div>
 
@@ -264,7 +264,7 @@ include 'header-en.php';
                 <!-- Card 1 - Fernanda -->
                 <article class="testimonial-card">
                     <div class="testimonial-header">
-                        <img src="assets/images/clientes/fernanda.webp" alt="Fernanda Vasconcellos" class="testimonial-photo">
+                        <img src="assets/images/clientes/fernanda.webp" alt="Fernanda Takai" class="testimonial-photo">
                         <div class="testimonial-info">
                             <h4>Fernanda Takai</h4>
                             <div class="testimonial-overall-rating">
