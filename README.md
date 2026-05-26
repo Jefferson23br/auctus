@@ -1,67 +1,64 @@
-# Website Institucional - Auctus Consultoria
+# Auctus Consultoria — Site Institucional
 
-![Status](https://img.shields.io/badge/status-em%20andamento-yellow)
+![Status](https://img.shields.io/badge/status-concluído-success)
+![PHP](https://img.shields.io/badge/PHP-777BB4?logo=php&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 
-Este repositório contém o código-fonte do novo site institucional da Auctus Consultoria. O projeto consiste em uma landing page moderna de página única, desenvolvida para ser a principal porta de entrada digital da empresa, com foco em apresentar seus serviços e atrair novos clientes.
+Repositório do **site institucional** da [Auctus Consultoria](https://www.auctusconsultoria.com.br) — presença digital da empresa, com apresentação de serviços, portfólio de cases, blog, formulários de contato e versão em inglês.
 
-## ✨ Features Principais
+## Sobre o projeto
 
-- **Design Moderno:** Interface com vídeo de fundo em tela cheia e sobreposição de texto.
-- **Animações Dinâmicas:** Efeito de "digitação" para o título e subtítulo, criado com JavaScript puro.
-- **Navegação Intuitiva:** Menu lateral retrátil (estilo hambúrguer) para navegação.
-- **Layout Responsivo:** O design se adapta perfeitamente a desktops, tablets e smartphones.
-- **Conteúdo Dinâmico:** O ano no rodapé é atualizado automaticamente usando PHP, garantindo que a informação de copyright esteja sempre correta.
+Landing page e site multipáginas voltado a **geração de leads**, **SEO** e **conversão**, com identidade visual moderna (vídeo em hero, animações de digitação, menu lateral responsivo) e conteúdo orientado a consultoria em desenvolvimento web, e-commerce, SaaS e landing pages.
 
-## 💻 Tecnologias Utilizadas
+O projeto está **concluído e em produção**, com páginas em português e inglês, política de privacidade alinhada à LGPD e integração de medição (Google Analytics 4, Google Ads, Microsoft Clarity).
 
-- **Backend:** **PHP** (utilizado para modularizar o código com `includes` para o cabeçalho e rodapé).
-- **Frontend:** **HTML5**, **CSS3** (com Flexbox e Media Queries para responsividade), e **JavaScript** puro (para interatividade do menu e animações).
+## Principais entregas
 
-## 📁 Estrutura de Arquivos
+- Home com hero em vídeo, serviços, portfólio em destaque, blog e depoimentos
+- Páginas institucionais: Quem Somos, Serviços, Como podemos te ajudar, Portfólio, Contato
+- Blog com artigos de negócios e tecnologia
+- Formulários de contato e briefing de projeto
+- Versão **EN** (`index-en.php`, `portfolio-en.php`, `contact-en.php`, entre outras)
+- URLs amigáveis via `.htaccess` (sem extensão `.php` na barra de endereço)
+- Layout responsivo (desktop, tablet e mobile)
 
-O projeto está organizado da seguinte forma para facilitar a manutenção:
-|-- index.php             # Arquivo principal da página
-|-- assets/               # Pasta para todos os recursos estáticos
-|   |-- css/
-|   |   -- style.css     # Folha de estilos principal |   
-|-- js/ 
-|   |   -- scripts.js    # Lógica de interatividade
-|   |-- images/
-|   |   -- logo.webp     # Logo da empresa 
-|   -- video/
-|       -- video.mp4     # Vídeo de fundo 
-|-- templates/            # Peças reutilizáveis do layout 
-|   |-- header.php        # Cabeçalho e menu 
-|    -- footer.php        # Rodapé e scripts
--- README.md             # Este arquivo
+## Stack utilizada
 
+| Camada | Tecnologias |
+|--------|-------------|
+| **Backend** | PHP (includes modulares, formulários por e-mail, ano dinâmico no rodapé) |
+| **Frontend** | HTML5, CSS3 (Flexbox, media queries), JavaScript (menu, carrosséis, animações) |
+| **Servidor** | Apache com `mod_rewrite` (regras em `.htaccess`) |
+| **Medição** | Google Tag (GA4 + Ads), Microsoft Clarity |
+| **Assets** | WebP, SVG, vídeo MP4, favicons e manifest |
 
-## 🚀 Como Rodar o Projeto Localmente
+Cases exibidos no portfólio referenciam outras stacks dos projetos entregues (Node.js, React, PostgreSQL, etc.), descritas nos arquivos `data/portfolio-items.php` e `data/portfolio-items-en.php`.
 
-Para executar este projeto no seu computador, você precisará de um ambiente de servidor local que suporte PHP.
+## Estrutura do repositório
 
-**Pré-requisitos:**
-- Um servidor local como [XAMPP](https://www.apachefriends.org/pt_br/index.html) instalado.
-- Ou, ter o [PHP](https://windows.php.net/download/) instalado em seu sistema.
+```
+auctus/
+├── index.php, index-en.php      # Páginas iniciais (PT / EN)
+├── templates/                   # Header, footer, hero e páginas reutilizáveis
+├── assets/                      # CSS, JS, imagens, vídeo, ícones de stack
+├── data/                        # Dados do portfólio (cases PT e EN)
+├── *.php                        # Páginas públicas e handlers de formulário
+├── google-tag.php               # Configuração unificada de tags Google
+└── .htaccess                    # Reescrita de URLs
+```
 
-**Passos:**
+## Site ao vivo
 
-1.  Clone ou baixe este repositório para o seu computador.
-2.  **Usando XAMPP:**
-    - Mova a pasta do projeto para dentro do diretório `htdocs` da sua instalação do XAMPP.
-    - Inicie o módulo **Apache** no painel de controle do XAMPP.
-    - Acesse `http://localhost/nome-da-pasta-do-projeto` no seu navegador.
-3.  **Usando o servidor embutido do PHP:**
-    - Abra um terminal na pasta raiz do projeto.
-    - Execute o comando: `php -S localhost:8000`
-    - Acesse `http://localhost:8000` no seu navegador.
+**https://www.auctusconsultoria.com.br**
 
-## 📝 Próximos Passos (To-Do)
+## Licença
 
-Como o projeto ainda está em andamento, aqui estão os próximos recursos planejados:
+Este repositório é **proprietário e de código fechado**. Todos os direitos reservados — não é permitida cópia, modificação, distribuição ou reutilização do código sem autorização prévia por escrito da Auctus Consultoria.
 
-- [ ] Adicionar seção "Sobre Nós".
-- [ ] Criar uma seção detalhando os "Serviços" oferecidos.
-- [ ] Implementar um formulário de contato funcional na seção "Fale com um Especialista".
-- [ ] Otimizar o vídeo e as imagens para um carregamento mais rápido.
-- [ ] Substituir os textos provisórios pelo conteúdo final.
+Consulte o arquivo [LICENSE](LICENSE) para os termos completos.
+
+---
+
+© 2026 Auctus Consultoria — código-fonte do site institucional.
