@@ -11,8 +11,8 @@
 $portfolioItems = [
     [
         'title'   => 'Fiscal SaaS',
-        'url'     => 'https://mediumspringgreen-rail-800013.hostingersite.com/login',
-        'url_label' => 'Acessar aplicação',
+        'url'     => '',
+        'no_link_note' => 'Sem demonstração pública (ambiente privado do cliente).',
         'summary' => 'Plataforma fiscal SaaS multiempresa: importação de XML (NF-e e NFS-e), detecção de entrada/saída, regimes tributários, painel de apuração por imposto, créditos parcelados, baixas e extratos, lucro real (IRPJ/CSLL), estoque e exportações — com segregação por empresa e convites de acesso. Monorepo com API REST em Node.js, Express, Prisma, PostgreSQL e Redis; frontend em Next.js e React (CSS Modules); autenticação JWT em cookie HttpOnly; Docker, PM2, Nginx e Cloudflare no deploy.',
         'image'   => 'assets/images/portfolio/fiscal-saas.webp',
         'tag'     => 'SaaS · Fiscal',
@@ -27,8 +27,8 @@ $portfolioItems = [
     ],
     [
         'title'   => 'DANFE Visualizador',
-        'url'     => 'https://cornflowerblue-goldfinch-949602.hostingersite.com/',
-        'url_label' => 'Acessar aplicação',
+        'url'     => '',
+        'no_link_note' => 'Sem demonstração pública (ambiente privado do cliente).',
         'summary' => 'Ferramenta online para gerar e visualizar DANFE (NF-e) e DANFS-e a partir de XML fiscal: envio do arquivo, geração de PDF e pré-visualização no navegador, sem depender de instalação local. Arquitetura com frontend em HTML, CSS e JavaScript (vanilla) e API em PHP, pensada para agilidade na rotina contábil e administrativa.',
         'image'   => 'assets/images/portfolio/danfe-visualizador.webp',
         'tag'     => 'Web app · Fiscal',
@@ -79,7 +79,8 @@ $portfolioItems = [
     ],
     [
         'title'   => 'PCP Premium Produção',
-        'url'     => 'https://api4.auctusconsultoria.com.br',
+        'url'     => '',
+        'no_link_note' => 'Sem demonstração pública (acesso restrito ao ambiente do cliente).',
         'summary' => 'Sistema de PCP (Planejamento e Controle da Produção) que modernizou operação industrial: da base legada em VBA e Excel para uma plataforma SaaS full-stack com API em Node.js e Express, PostgreSQL e interface web em React. Cobre cadastros industriais, ordens de produção com roteiros, dashboard Kanban, Gantt operacional, monitor para chão de fábrica e relatórios gerenciais (incluindo OEE), com autenticação JWT, exportação e deploy orientado a produção (PM2 e Nginx).',
         'image'   => 'assets/images/portfolio/pcp-premium-producao.webp',
         'tag'     => 'SaaS · PCP · Indústria',
