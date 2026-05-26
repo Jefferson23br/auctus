@@ -5,8 +5,8 @@
 $portfolioItems = [
     [
         'title'   => 'Fiscal SaaS',
-        'url'     => 'https://mediumspringgreen-rail-800013.hostingersite.com/login',
-        'url_label' => 'Open application',
+        'url'     => '',
+        'no_link_note' => 'No public demo (private client environment).',
         'summary' => 'Multi-tenant fiscal SaaS: XML import (NF-e and NFS-e), inbound/outbound detection, tax regimes, per-tax assessment panels, installment credits, payments and statements, Lucro Real (IRPJ/CSLL), inventory, and exports — with per-company isolation and access invites. Monorepo with a Node.js, Express, Prisma, PostgreSQL, and Redis REST API; Next.js and React dashboard (CSS Modules); JWT in HttpOnly cookies; Docker, PM2, Nginx, and Cloudflare in production.',
         'image'   => 'assets/images/portfolio/fiscal-saas.webp',
         'tag'     => 'SaaS · Tax',
@@ -21,8 +21,8 @@ $portfolioItems = [
     ],
     [
         'title'   => 'DANFE Visualizer',
-        'url'     => 'https://cornflowerblue-goldfinch-949602.hostingersite.com/',
-        'url_label' => 'Open application',
+        'url'     => '',
+        'no_link_note' => 'No public demo (private client environment).',
         'summary' => 'Web tool to generate and view DANFE (NF-e) and DANFS-e from tax XML: file upload, PDF generation, and in-browser preview without a local install. HTML, CSS, and vanilla JavaScript frontend with a PHP API — built for speed in day-to-day accounting and admin workflows.',
         'image'   => 'assets/images/portfolio/danfe-visualizador.webp',
         'tag'     => 'Web app · Tax',
@@ -73,7 +73,8 @@ $portfolioItems = [
     ],
     [
         'title'   => 'PCP Premium Production',
-        'url'     => 'https://api4.auctusconsultoria.com.br',
+        'url'     => '',
+        'no_link_note' => 'No public demo (client-restricted environment).',
         'summary' => 'Production planning and control (PPC) system that modernized plant operations: from a legacy VBA/Excel base to a full-stack SaaS with a Node.js and Express API, PostgreSQL, and a React web UI. Covers industrial master data, production orders with routings, Kanban dashboard, operational Gantt, shop-floor monitor, and management reports (including OEE), with JWT auth, exports, and production-oriented deployment (PM2 and Nginx).',
         'image'   => 'assets/images/portfolio/pcp-premium-producao.webp',
         'tag'     => 'SaaS · PPC · Manufacturing',
