@@ -6,4 +6,20 @@
 
 .main-content {
   flex: 1;
+  padding-top: 5.5rem;
+  transition: padding-top 0.3s ease;
+}
+
+.main-content.is-header-compact {
+  padding-top: 3.75rem;
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    padding-top: 4.5rem;
+  }
+
+  .main-content.is-header-compact {
+    padding-top: 3.35rem;
+  }
 }
