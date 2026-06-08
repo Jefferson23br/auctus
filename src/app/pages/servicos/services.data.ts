@@ -104,7 +104,7 @@ export const SERVICE_PAGES: ServicePageData[] = [
   },
   {
     slug: 'google-ads-trafego-pago',
-    title: 'Google Ads e gestão de tráfego pago B2B',
+    title: 'Google Ads e gestão de tráfego pago B2B e B2C',
     intro: 'Campanhas de mídia paga para gerar leads qualificados com landing pages otimizadas.',
     bullets: [
       'gestão de tráfego pago b2b',
@@ -112,7 +112,7 @@ export const SERVICE_PAGES: ServicePageData[] = [
       'agência de tráfego pago especializada em tecnologia',
     ],
     seo: {
-      title: 'Google Ads B2B',
+      title: 'Google Ads B2B e B2C',
       description:
         'Campanhas de Google Ads focadas em leads qualificados para empresas de tecnologia e serviços.',
       canonicalPath: '/servicos/google-ads-trafego-pago',
