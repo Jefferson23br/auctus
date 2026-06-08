@@ -14,16 +14,25 @@
       </div>
     </div>
 
-    <div class="hero-card">
-      <p class="hero-card-title">Especialidades</p>
-      <ul>
-        <li>SaaS e sistemas web sob medida</li>
-        <li>Aplicativos iOS e Android</li>
-        <li>APIs, CRM e automações</li>
-        <li>Landing pages e sites institucionais</li>
-        <li>Google Ads e tráfego pago B2B</li>
+    <aside class="hero-specialties" aria-labelledby="hero-specialties-title">
+      <div class="hero-specialties-head">
+        <span class="hero-specialties-badge">Nossas frentes</span>
+        <h2 id="hero-specialties-title" class="hero-specialties-title">Especialidades</h2>
+        <p class="hero-specialties-intro">Soluções digitais completas para empresas que precisam de tecnologia com resultado.</p>
+      </div>
+
+      <ul class="hero-specialties-list">
+        @for (item of specialties; track item.path) {
+          <li>
+            <a [routerLink]="item.path" class="hero-specialty-item">
+              <span class="hero-specialty-marker" aria-hidden="true"></span>
+              <span class="hero-specialty-text">{{ item.label }}</span>
+              <span class="hero-specialty-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        }
       </ul>
-    </div>
+    </aside>
   </div>
 </section>
 
