@@ -1,12 +1,25 @@
 .site-header {
   --header-height: 5.5rem;
 
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 200;
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
+  transition:
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.site-header.is-compact {
+  --header-height: 3.75rem;
+  background: rgba(255, 255, 255, 0.98);
+  border-bottom-color: rgba(37, 99, 235, 0.12);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08);
 }
 
 .header-bar {
@@ -16,6 +29,7 @@
   justify-content: space-between;
   gap: 1.5rem;
   min-height: var(--header-height);
+  transition: min-height 0.3s ease;
 }
 
 .brand {
@@ -30,6 +44,14 @@
   height: 4.5rem;
   max-width: 18rem;
   object-fit: contain;
+  transition:
+    height 0.3s ease,
+    max-width 0.3s ease;
+}
+
+.site-header.is-compact .brand-logo {
+  height: 2.65rem;
+  max-width: 11rem;
 }
 
 .brand-mobile {
@@ -58,11 +80,26 @@
   border-radius: 0.65rem;
   color: var(--text-muted);
   font-weight: 500;
+  font-size: 0.95rem;
   transition:
     color 0.2s ease,
     background-color 0.2s ease,
     box-shadow 0.2s ease,
-    transform 0.2s ease;
+    transform 0.2s ease,
+    min-height 0.3s ease,
+    padding 0.3s ease,
+    font-size 0.3s ease;
+}
+
+.site-header.is-compact .nav-link {
+  min-height: 2.1rem;
+  padding: 0 0.75rem;
+  font-size: 0.88rem;
+}
+
+.site-header.is-compact .nav-link-cta {
+  padding: 0 0.95rem;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.18);
 }
 
 .nav-link::after {
@@ -119,6 +156,15 @@
 @media (max-width: 900px) {
   .site-header {
     --header-height: 4.5rem;
+  }
+
+  .site-header.is-compact {
+    --header-height: 3.35rem;
+  }
+
+  .site-header.is-compact .menu-toggle {
+    width: 2.45rem;
+    height: 2.45rem;
   }
 
   .brand-desktop {
