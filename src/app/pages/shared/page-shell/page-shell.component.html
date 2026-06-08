@@ -1,0 +1,21 @@
+<section class="page-hero">
+  <div class="container">
+    <h1>{{ title }}</h1>
+    <p>{{ intro }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container page-body">
+    @if (bullets.length) {
+      <ul class="bullet-list">
+        @for (item of bullets; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    }
+
+    <p class="status-note">Página em construção. Estrutura Angular, rotas e SEO já configurados.</p>
+    <a routerLink="/contato" class="btn btn-primary">Solicitar proposta</a>
+  </div>
+</section>
