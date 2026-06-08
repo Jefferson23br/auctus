@@ -9,6 +9,7 @@ Repositório zerado para reconstrução do site institucional da [Auctus Consult
 - Conteúdo anterior removido
 - Nova versão será desenvolvida **apenas em Português (Brasil)**
 - Suporte a outros idiomas será adicionado em etapa posterior
+- Base de SEO documentada em [`docs/base-seo.md`](docs/base-seo.md)
 
 ## Licença
 
