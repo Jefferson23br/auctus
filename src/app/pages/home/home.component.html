@@ -1,0 +1,58 @@
+<section class="hero">
+  <app-hero-tech-background />
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Tecnologia B2B · Ribeirão Preto e região</p>
+      <h1>Desenvolvimento de software, apps e presença digital para empresas que querem crescer</h1>
+      <p class="hero-text">
+        A Auctus Tecnologia cria SaaS, aplicativos mobile, APIs, sites e campanhas de Google Ads com foco em
+        performance, conversão e escala.
+      </p>
+      <div class="hero-actions">
+        <a routerLink="/contato" class="btn btn-primary">Solicitar proposta</a>
+        <a routerLink="/servicos" class="btn btn-secondary">Ver serviços</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <p class="hero-card-title">Especialidades</p>
+      <ul>
+        <li>SaaS e sistemas web sob medida</li>
+        <li>Aplicativos iOS e Android</li>
+        <li>APIs, CRM e automações</li>
+        <li>Landing pages e sites institucionais</li>
+        <li>Google Ads e tráfego pago B2B</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Soluções para cada etapa do seu negócio</h2>
+      <p>Conteúdo e páginas otimizadas para SEO conforme a base documentada em <code>docs/base-seo.md</code>.</p>
+    </div>
+
+    <div class="card-grid">
+      @for (pillar of pillars; track pillar.path) {
+        <article class="card">
+          <h3>{{ pillar.title }}</h3>
+          <p>{{ pillar.description }}</p>
+          <a [routerLink]="pillar.path" class="card-link">Saiba mais</a>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section section-local">
+  <div class="container local-box">
+    <h2>Atendemos Ribeirão Preto e região</h2>
+    <p>
+      Empresa de desenvolvimento de software em Ribeirão Preto com atendimento próximo, consultoria técnica e foco em
+      resultados para o mercado B2B.
+    </p>
+    <a routerLink="/contato" class="btn btn-primary">Falar com a Auctus Tecnologia</a>
+  </div>
+</section>
