@@ -13,6 +13,14 @@ import { HeroTechBackgroundComponent } from './hero-tech-background.component';
 export class HomeComponent implements OnInit {
   private readonly seo = inject(SeoService);
 
+  protected readonly specialties = [
+    { label: 'SaaS e sistemas web sob medida', path: '/servicos/saas-sob-medida' },
+    { label: 'Aplicativos iOS e Android', path: '/servicos/aplicativos-mobile' },
+    { label: 'APIs, CRM e automações', path: '/servicos/apis-automacao-crm' },
+    { label: 'Landing pages e sites institucionais', path: '/servicos/sites-institucionais' },
+    { label: 'Google Ads e tráfego pago B2B e B2C', path: '/servicos/google-ads-trafego-pago' },
+  ];
+
   protected readonly pillars = [
     {
       title: 'SaaS e software sob medida',
@@ -35,7 +43,7 @@ export class HomeComponent implements OnInit {
       path: '/servicos/sites-institucionais',
     },
     {
-      title: 'Google Ads e tráfego pago',
+      title: 'Google Ads e tráfego pago B2B e B2C',
       description: 'Campanhas B2B para gerar leads qualificados com landing pages otimizadas.',
       path: '/servicos/google-ads-trafego-pago',
     },
