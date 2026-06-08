@@ -1,0 +1,30 @@
+.page-hero {
+  padding: 3.5rem 0 2rem;
+  background: #f8fafc;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-hero h1 {
+  margin-bottom: 0.75rem;
+}
+
+.page-hero p {
+  color: var(--text-muted);
+  max-width: 48rem;
+}
+
+.page-body {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.bullet-list {
+  display: grid;
+  gap: 0.5rem;
+  color: var(--text-muted);
+}
+
+.status-note {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
