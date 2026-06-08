@@ -1,6 +1,6 @@
 <div class="app-shell">
   <app-header />
-  <main class="main-content">
+  <main class="main-content" [class.is-header-compact]="headerScroll.isCompact()">
     <router-outlet />
   </main>
   <app-footer />
