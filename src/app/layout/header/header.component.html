@@ -1,0 +1,65 @@
+<header class="site-header">
+  <div class="container header-bar">
+    <a
+      routerLink="/"
+      class="brand brand-desktop"
+      aria-label="{{ brandName }} — início"
+      (click)="closeMenu()"
+    >
+      <img [src]="logoSrc" [alt]="brandName" class="brand-logo" width="288" height="82" />
+    </a>
+
+    <button
+      type="button"
+      class="menu-toggle"
+      [class.is-open]="menuOpen()"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="main-navigation"
+      aria-label="Abrir ou fechar menu"
+      (click)="toggleMenu()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav
+      id="main-navigation"
+      class="main-nav"
+      [class.is-open]="menuOpen()"
+      aria-label="Navegação principal"
+    >
+      <div class="nav-links">
+        @for (item of navItems; track item.path) {
+          <a
+            [routerLink]="item.path"
+            routerLinkActive="is-active"
+            class="nav-link"
+            [class.nav-link-cta]="item.isCta"
+            (click)="closeMenu()"
+          >
+            {{ item.label }}
+          </a>
+        }
+      </div>
+
+      <a
+        routerLink="/"
+        class="brand brand-mobile"
+        aria-label="{{ brandName }} — início"
+        (click)="closeMenu()"
+      >
+        <img [src]="logoSrc" [alt]="brandName" class="brand-logo" width="288" height="82" />
+      </a>
+    </nav>
+
+    @if (menuOpen()) {
+      <button
+        type="button"
+        class="menu-backdrop"
+        aria-label="Fechar menu"
+        (click)="closeMenu()"
+      ></button>
+    }
+  </div>
+</header>
