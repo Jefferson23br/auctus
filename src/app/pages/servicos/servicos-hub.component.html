@@ -1,0 +1,18 @@
+<section class="page-hero">
+  <div class="container">
+    <h1>Serviços</h1>
+    <p>Hub de serviços alinhado à estratégia de SEO da Auctus Consultoria.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container card-grid">
+    @for (service of services; track service.path) {
+      <article class="card">
+        <h2>{{ service.title }}</h2>
+        <p>{{ service.keywords }}</p>
+        <a [routerLink]="service.path" class="card-link">Abrir página</a>
+      </article>
+    }
+  </div>
+</section>
