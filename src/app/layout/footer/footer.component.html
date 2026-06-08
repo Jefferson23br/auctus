@@ -1,0 +1,33 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <p class="footer-brand">Auctus Tecnologia</p>
+      <p class="footer-copy">
+        Desenvolvimento de software, aplicativos, APIs, sites e Google Ads em Ribeirão Preto e região.
+      </p>
+    </div>
+
+    <div>
+      <p class="footer-title">Serviços</p>
+      <ul class="footer-links">
+        @for (link of serviceLinks; track link.path) {
+          <li><a [routerLink]="link.path">{{ link.label }}</a></li>
+        }
+      </ul>
+    </div>
+
+    <div>
+      <p class="footer-title">Empresa</p>
+      <ul class="footer-links">
+        <li><a routerLink="/portfolio">Portfólio</a></li>
+        <li><a routerLink="/blog">Blog</a></li>
+        <li><a routerLink="/contato">Contato</a></li>
+        <li><a routerLink="/politica-de-privacidade">Política de privacidade</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© {{ year }} Auctus Consultoria. Todos os direitos reservados.</p>
+  </div>
+</footer>
