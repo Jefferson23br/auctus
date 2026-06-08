@@ -1,5 +1,7 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, HostListener, OnInit, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+
+import { HeaderScrollService } from '../header-scroll.service';
 
 interface NavItem {
   label: string;
@@ -13,10 +15,13 @@ interface NavItem {
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+  private readonly headerScroll = inject(HeaderScrollService);
+
   protected readonly logoSrc = '/images/logo.webp';
   protected readonly brandName = 'Auctus Tecnologia';
   protected readonly menuOpen = signal(false);
+  protected readonly isCompact = this.headerScroll.isCompact;
 
   protected readonly navItems: NavItem[] = [
     { label: 'Serviços', path: '/servicos' },
@@ -36,11 +41,24 @@ export class HeaderComponent {
     this.syncBodyScroll();
   }
 
+  ngOnInit(): void {
+    this.updateCompactState();
+  }
+
+  @HostListener('window:scroll')
+  protected onScroll(): void {
+    this.updateCompactState();
+  }
+
   @HostListener('window:resize')
   protected onResize(): void {
     if (window.innerWidth > 900 && this.menuOpen()) {
       this.closeMenu();
     }
+  }
+
+  private updateCompactState(): void {
+    this.headerScroll.update(window.scrollY);
   }
 
   private syncBodyScroll(): void {
