@@ -88,6 +88,7 @@
             <div
               class="service-card-icon"
               [class.service-card-icon--scale]="pillar.icon === 'gestao' || pillar.icon === 'mobile'"
+              [class.service-card-icon--mobile]="pillar.icon === 'mobile'"
               aria-hidden="true"
             >
               @switch (pillar.icon) {
