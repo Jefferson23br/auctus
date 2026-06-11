@@ -76,6 +76,7 @@
             [routerLink]="pillar.path"
             class="service-card"
             [class.is-featured]="pillar.featured"
+            [class.service-card--centered]="pillar.icon === 'gestao' || pillar.icon === 'mobile'"
           >
             <div class="service-card-header">
               <span class="service-card-number">{{ pillar.number }}</span>
@@ -84,14 +85,40 @@
               }
             </div>
 
-            <div class="service-card-icon" aria-hidden="true">
+            <div
+              class="service-card-icon"
+              [class.service-card-icon--scale]="pillar.icon === 'gestao' || pillar.icon === 'mobile'"
+              aria-hidden="true"
+            >
               @switch (pillar.icon) {
-                @case ('saas') {
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-                    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
-                    <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
-                    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
-                    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                @case ('gestao') {
+                  <svg viewBox="0 0 52 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+                    <rect x="2" y="15" width="9" height="11" rx="0.5" />
+                    <rect x="4" y="17.5" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="7" y="17.5" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="4" y="21" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="7" y="21" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="16" y="9" width="11" height="17" rx="0.5" />
+                    <rect x="18.5" y="11.5" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="22.5" y="11.5" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="18.5" y="15" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="22.5" y="15" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="18.5" y="18.5" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="22.5" y="18.5" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="32" y="3" width="14" height="23" rx="0.5" />
+                    <rect x="35" y="6" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="39" y="6" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="43" y="6" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="35" y="10" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="39" y="10" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="43" y="10" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="35" y="14" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="39" y="14" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="43" y="14" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="35" y="18" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="39" y="18" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <rect x="43" y="18" width="2" height="2" rx="0.25" fill="currentColor" stroke="none" opacity="0.55" />
+                    <line x1="1" y1="26" x2="51" y2="26" stroke-linecap="round" />
                   </svg>
                 }
                 @case ('mobile') {
