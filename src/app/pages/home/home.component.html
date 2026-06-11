@@ -36,22 +36,28 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section section-solutions">
   <div class="container">
-    <div class="section-head">
-      <h2>Otimizamos seus resultados com tecnologia</h2>
-      <p>
-        Da ideia ao produto em produção, desenvolvemos software sob medida que escala negócios e acelera
-        objetivos. Plataformas web, SaaS, apps e automações para empresas B2B que buscam crescimento.
+    <div class="section-head section-head-tech">
+      <span class="section-head-badge">Software sob medida · B2B</span>
+      <h2>Otimizamos seus <span class="text-gradient">resultados</span> com tecnologia</h2>
+      <p class="section-head-lead">
+        Da ideia ao produto em produção, desenvolvemos <strong>software sob medida</strong> que escala negócios e
+        acelera objetivos. Plataformas web, SaaS, apps e automações para empresas que buscam crescimento.
       </p>
+      <ul class="tech-tags" aria-label="Especialidades tecnológicas">
+        @for (tag of techTags; track tag) {
+          <li>{{ tag }}</li>
+        }
+      </ul>
     </div>
 
     <div class="card-grid">
       @for (pillar of pillars; track pillar.path) {
-        <article class="card">
+        <article class="card card-tech">
           <h3>{{ pillar.title }}</h3>
           <p>{{ pillar.description }}</p>
-          <a [routerLink]="pillar.path" class="card-link">Saiba mais</a>
+          <a [routerLink]="pillar.path" class="card-link">Saiba mais <span aria-hidden="true">→</span></a>
         </article>
       }
     </div>
