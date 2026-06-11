@@ -18,7 +18,7 @@ interface NavItem {
 export class HeaderComponent implements OnInit {
   private readonly headerScroll = inject(HeaderScrollService);
 
-  protected readonly logoSrc = '/images/logo.webp';
+  protected readonly logoSrc = '/images/logo-semfundo.png';
   protected readonly brandName = 'Auctus Tecnologia';
   protected readonly menuOpen = signal(false);
   protected readonly isCompact = this.headerScroll.isCompact;
