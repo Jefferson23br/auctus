@@ -13,6 +13,8 @@ import { HeroTechBackgroundComponent } from './hero-tech-background.component';
 export class HomeComponent implements OnInit {
   private readonly seo = inject(SeoService);
 
+  protected readonly techTags = ['SaaS', 'Apps mobile', 'APIs & CRM', 'Automações', 'Google Ads'];
+
   protected readonly specialties = [
     { label: 'SaaS e sistemas web sob medida', path: '/servicos/saas-sob-medida' },
     { label: 'Aplicativos iOS e Android', path: '/servicos/aplicativos-mobile' },
