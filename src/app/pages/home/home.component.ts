@@ -64,11 +64,12 @@ export class HomeComponent implements OnInit {
     },
     {
       number: '03',
-      title: 'APIs, automação e CRM',
-      description: 'Integrações, fluxos automatizados e CRMs próprios para ganho de eficiência.',
+      title: 'APIs, Automação e CRM',
+      description:
+        'Integramos sistemas e automatizamos fluxos para eliminar tarefas manuais e escalar sua operação.',
       path: '/servicos/apis-automacao-crm',
       icon: 'api',
-      tags: ['REST API', 'Webhooks', 'CRM', 'Automação'],
+      tags: ['Node.js', 'Python', 'APIs REST', 'CI/CD', 'Metodologia Ágil'],
     },
     {
       number: '04',
