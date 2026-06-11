@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 import { SeoService } from '../../core/services/seo.service';
 import { HeroTechBackgroundComponent } from './hero-tech-background.component';
 
-type ServiceIcon = 'saas' | 'mobile' | 'api' | 'web' | 'ads';
+type ServiceIcon = 'gestao' | 'mobile' | 'api' | 'web' | 'ads';
 
 interface ServicePillar {
   number: string;
@@ -45,20 +45,22 @@ export class HomeComponent implements OnInit {
   protected readonly pillars: ServicePillar[] = [
     {
       number: '01',
-      title: 'SaaS e software sob medida',
-      description: 'Plataformas web personalizadas com arquitetura escalável para empresas e startups.',
+      title: 'Sistemas de Gestão e Controle Sob Medida',
+      description:
+        'Plataformas personalizadas com arquitetura escalável para sua empresa e startups.',
       path: '/servicos/saas-sob-medida',
-      icon: 'saas',
-      tags: ['Angular', 'Node.js', 'PostgreSQL', 'AWS'],
+      icon: 'gestao',
+      tags: ['React', 'Node.js', 'PostgreSQL', 'Oracle', 'Redis', 'Docker', 'AWS', 'Microservices'],
       featured: true,
     },
     {
       number: '02',
-      title: 'Aplicativos mobile',
-      description: 'Apps corporativos para iOS e Android, do MVP à publicação nas lojas.',
+      title: 'Apps Mobile iOS & Android',
+      description:
+        'Aplicativos nativos e cross-platform com React Native e Flutter. UX de alto nível, performance real e publicação nas lojas Apple e Google.',
       path: '/servicos/aplicativos-mobile',
       icon: 'mobile',
-      tags: ['React Native', 'Flutter', 'Firebase', 'App Store'],
+      tags: ['Dart', 'Flutter', 'Firebase', 'Apple Store', 'Play Store', 'React Native'],
     },
     {
       number: '03',
