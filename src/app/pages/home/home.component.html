@@ -76,7 +76,7 @@
             [routerLink]="pillar.path"
             class="service-card"
             [class.is-featured]="pillar.featured"
-            [class.service-card--centered]="pillar.icon === 'gestao' || pillar.icon === 'mobile'"
+            [class.service-card--centered]="pillar.icon === 'gestao' || pillar.icon === 'mobile' || pillar.icon === 'api'"
           >
             <div class="service-card-header">
               <span class="service-card-number">{{ pillar.number }}</span>
@@ -152,9 +152,10 @@
                   </svg>
                 }
                 @case ('api') {
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-                    <polyline points="16 18 22 12 16 6" />
-                    <polyline points="8 6 2 12 8 18" />
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="8 6 3 12 8 18" />
+                    <line x1="13" y1="5" x2="11" y2="19" />
+                    <polyline points="16 18 21 12 16 6" />
                   </svg>
                 }
                 @case ('web') {
