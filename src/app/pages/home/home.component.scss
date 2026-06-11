@@ -293,6 +293,24 @@
   gap: 1rem;
 }
 
+@media (min-width: 901px) {
+  .service-card-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .service-card {
+    grid-column: span 2;
+  }
+
+  .service-card:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .service-card:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+}
+
 .service-card {
   position: relative;
   display: flex;
@@ -477,11 +495,6 @@
 
   .services-showcase {
     padding: 1.25rem;
-  }
-
-  .service-card-grid .service-card:nth-child(4),
-  .service-card-grid .service-card:nth-child(5) {
-    grid-column: auto;
   }
 
   .value-panel {
